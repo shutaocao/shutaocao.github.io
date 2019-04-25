@@ -1,4 +1,16 @@
-## Welcome to GitHub Pages
+## Shutao Cao
+### School of Economics and Finance
+### Victoria University of Wellington
+
+
+Welfare Cost of Inflation Revisited: the Role of Financial Innovation and Household Heterogeneity (with Césaire A. Meh, José-Vı́ctor Rı́os-Rull, and Yaz Terajima), August 2018.
+
+Slides: [cmrt](https://www.dropbox.com/s/b5amwugsf4phs0v/CMRT-SLIDES-WideCao.pdf?dl=0).
+
+
+
+
+### `Under construction`.
 
 You can use the [editor on GitHub](https://github.com/shutaocao/shutaocao.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
