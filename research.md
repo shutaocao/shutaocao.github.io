@@ -4,15 +4,15 @@
 
 ### Publications
 
- 1. *[Trends in Firm Entry and New Entrepreneurship in Canada]*(https://www.utpjournals.press/doi/abs/10.3138/cpp.2017-006) (with M. Salameh, M. Seki, and P. St-Amant), Canadian Public Policy, 43 (3), 202-220, 2017.
+ 1. [Trends in Firm Entry and New Entrepreneurship in Canada](https://www.utpjournals.press/doi/abs/10.3138/cpp.2017-006) (with M. Salameh, M. Seki, and P. St-Amant), Canadian Public Policy, 43 (3), 202-220, 2017.
  
- 2. *[Real GDI, productivity and the terms of trade in Canada]*(https://onlinelibrary.wiley.com/doi/full/10.1111/roiw.12255) (with S. Kozicki), Review of  income and Wealth, 63, s1, 2017.
+ 2. [Real GDI, productivity and the terms of trade in Canada](https://onlinelibrary.wiley.com/doi/full/10.1111/roiw.12255) (with S. Kozicki), Review of  income and Wealth, 63, s1, 2017.
 
- 3. *[Pricing-to-market, currency invoicing and exchange rate pass-through to producer prices]*(https://www.sciencedirect.com/science/article/pii/S0261560615001448) (with W. Dong and B. Tomlin), Journal of International Money and Finance, 58(C), 128-149, 2015.
+ 3. [Pricing-to-market, currency invoicing and exchange rate pass-through to producer prices](https://www.sciencedirect.com/science/article/pii/S0261560615001448) (with W. Dong and B. Tomlin), Journal of International Money and Finance, 58(C), 128-149, 2015.
 
 #### Other
 
-4. The changing pace of labour reallocation in Canada: causes and consequences (with D. Leung), Bank of Canada Review, Summer, 2009. [Link](https://ideas.repec.org/a/bca/bcarev/v2009y2009isummer09p31-42.html)
+4. *The changing pace of labour reallocation in Canada: causes and consequences* (with D. Leung), Bank of Canada Review, Summer, 2009. [Link](https://ideas.repec.org/a/bca/bcarev/v2009y2009isummer09p31-42.html)
 
 ### Working Papers
 
