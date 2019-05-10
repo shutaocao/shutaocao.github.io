@@ -7,13 +7,14 @@
 
 I am a lecturer (assistant professor) in economics at the Victoria University of Wellington, New Zealand. I research and teach macroeconomics, with a focus on quantitative models.
 
-My research papers, [link](research.md)
+**[Research papers]**(research.md).
+
+
+**[Teaching]**(teaching.md)
 
 
 
-
-
-[Quarterly Total Factor Productivity data for Canada](dataproject.md).
+**[Quarterly Total Factor Productivity data for Canada]**(dataproject.md).
 
 
 
