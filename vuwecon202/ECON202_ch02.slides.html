@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>econ202_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>ECON202_ch02 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,227 +13112,971 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
+</head>
+
+
 <body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src='VUW_SEFLogo.png' width='600' height='60' /></p>
+<h3 id="ECON202-Open-Economy-Macroeconomics"><center>ECON202 Open-Economy Macroeconomics</center><a class="anchor-link" href="#ECON202-Open-Economy-Macroeconomics">&#182;</a></h3><h4 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h4><h4 id="Lecture-Week-#1:-A-Tour-of-the-Book-"><center>Lecture Week #1: A Tour of the Book </center><a class="anchor-link" href="#Lecture-Week-#1:-A-Tour-of-the-Book-">&#182;</a></h4><h4 id="10-July-2019"><center>10 July 2019</center><a class="anchor-link" href="#10-July-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Readings:</strong> Blanchard Chapter 2 (and Appendix 1)</p>
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ol>
+<li><p>Three important variables in macroeconomics: measurement and relations</p>
+</li>
+<li><p>Roadmap of the course.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Three-important-variables">1. Three important variables<a class="anchor-link" href="#1.-Three-important-variables">&#182;</a></h3><ul>
+<li><p>Aggregate output</p>
+</li>
+<li><p>Unemployment rate</p>
+</li>
+<li><p>Inflation rate</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-1.-Aggregate-output:-Gross-Domestic-Product">1-1. Aggregate output: Gross Domestic Product<a class="anchor-link" href="#1-1.-Aggregate-output:-Gross-Domestic-Product">&#182;</a></h4><ul>
+<li><p><strong>National income and product accounts</strong> (or national income accounts) were developed at the end of World War II as measures of aggregate output.</p>
+</li>
+<li><p>Aggregate output in national income accounts is called <em>gross domestic product</em> (GDP).</p>
+</li>
+<li><p>How would you define GDP in the economy?</p>
+<ul>
+<li>Three definitions</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example:-Consider-an-economy-with-two-firms.">Example: Consider an economy with two firms.<a class="anchor-link" href="#Example:-Consider-an-economy-with-two-firms.">&#182;</a></h4><ul>
+<li><p>Firm 1 produces the steel; Firm 2 produces cars.</p>
+</li>
+<li><p>Car is the <strong>final good</strong>, steel is an <strong>intermediate good</strong> (as it is used to produce the final good).</p>
+</li>
+</ul>
+<center><img src="blanchardchap02/pptimages/image4.png" alt="Drawing"  width="600" height="60"/></center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="We-can-define-GDP-from-the-production-side.">We can define GDP from the production side.<a class="anchor-link" href="#We-can-define-GDP-from-the-production-side.">&#182;</a></h4><ul>
+<li><p><strong>Definition 1: GDP is the value of final goods and services produced in the economy during a given period.</strong></p>
+<ul>
+<li><p>Count only <em>final</em> goods, not intermediate goods.</p>
+</li>
+<li><p>For your information: "Gross" refers to that depreciation is in GDP. "Domestic": produced in the economy. E.g., Imported goods need to be subtracted in GDP. Tourism in NZ is counted towards GDP.</p>
+</li>
+<li><p>In our example, GDP value is $\$200$.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>Definition 2: GDP is the sum of value added in the economy during a given period.</strong><ul>
+<li>The <strong>value added</strong> by a firm is the value of its production minus the value of the intermediate goods used in production.</li>
+<li>In the two-firm example: the value added equals $\$100 + \$100 = \$200$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="We-can-also-define-GDP-from-the-income-side.">We can also define GDP from the income side.<a class="anchor-link" href="#We-can-also-define-GDP-from-the-income-side.">&#182;</a></h4><ul>
+<li>Revenues paid to workers is <strong>labor income</strong>, revenue paid to firm owners is <strong>capital income</strong> or profit income.</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Definition 3: GDP is the sum of incomes in the economy during a given period.</strong></p>
+<ul>
+<li><p>Aggregate production and aggregate income are always equal.</p>
+</li>
+<li><p>From the income side, value added in the two-firm example is equal to the sum of labor income ($\$150$) and capital or profit income ($\$50$), i.e., $\$200$.</p>
+</li>
+</ul>
+</li>
+</ul>
+<center><img src="blanchardchap02/pptimages/image5.png" alt="Drawing"  width="300" height="60"/></center>
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Nominal-GDP-and-Real-GDP">Nominal GDP and Real GDP<a class="anchor-link" href="#Nominal-GDP-and-Real-GDP">&#182;</a></h4><ul>
+<li><p><strong>Nominal GDP</strong> is the sum of the quantities of final goods produced times their <em>current</em> price.</p>
+</li>
+<li><p>Nominal GDP is also called <strong>GDP in current dollars</strong>.</p>
+</li>
+<li><p>It increases for two reasons:</p>
+<ul>
+<li>The production of most goods increases.</li>
+<li>The price of most goods increases.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Real GDP</strong> is the "sum" of quantities of final goods times <em>constant</em> prices.</p>
+</li>
+<li><p>Real GDP is also called <strong>GDP in constant dollars</strong>, <strong>GDP adjusted for inflation</strong>, or <strong>GDP in chained dollars</strong>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Example</strong></p>
+<ul>
+<li><p>Suppose car is the only final good in the economy.</p>
+</li>
+<li><p>We choose a <strong>base year</strong> in which nominal GDP equals to real GDP.</p>
+</li>
+</ul>
+</li>
+</ul>
+<center><img src="blanchardchap02/pptimages/image6.png" alt="Drawing"  width="600" height="60"/></center><ul>
+<li>Real GDP in 2008 (in 2009 dollars) = $1$0 cars $\times$ $\$24,000$ per car = $\$240,000$.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>For <em>more than one final good</em>, <strong>relative prices</strong> of the goods are natural weights to construct the weighted average of the output of all final goods.</p>
+<ul>
+<li>Goods costing more should be counted with higher weights.</li>
+</ul>
+</li>
+<li><p><strong>Real GDP in chained (2009) dollars</strong>  reflects relative prices that change over time.</p>
+</li>
+<li><p>Optional: Since 1960s at least, one relative price has been changing. What is it?</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The investment price relative to non-durable consumption price has been declining since at least 1960s.</li>
+</ul>
+
+</div>
+</div>
+</div><aside class="notes">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="ECON-202-Open-Economy-Macroeconomics">ECON 202 Open-Economy Macroeconomics<a class="anchor-link" href="#ECON-202-Open-Economy-Macroeconomics">&#182;</a></h2><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="ECON-202-LECTURE-PLAN,-2019">ECON 202 LECTURE PLAN, 2019<a class="anchor-link" href="#ECON-202-LECTURE-PLAN,-2019">&#182;</a></h3><hr>
-<table>
-<thead><tr>
-<th style="text-align:center">Teaching Week</th>
-<th style="text-align:center">Lecture No</th>
-<th style="text-align:left">Topic</th>
-<th style="text-align:center">Textbook Chapter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch01.slides.html#/1">Introduction; measurement</a></td>
-<td style="text-align:center">1; 2</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch02.slides.html#/1">Important macroeconomic variables</a></td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch03.slides.html#/1">The goods market</a> (I)</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:left">The goods market (II)</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">5</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch04.slides.html#/1">Financial markets</a></td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">6</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch05.slides.html#/1">IS-LM model</a> (I)</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">7</td>
-<td style="text-align:left">IS-LM model (II)</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">8</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch06.slides.html#/1">Extended IS-LM model</a> (I)</td>
-<td style="text-align:center">6</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">9</td>
-<td style="text-align:left">Extended IS-LM model (II)</td>
-<td style="text-align:center">6</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">10</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch07.slides.html#/1">Labor market</a></td>
-<td style="text-align:center">7</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">11</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch08.slides.html#/1">Phillips curve, natural rate of unemployment</a></td>
-<td style="text-align:center">8</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">12</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch09PartA.slides.html#/1">IS-LM-PC model (I)</a></td>
-<td style="text-align:center">9</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">13</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch09PartB.slides.html#/1">IS-LM-PC model (II)</a></td>
-<td style="text-align:center">9</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">14</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch17.slides.html#/1">Openness in goods and financial markets</a></td>
-<td style="text-align:center">17</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">15</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch18.slides.html#/1">The goods market in an open economy</a> (I)</td>
-<td style="text-align:center">18</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">16</td>
-<td style="text-align:left">The goods market in an open economy (II)</td>
-<td style="text-align:center">18</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">17</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch19.slides.html#/1">Equilibrium in goods and financial markets in open economy</a> (I)</td>
-<td style="text-align:center">19</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">18</td>
-<td style="text-align:left">Equilibrium in goods and financial markets in open economy (II)</td>
-<td style="text-align:center">19</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">19</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch20.slides.html#/1">Exchange rate regimes</a></td>
-<td style="text-align:center">20</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">20</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch21.slides.html#/1">Uncertainty, expectations,  and macroeconomic policy</a></td>
-<td style="text-align:center">21</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">21</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch22.slides.html#/1">Government budget constraint and fiscal policy</a></td>
-<td style="text-align:center">22</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">22</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch23.slides.html#/1">Monetary policy frameworks</a> (I)</td>
-<td style="text-align:center">23</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">23</td>
-<td style="text-align:left">Monetary policy frameworks (II)</td>
-<td style="text-align:center">23</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">24</td>
-<td style="text-align:left">Course Review and Conclusions</td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
+<h4 id="Optional:-Constant-dollar-quantity-versus-Chained-dollar-quantity">Optional: Constant-dollar quantity versus Chained-dollar quantity<a class="anchor-link" href="#Optional:-Constant-dollar-quantity-versus-Chained-dollar-quantity">&#182;</a></h4><p><strong>Laspeyres quantity index (L)</strong>, in constant price</p>
+<p>The base year is period $0$.
+  $$L_{t,0} = \frac{\sum_i P_{i0} Q_{it}}{\sum_i P_{i0} Q_{i0}}.$$</p>
+<h4 id="Chained-quantity-indices">Chained quantity indices<a class="anchor-link" href="#Chained-quantity-indices">&#182;</a></h4><p><strong>Laspeyres quantity chain index (L)</strong></p>
+<p>$$L_{t,t-1} = \frac{\sum_i P_{i,t-1} Q_{i,t}}{\sum_i P_{i, t-1} Q_{i,t-1}}.$$</p>
+<p><strong>Paasche quantity chain index (A)</strong></p>
+<p>$$A_{t,t-1} = \frac{\sum_i P_{i,t} Q_{i,t}}{\sum_i P_{i, t} Q_{i,t-1}}.$$</p>
+<p><strong>Fisher quantity chain index (F)</strong></p>
+<p>$$F_{t,t-1} = \sqrt{L_{t,t-1} \cdot A_{t,t-1}}.$$</p>
+<p>There is no longer a base year. But we can use a certain year as the Reference Year at which the nominal and the real quantities are equal. The Chain-type quantity index ($I$) is given by</p>
+<p>$$I_{t,0} = F_{t,t-1} \cdot F_{t-1,t-2} \cdots F_{1,0}.$$</p>
+<p>Period $0$ is reference year. The chained-dollar aggregate quantity (the level) is $I_{t,0} \sum_iP_{i0} Q_{i0}$.</p>
 
 </div>
 </div>
 </div>
-    </div>
-  </div>
+</aside></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>From 1960 and 2018, the U.S. nominal GDP increased by a factor of 38.</p>
+</li>
+<li><p>Real GDP increased by a factor of 5.8.</p>
+<center><img src="blanchardchap02/USgdp.png" alt="Drawing"  width="600" height="100"/> </center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>From 1988 and 2018, the New Zealand nominal GDP increased by a factor of 4,4. Real GDP increased by a factor of 2.3.</p>
+</li>
+<li><p>Both grew slightly faster than the U.S. over the same period.</p>
+<center><img src="blanchardchap02/NZgdp.png" alt="Drawing"  width="600" height="100"/> </center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Nominal-versus-Real-GDP">Nominal versus Real GDP<a class="anchor-link" href="#Nominal-versus-Real-GDP">&#182;</a></h4><ul>
+<li><p>In this course, unless noted, GDP refers to real GDP, denoted by $Y_t$. Nominal GDP is denoted by $\$Y_t$.</p>
+</li>
+<li><p>GDP growth in period $t$ is defined as $\frac{(Y_t - Y_{t-1})}{Y_{t-1}}$.</p>
+</li>
+<li><p>Periods of positive GDP growth are called <strong>expansions</strong>, periods of negative GDP growth are called <strong>recessions</strong>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-2.-Unemployment-rate">1-2. Unemployment rate<a class="anchor-link" href="#1-2.-Unemployment-rate">&#182;</a></h4><ul>
+<li><p><strong>Employment</strong>, $N$, is the number of people who have a job.</p>
+</li>
+<li><p><strong>Unemployment</strong>, $U$, is the number of people who do not have a job but are looking for one.</p>
+</li>
+<li><p>The <strong>labor force</strong>, $L$, is the sum of employment and unemployment.</p>
+<p>$$\Large L = N + U.$$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The <strong>unemployment rate</strong> is the ratio of the number of people who are unemployed to the number of people in the labor force.</p>
+<ul>
+<li>Unemployment rate = Unemployment / Labor force, or $$ \Large u = \frac{U}{L}.$$</li>
+</ul>
+</li>
+<li><p>The <strong>participation rate</strong> is the ratio of the labor force to the total population of working age (e.g., 15 years and older).</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="How-is-the-unemployment-rate-computed?">How is the unemployment rate computed?<a class="anchor-link" href="#How-is-the-unemployment-rate-computed?">&#182;</a></h4><ul>
+<li><p>Most advanced economies rely on large surveys of households to compute the unemployment rate.</p>
+</li>
+<li><p>The U.S. Current Population Survey (CPS) relies on interviews of 60,000 households every month.</p>
+<ul>
+<li><p>A person is <strong>unemployed</strong> if he or she does not have a job and has been looking for a job in the last four weeks.</p>
+</li>
+<li><p>Those who do not have a job and are not looking for one are counted as <strong>not in the labor force</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>In New Zealand, the unemployment rate is computed from the <strong>Household Labour Force Survey (HLFS)</strong>. It</p>
+<ul>
+<li><p>was introduced in October 1985.</p>
+</li>
+<li><p>collects responses from about 15,000 households every quarter.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Unemployment rates in New Zealand and the U.S.</p>
+<center><img src="blanchardchap02/unemploymentUSNZ.png" width="600" height="100"/>  </center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Why-do-economists-care-about-Unemployment?">Why do economists care about Unemployment?<a class="anchor-link" href="#Why-do-economists-care-about-Unemployment?">&#182;</a></h4><ul>
+<li><p>Direct effect on the welfare of the unemployed, especially those remaining unemployed for long periods of time.</p>
+</li>
+<li><p>An indicator of the economy. A high unemployment rate signals that the economy is not using its human resources efficiently.</p>
+</li>
+<li><p>Very low unemployment can also be a problem as the economy runs into labor shortages.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-3.-Inflation-Rate">1-3. Inflation Rate<a class="anchor-link" href="#1-3.-Inflation-Rate">&#182;</a></h4><ul>
+<li><p><strong>Inflation</strong> is a sustained rise in the general level of prices---the price level.</p>
+</li>
+<li><p>The <strong>inflation rate</strong> is the rate at which the price level rises.</p>
+</li>
+<li><p><strong>Deflation</strong> is a sustained decline in the price level (negative inflation rate).</p>
+</li>
+<li><p>There are typically two measures of the price level:</p>
+<ul>
+<li>the GDP deflator,</li>
+<li>the Consumer Price Index.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-GDP-Deflator">The GDP Deflator<a class="anchor-link" href="#The-GDP-Deflator">&#182;</a></h4><ul>
+<li>The <strong>GDP deflator</strong> in year $t$, $P_t$, is the ratio of nominal GDP to real GDP in year $t$
+$$P_t = \frac{\text{Nominal GDP}_t }{\text{Real GDP}_t} = \frac{\$Y_t}{Y_t}.$$</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>It is called an <strong>index number</strong> (=1 in the base year, say 2009), which has no economic interpretation.</p>
+</li>
+<li><p>Suppose that the price of fruits is 1.2 in 2018, we meant to say that it increased 20% from a base year (say 2009).</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The <strong>inflation rate</strong> in year $t$ is
+$$\large \pi_t = \frac{(P_t-P_{t-1})}{P_{t-1}}.$$</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Defining the price level as the GDP deflator implies a relation between nominal GP, real GDP, and the GDP deflator, as follows
+ $$\large \$Y_t = P_t Y_t.$$</p>
+<ul>
+<li>Nominal GDP is equal to the GDP deflator <em>times</em> real GDP.</li>
+</ul>
+</li>
+<li><p>Then, <strong>the growth rate of nominal GDP is equal to the inflation rate plus the growth rate of real GDP.</strong></p>
+<ul>
+<li>See Blanchard Appendix 2 A Math Refresher for derivation.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-Consumer-Price-Index">The Consumer Price Index<a class="anchor-link" href="#The-Consumer-Price-Index">&#182;</a></h4><ul>
+<li>The GDP deflator gives the average price of the final goods <em>produced</em> in the economy.</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>But consumers care about the average price of consumption,</p>
+<ul>
+<li><p>some goods are sold not to consumers;</p>
+</li>
+<li><p>some consumption goods are not produced domestically, but imported from abroad.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The <strong>Consumer Price Index (CPI)</strong> measures the <strong>cost of living</strong>,</p>
+<ul>
+<li><p>it is the cost in dollars of a specific list of goods and services over time.</p>
+</li>
+<li><p>In the U.S., the list attempts to represent the consumption basket of a typical urban consumer.</p>
+</li>
+<li><p>The list is updated periodically.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Then, which price level should be used?</strong></p>
+<ul>
+<li><p>The GDP deflator and the CPI move together most of the time, The two inflation rates differ by less than 1% (in the U.S.).</p>
+</li>
+<li><p>When the price of imported goods increases relative to the price of goods produced domestically, the CPI increases faster than the GDP deflator.</p>
+</li>
+<li><p>In this course, <strong>most of the time, we do not distinguish between the two price indices</strong>.</p>
+<ul>
+<li><p>We shall simply say <em>the price level</em>, denoted by $P_t$.</p>
+</li>
+<li><p>FYI: Central banks frequently use CPI to calculate inflation rates.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Why-do-economists-care-about-inflation?">Why do economists care about inflation?<a class="anchor-link" href="#Why-do-economists-care-about-inflation?">&#182;</a></h4><ul>
+<li>Inflation affects income distribution when not all prices and wages rise proportionally.</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Inflation leads to other distortions<ul>
+<li>Variations in relative prices lead to more uncertainty, making it harder for firms to make decisions (say in investment);</li>
+<li>Some prices are fixed by law or by regulation, contributing to changes in relative prices;</li>
+<li>Taxation interacts with inflation (if tax brackets are not adjusted for inflation), people can move to a higher tax bracket even their real income remains the same from one year to another.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Most macroeconomists believe that the "best" rate of inflation should be low and stable, somewhere between 1 and 4%.</li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Okun's-Law-and-the-Phillips-Curve">2. Okun's Law and the Phillips Curve<a class="anchor-link" href="#2.-Okun's-Law-and-the-Phillips-Curve">&#182;</a></h3><ul>
+<li><p>Two empirical regularities describing relations among output growth, unemployment rate, and inflation.</p>
+</li>
+<li><p>For now, we only need to know what data tell us. We will come back to model these curves.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Okun's law</strong>: If output growth is high, the unemployment <strong>rate</strong> will decline.</p>
+</li>
+<li><p>Data from the U.S., 1960-2014</p>
+<center><img src="blanchardchap02/pptimages/image20.png" width="600" height="70"/>  </center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>When fitted with a straight line, it suggests that</p>
+<ul>
+<li><p>The line is downward sloping. The slope of this line in the above figure is -0.4.</p>
+</li>
+<li><p>This implies that, on average, an <strong>increase</strong> in the output growth rate of 1% <strong>decreases</strong> the unemployment rate by roughly 0.4 percentage points.</p>
+</li>
+<li><p>The line crosses the horizontal axis where output growth is 3%, meaning that it takes a growth rate of 3% to keep unemployment constant.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The <strong>Phillips curve</strong> describes a relation between the unemployment rate and the rate of inflation.</p>
+</li>
+<li><p>It is named after the remarkable New Zealand economist A.W. Phillips, who first explored this relation in 1958.</p>
+</li>
+<li><p>Later on, Phillips curve is redefined as a relation between the unemployment rate and <strong>the change of</strong> the rate of inflation.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Phillips' original curve.</li>
+</ul>
+<center><img src="PhillipsCurve1958.png" width="600" height="70"/>  </center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Data from the U.S., 1960-2014. Inflation is measured using the CPI :</li>
+</ul>
+<center><img src="blanchardchap02/pptimages/image21.png" width="600" height="70"/>  </center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>When fitted with a straight line, the Phillips curve suggests that</p>
+<ul>
+<li><p>The line is downward sloping, implying that a higher unemployment leads to, on average, a decine in inflation, and vice versa.</p>
+</li>
+<li><p>The line crosses the horizontal axis where the unemployment rate is equal to about 6%, meaning that inflation typically increased when unemployment was below 6%.</p>
+</li>
+<li><p>The relation is not tight. The fit is not as good as it was for Okun's law.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Road-Map">3. Road Map<a class="anchor-link" href="#3.-Road-Map">&#182;</a></h3><ul>
+<li><p>A successful economy combines high output growth, low unemployment, and low inflation.</p>
+</li>
+<li><p>Can these objectives be achieved at the same time? How do policies affect the three variables?</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-1.-The-short-run,-the-medium-run,-and-the-long-run">3-1. The short run, the medium run, and the long run<a class="anchor-link" href="#3-1.-The-short-run,-the-medium-run,-and-the-long-run">&#182;</a></h4><ul>
+<li><p>In the <strong>short run</strong> (e.g., a few years), year-to-year movements in output are primarily driven by movements in demand.</p>
+</li>
+<li><p>In the <strong>medium run</strong> (e.g., a decade), the economy tends to return to the level of output determined by supply factors, such as the capital stock, the level of technology, and the size of the labor force.</p>
+</li>
+<li><p>In the <strong>long run</strong> (e.g., a few decades or more), the economy depends on its ability to innovate and introduce new technologies, and how much people save, the quality of the county’s education system, the quality of the government, and so on.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-2.-In-this-course,">3-2. In this course,<a class="anchor-link" href="#3-2.-In-this-course,">&#182;</a></h4><ul>
+<li><strong>we focus on the short run and the medium run of output, unemployment, and inflation in both a closed economy and an open economy.</strong></li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will study the following chapters.</p>
+<ul>
+<li><strong>The Core</strong><ul>
+<li>Chapters 3 to 6: The short run and the role of demand in determining output.</li>
+<li>Chapters 7 to 9: The medium run and the supply side of the determination of output.</li>
+</ul>
+</li>
+<li><strong>Extensions</strong><ul>
+<li>Chapters 17 to 20: Open economy and implications for fiscal and monetary policy</li>
+</ul>
+</li>
+<li><strong>Back to Policy</strong><ul>
+<li>Chapter 21: General issues of policy</li>
+<li>Chapters 22 and 23: The role of fiscal and monetary policies.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>

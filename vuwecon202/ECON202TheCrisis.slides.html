@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>econ202_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>ECON202TheCrisis slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,227 +13112,350 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="ECON-202-Open-Economy-Macroeconomics">ECON 202 Open-Economy Macroeconomics<a class="anchor-link" href="#ECON-202-Open-Economy-Macroeconomics">&#182;</a></h2><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="ECON-202-LECTURE-PLAN,-2019">ECON 202 LECTURE PLAN, 2019<a class="anchor-link" href="#ECON-202-LECTURE-PLAN,-2019">&#182;</a></h3><hr>
-<table>
-<thead><tr>
-<th style="text-align:center">Teaching Week</th>
-<th style="text-align:center">Lecture No</th>
-<th style="text-align:left">Topic</th>
-<th style="text-align:center">Textbook Chapter</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch01.slides.html#/1">Introduction; measurement</a></td>
-<td style="text-align:center">1; 2</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch02.slides.html#/1">Important macroeconomic variables</a></td>
-<td style="text-align:center">2</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch03.slides.html#/1">The goods market</a> (I)</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:center">4</td>
-<td style="text-align:left">The goods market (II)</td>
-<td style="text-align:center">3</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">5</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch04.slides.html#/1">Financial markets</a></td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:center">6</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch05.slides.html#/1">IS-LM model</a> (I)</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">7</td>
-<td style="text-align:left">IS-LM model (II)</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:center">8</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch06.slides.html#/1">Extended IS-LM model</a> (I)</td>
-<td style="text-align:center">6</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">9</td>
-<td style="text-align:left">Extended IS-LM model (II)</td>
-<td style="text-align:center">6</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:center">10</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch07.slides.html#/1">Labor market</a></td>
-<td style="text-align:center">7</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">11</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch08.slides.html#/1">Phillips curve, natural rate of unemployment</a></td>
-<td style="text-align:center">8</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:center">12</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch09PartA.slides.html#/1">IS-LM-PC model (I)</a></td>
-<td style="text-align:center">9</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">13</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch09PartB.slides.html#/1">IS-LM-PC model (II)</a></td>
-<td style="text-align:center">9</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:center">14</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch17.slides.html#/1">Openness in goods and financial markets</a></td>
-<td style="text-align:center">17</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">15</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch18.slides.html#/1">The goods market in an open economy</a> (I)</td>
-<td style="text-align:center">18</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:center">16</td>
-<td style="text-align:left">The goods market in an open economy (II)</td>
-<td style="text-align:center">18</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">17</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch19.slides.html#/1">Equilibrium in goods and financial markets in open economy</a> (I)</td>
-<td style="text-align:center">19</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:center">18</td>
-<td style="text-align:left">Equilibrium in goods and financial markets in open economy (II)</td>
-<td style="text-align:center">19</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">19</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch20.slides.html#/1">Exchange rate regimes</a></td>
-<td style="text-align:center">20</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:center">20</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch21.slides.html#/1">Uncertainty, expectations,  and macroeconomic policy</a></td>
-<td style="text-align:center">21</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">21</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch22.slides.html#/1">Government budget constraint and fiscal policy</a></td>
-<td style="text-align:center">22</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:center">22</td>
-<td style="text-align:left"><a href="https://shutaocao.github.io/vuwecon202/ECON202_ch23.slides.html#/1">Monetary policy frameworks</a> (I)</td>
-<td style="text-align:center">23</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">23</td>
-<td style="text-align:left">Monetary policy frameworks (II)</td>
-<td style="text-align:center">23</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:center">24</td>
-<td style="text-align:left">Course Review and Conclusions</td>
-<td style="text-align:center"></td>
-</tr>
-</tbody>
-</table>
+<p><img src='VUW_SEFLogo.png' width='600' height='60' /></p>
+<h2 id="ECON202-Open-Economy-Macroeconomics"><center>ECON202 Open-Economy Macroeconomics</center><a class="anchor-link" href="#ECON202-Open-Economy-Macroeconomics">&#182;</a></h2><h3 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="OPTIONAL:-The-2008-Financial-Crisis-"><center>OPTIONAL: The 2008 Financial Crisis </center><a class="anchor-link" href="#OPTIONAL:-The-2008-Financial-Crisis-">&#182;</a></h3><h4 id="8-July-2019"><center>8 July 2019</center><a class="anchor-link" href="#8-July-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Timeline-of-the-2008-Crisis">Timeline of the 2008 Crisis<a class="anchor-link" href="#Timeline-of-the-2008-Crisis">&#182;</a></h3><h4 id="July-2006---house-price-reached-peak.-By-March-2009,-it-dropped-by-30%.">July 2006---house price reached peak. By March 2009, it dropped by 30%.<a class="anchor-link" href="#July-2006---house-price-reached-peak.-By-March-2009,-it-dropped-by-30%.">&#182;</a></h4><h4 id="April-2007---New-Century-Financial-Corporation,-a-leading-subprime-mortgage-lender,-files-for-Chapter-11-bankruptcy-protection.">April 2007---New Century Financial Corporation, a leading subprime mortgage lender, files for Chapter 11 bankruptcy protection.<a class="anchor-link" href="#April-2007---New-Century-Financial-Corporation,-a-leading-subprime-mortgage-lender,-files-for-Chapter-11-bankruptcy-protection.">&#182;</a></h4><h4 id="August-2007---American-Home-Mortgage-Investment-Corporation-files-for-Chapter-11-bankruptcy-protection.">August 2007---American Home Mortgage Investment Corporation files for Chapter 11 bankruptcy protection.<a class="anchor-link" href="#August-2007---American-Home-Mortgage-Investment-Corporation-files-for-Chapter-11-bankruptcy-protection.">&#182;</a></h4><h4 id="December-2007---Dow-Jones-Industrial-Average-(DJIA)-peaked-at-13406,-dropped-to-7235-by-March-2009.">December 2007---Dow Jones Industrial Average (DJIA) peaked at 13406, dropped to 7235 by March 2009.<a class="anchor-link" href="#December-2007---Dow-Jones-Industrial-Average-(DJIA)-peaked-at-13406,-dropped-to-7235-by-March-2009.">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="TImeline-of-the-2008-Crisis">TImeline of the 2008 Crisis<a class="anchor-link" href="#TImeline-of-the-2008-Crisis">&#182;</a></h3><h4 id="15-September-2008---Lehman-Brothers-Holdings-Incorporated-files-for-Chapter-11-bankruptcy-protection.-The-largest-in-the-U.S.-history.">15 September 2008---Lehman Brothers Holdings Incorporated files for Chapter 11 bankruptcy protection. The largest in the U.S. history.<a class="anchor-link" href="#15-September-2008---Lehman-Brothers-Holdings-Incorporated-files-for-Chapter-11-bankruptcy-protection.-The-largest-in-the-U.S.-history.">&#182;</a></h4><h4 id="December-2008---Federal-Reserve-reduced-federal-funds-rate-to-close-to-zero,-reaching-the-Zero-Lower-Bound.">December 2008---Federal Reserve reduced federal funds rate to close to zero, reaching the Zero Lower Bound.<a class="anchor-link" href="#December-2008---Federal-Reserve-reduced-federal-funds-rate-to-close-to-zero,-reaching-the-Zero-Lower-Bound.">&#182;</a></h4><h4 id="February-2009---President-Obama-signed-into-law-the-&quot;American-Recovery-and-Reinvestment-Act-of-2009&quot;.">February 2009---President Obama signed into law the "American Recovery and Reinvestment Act of 2009".<a class="anchor-link" href="#February-2009---President-Obama-signed-into-law-the-&quot;American-Recovery-and-Reinvestment-Act-of-2009&quot;.">&#182;</a></h4><h4 id="March-2009---Federal-Reserve-launched-the-unconventional-monetary-policy---Quantitative-Easing.">March 2009---Federal Reserve launched the unconventional monetary policy---Quantitative Easing.<a class="anchor-link" href="#March-2009---Federal-Reserve-launched-the-unconventional-monetary-policy---Quantitative-Easing.">&#182;</a></h4><ul>
+<li>The Fed purchased $\$1.25$ trillion in mortgage-backed securities and $\$200$ billion in federal agency debt.</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap01/pptimages/HouseStockPrices.png" alt="Drawing"  width="600" height="40"/></p>
+
 </div>
-    </div>
-  </div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Why-did-it-happen?">Why did it happen?<a class="anchor-link" href="#Why-did-it-happen?">&#182;</a></h3><ul>
+<li>It started with the subprime mortgage, e.g., those are more likely to default.<ul>
+<li>Many mortgages in 2004-2006 had poor quality, and many borrowers took too large mortgage.</li>
+<li>Banks that issued mortgages packaged and bundled these mortgages into mortgage-backed securities, and many investment banks held these securities.</li>
+<li>When house price started to decline to a point where the house value is lower than mortgage debt, home owners started to default their mortgage.</li>
+<li>Then mortgage-backed securities lost values.</li>
+<li>Banks became recultant to lend, worrying the quality of these assets.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Unable to borrow, many investment banks were now in trouble.</p>
+</li>
+<li><p>Shadow Banking, e.g., investment banks doing business like traditional banks, but they are not regulated (e.g., capital reserve requirement).</p>
+</li>
+<li><p>Economists believe that the 2008 crisis was a <strong>bank run</strong> on wholsale banking. Some financial firms run other financial firms and shadown banking institutions.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Why-didn't-we-see-that-it-was-coming?">Why didn't we see that it was coming?<a class="anchor-link" href="#Why-didn't-we-see-that-it-was-coming?">&#182;</a></h3><ul>
+<li>Complex, but following are also important<ul>
+<li>Lack of information on shadow banking.</li>
+<li>Lack of regulations on shadow banking.</li>
+<li>Lack of knowledge on the mortgage-backed securities.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Why-didn't-government-bail-out-Lehman-Brothers?">Why didn't government bail out Lehman Brothers?<a class="anchor-link" href="#Why-didn't-government-bail-out-Lehman-Brothers?">&#182;</a></h3><ul>
+<li>According to NY Times and other sources, it seemed to be a decision by government that was worried about the moral hazard problem of bail-out.</li>
+</ul>
+
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>
