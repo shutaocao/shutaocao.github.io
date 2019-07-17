@@ -2,3 +2,8 @@
 ---
 
 @import "{{ site.theme }}";
+
+.wrapper {
+  width:560px;
+  margin:0 auto;
+}
