@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch05 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,79 +13112,943 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
+<p><img src='VUW_SEFLogo.png' width='600' height='50'/></p>
+<h3 id="MMPE502-Open-Economy-Macroeconomics"><center>MMPE502 Open-Economy Macroeconomics</center><a class="anchor-link" href="#MMPE502-Open-Economy-Macroeconomics">&#182;</a></h3><h4 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h4><h3 id="Lecture-Week-#3:-Goods-and-Financial-Markets;-The-IS-LM-Model"><center>Lecture Week #3: Goods and Financial Markets; The IS-LM Model</center><a class="anchor-link" href="#Lecture-Week-#3:-Goods-and-Financial-Markets;-The-IS-LM-Model">&#182;</a></h3><h4 id="23-July-2019"><center>23 July 2019</center><a class="anchor-link" href="#23-July-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Review-of-the-short-run,-so-far">Review of the short run, so far<a class="anchor-link" href="#Review-of-the-short-run,-so-far">&#182;</a></h3><ul>
+<li><p>In Chapter 3</p>
+<ul>
+<li>We examined the demand for goods, $Z = c_0 + c_1 (Y-T) + \overline{I} +G$.</li>
+<li>We characterized the equilibrium in the goods market $Y = Z$.</li>
+<li>We showed that $Y=Z$ and $I=S$ are equivalent equilibrium conditions.</li>
+</ul>
+</li>
+<li><p>In Chapter 4, we examined</p>
+<ul>
+<li>the demand for money: currency and checkable deposit, $M^d = \theta \$Y L(i)$.</li>
+<li>the equilibrium interest rate is determined by setting $M^s = M^d$.</li>
+</ul>
+</li>
+<li><p>Central bank can determine the interest rate by changing money supply.</p>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="What-was-missing">What was missing<a class="anchor-link" href="#What-was-missing">&#182;</a></h3><ul>
+<li>We assumed that investment is given and fixed (to simplify the model).</li>
+<li><em>Investment is in fact endogenous, determined by both interest rate and income.</em></li>
+<li>Thus, interest rate can affect the demand for goods, hence the output.</li>
+<li>(Some) interest rate in turn is determined by central bank in financial markets.</li>
+</ul>
+<h3 id="Thus,">Thus,<a class="anchor-link" href="#Thus,">&#182;</a></h3><ul>
+<li><strong>we are interested in studying the goods and financial markets simultaneously.</strong><ul>
+<li>Need a framework of how output and interest rate are determined in the short run.</li>
+</ul>
+</li>
+<li>This leads us to the <strong>IS-LM model</strong>.</li>
+</ul>
+
 </div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Readings</strong>: Blanchard Chapter 5, 5-1 to 5-4.</p>
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>The IS curve.</p>
+</li>
+<li><p>The LM curve.</p>
+</li>
+<li><p>Putting IS and LM together.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-The-Goods-Market-and-the-IS-Relation:-generalization">1. The Goods Market and the IS Relation: generalization<a class="anchor-link" href="#1.-The-Goods-Market-and-the-IS-Relation:-generalization">&#182;</a></h3><h4 id="1-1.-The-IS-relation">1-1. The IS relation<a class="anchor-link" href="#1-1.-The-IS-relation">&#182;</a></h4><ul>
+<li><p>Recall, we assumed that the consumption function is linear, $C = c_0 + c_1 (Y-T)$.</p>
+</li>
+<li><p>We now relax it, and allow for a general form, $C = C(Y-T)$.</p>
+<ul>
+<li>But the relation remains unchanged.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Considered as exogenous in Chapter 3, now <strong>investment</strong> is determined by output and the (nominal) interest rate, $I = I(Y,i)$.</p>
+<ul>
+<li>$I$ increases as $Y$ increases, $I$ decreases as $i$ increases.</li>
+<li>When a firm needs to increase production, it needs to invest (e.g., adding new machines).</li>
+<li>A firm may need to borrow to buy new machines, it then needs to pay interest. Or if the firm uses its own funds for investment, interest rate still affects investment (consider whether to lend the funds or to use it for investment).</li>
+<li>Investment should be determined by <em>real</em> interest rate (that in terms of goods). For now, we assume it is determined by nominal interest rate (that in terms of dollars).</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Demand is now given by $$Z = C(Y-T) + I(Y,i) + G.$$</li>
+<li><p>Equilibrium condition in the goods market is still $Y=Z$, which becomes</p>
+<p>$$Y = C(Y-T) + I(Y,i) + G.$$</p>
+<ul>
+<li>This equilibrium equation is called the <strong>IS relation</strong>.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;The demand for goods increases in output. Equilibrium requires that the demand for goods equals output.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image6.png&#39; width=&#39;800&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
     </div>
-  </div>
-</body>
+</div>
+</div>
 
- 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>The demand for goods increases in output. Equilibrium requires that the demand for goods equals output.</center></td><td><img src='blanchardchap05/pptimages/image6.png' width='800' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>ZZ is upward-slopped <em>for a given value of interest rate</em>. An increase in output leads to an increase in income, which in turn leads to increases in consumption and investment (hence the demand for goods).</p>
+</li>
+<li><p>ZZ is a curve rather than a line because we no longer assume that consumption and investment functions are linear in income.</p>
+</li>
+<li><p>ZZ is flatter than the 45-degree line because we <em>assume</em> that an increase in output leads to a less than one-for-one increase in demand.</p>
+</li>
+<li><p>Intersection of ZZ and the 45-degree line (at point A) gives the <strong>equilibrium level of output</strong>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-2.-The-IS-curve:-interest-rate-and-output">1-2. The IS curve: interest rate and output<a class="anchor-link" href="#1-2.-The-IS-curve:-interest-rate-and-output">&#182;</a></h4><ul>
+<li><p>The <strong>IS curve</strong> describes a <em>negative</em> relation between the interest rate and the equilibrium output, it is a downward-slopped curve.</p>
+</li>
+<li><p>(a) An increase in interest rate lowers investment (hence the demand for goods), the demand curve ZZ shifts downward, leading to a fall in the equilibrium level of output.</p>
+<ul>
+<li>Lowered output leads to a decline in consumption and a further decline in investment (the multiplier effect).</li>
+</ul>
+</li>
+<li><p>(b) Equilibrium in the goods market implies that an increase in interest rate leads to a decline in output.</p>
+</li>
+<li><p>The IS curve is therefore downward slopped.</p>
+</li>
+<li><p><strong>Any point on the IS curve corresponds to an equilibrium in the goods market.</strong></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;An increase in interest rate leads to a lower investment, hence a lower equilibrium output.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image7.png&#39; width=&#39;420&#39; height=&#39;24&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>An increase in interest rate leads to a lower investment, hence a lower equilibrium output.</center></td><td><img src='blanchardchap05/pptimages/image7.png' width='420' height='24'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Shifts-in-the-IS-curve">Shifts in the IS curve<a class="anchor-link" href="#Shifts-in-the-IS-curve">&#182;</a></h4><ul>
+<li><p>For a given interest rate, any factor causing the equilibrium output to drop shifts the IS curve to the left.</p>
+<ul>
+<li><p>For a given interest rate, an increase in taxes leads to a decrease in output.</p>
+</li>
+<li><p>Thus, the IS curve shifts towards the left.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;An increase in taxes shifts the IS curve to the left.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image8.png&#39; width=&#39;600&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>An increase in taxes shifts the IS curve to the left.</center></td><td><img src='blanchardchap05/pptimages/image8.png' width='600' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>In summary</strong></p>
+<ul>
+<li><p>Downward-slopped IS curve: Equilibrium in the goods market implies that an increase in the interest rate leads to a decrease in output.</p>
+</li>
+<li><p>Shifting the IS curve: Changes in factors that decrease (increase) the demand for goods given the interest rate shift the IS curve to the left (right).</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Financial-Markets-and-the-LM-Relation">2. Financial Markets and the LM Relation<a class="anchor-link" href="#2.-Financial-Markets-and-the-LM-Relation">&#182;</a></h3><h4 id="2-1.-The-LM-relation">2-1. The LM relation<a class="anchor-link" href="#2-1.-The-LM-relation">&#182;</a></h4><ul>
+<li>Recall, the condition $M = \$ Y L(i)$ determines the interest rate.<ul>
+<li>$M$ is money stock (determined by central bank).</li>
+<li>$\$YL(i)$ is the money demand.</li>
+</ul>
+</li>
+<li>The equilibrium condition can be re-written as
+  $$\frac{M}{P} = Y \ L(i).$$</li>
+<li>The above equation is called the <strong>LM relation</strong>.<ul>
+<li>$\frac{M}{P}$ is the <em>real money supply</em>, the money stock in terms of goods.</li>
+<li>On the right hand side is the <em>real money demand</em>, which depends on real income $Y$ and nominal interest rate $i$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-2.-The-LM-curve">2-2. The LM curve<a class="anchor-link" href="#2-2.-The-LM-curve">&#182;</a></h4><ul>
+<li>We continue to assume that price $P$ is fixed in the short run.</li>
+</ul>
+<h5 id="Old-approach">Old approach<a class="anchor-link" href="#Old-approach">&#182;</a></h5><ul>
+<li><p>Monetary policy is the money supply.</p>
+</li>
+<li><p>By changing money supply, central bank can change the nominal interest rate.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="New-approach">New approach<a class="anchor-link" href="#New-approach">&#182;</a></h5><ul>
+<li><p>In recent history, monetary policy is to set nominal interest rate $i$, say at a value $\overline{i}$.</p>
+</li>
+<li><p>Central bank then adjusts money supply so as to achieve the target interest rate $\overline{i}$.</p>
+</li>
+<li><p>Then, the <strong>LM curve</strong> is a horizontal line.</p>
+</li>
+<li><p><strong>Any point on the LM curve corresponds to an equilibrium in the financial market.</strong></p>
+<ul>
+<li>When real income becomes higher, on the horizontal line interest rate remains unchanged, demand for money increases.</li>
+<li>Central bank will increase money supply to accommodate this demand.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;The central bank decides nominal interest rate.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image10.png&#39; width=&#39;800&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>The central bank decides nominal interest rate.</center></td><td><img src='blanchardchap05/pptimages/image10.png' width='800' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-The-IS-LM-Model">3. The IS-LM Model<a class="anchor-link" href="#3.-The-IS-LM-Model">&#182;</a></h3><ul>
+<li><p>IS relation: $Y = C(Y-T) + I(Y,i) + G$.</p>
+</li>
+<li><p>LM relation: $i=\overline{i}$.</p>
+</li>
+<li><p>The IS and LM relations together determine the equilibrium level of output (and money demand).</p>
+</li>
+<li><p><em>Any point</em> on the downward-slopped IS curve corresponds to an equilibrium in the goods market.</p>
+</li>
+<li><p><em>Any point</em> on the horizontal LM curve corresponds to an equilibrium in the financial market.</p>
+</li>
+<li><p>Only at their intersection (point A) are equilibrium conditions satisfied in both the goods and financial markets.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;At point A, both goods and financial markets are in equilibrium.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image12.png&#39; width=&#39;800&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>At point A, both goods and financial markets are in equilibrium.</center></td><td><img src='blanchardchap05/pptimages/image12.png' width='800' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="The-IS-LM-model-is-a-tool-to-study-the-effects-of-fiscal-and-monetary-policies,-as-well-as-those-of-changes-in-consumer's-expectations.">The IS-LM model is a tool to study the effects of fiscal and monetary policies, as well as those of changes in consumer's expectations.<a class="anchor-link" href="#The-IS-LM-model-is-a-tool-to-study-the-effects-of-fiscal-and-monetary-policies,-as-well-as-those-of-changes-in-consumer's-expectations.">&#182;</a></h4><h4 id="Effects-of-fiscal-policy">Effects of fiscal policy<a class="anchor-link" href="#Effects-of-fiscal-policy">&#182;</a></h4><ul>
+<li><p><strong>Fiscal contraction</strong>, or fiscal consolidation: government reduces budget deficit by increasing taxes and/or reducing government spending.</p>
+</li>
+<li><p><strong>Fiscal expansion</strong>: government increases deficit by increasing government spending or by reducing taxes.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>What are the effects of fiscal contraction on output and interest rate?</li>
+<li>Digression. Three steps can help analyze such a question:
+ 1) Does a change in policy <em>shift</em> the IS curve, or the LM curve, or both? And, if so, how?
+ 2) What do these shifts do to equilibrium output and equilibrium interest rate?
+ 3) Describe the effects in words.</li>
+<li>Back to the effects of a fiscal contraction. An increase in taxes, at a given interest rate,<ul>
+<li>decreases output, the IS curve shifts to the left.</li>
+</ul>
+</li>
+<li>By assumption, interest rate is decided by the central bank. So, the LM curve remains unchanged.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;An increase in taxes shifts the IS curve to the left, leading to a decrease in the equilibrium level of output.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image14.png&#39; width=&#39;800&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>An increase in taxes shifts the IS curve to the left, leading to a decrease in the equilibrium level of output.</center></td><td><img src='blanchardchap05/pptimages/image14.png' width='800' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Put in words</strong></p>
+<ul>
+<li>An increase in taxes leads to a lower disposable income, which causes people to reduce consumption.</li>
+<li>This reduction in demand leads, in turn through the multiplier, to a decline in output and income.</li>
+<li>At a given interest rate, an increase in taxes therefore leads to an output drop.</li>
+<li><p>Looking at the components of output:</p>
+<ul>
+<li>Both a decrease in income and an increase in taxes contribute to the fall in disposable income and hence consumption.</li>
+<li>The decrease in output leads to a decrease in investment.</li>
+<li>Thus, both consumption and investment decrease.</li>
+</ul>
+</li>
+<li><p>Question: what happens to money demand and money supply? Both fall.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Effects-of-monetary-policy">Effects of monetary policy<a class="anchor-link" href="#Effects-of-monetary-policy">&#182;</a></h4><ul>
+<li><p><strong>Monetary expansion</strong>: central bank lowers the interest rate, and to accommodate that, it increases money supply.</p>
+</li>
+<li><p><strong>Monetary contraction</strong>: central bank raises the interest rate, achieved through a shrinking money supply. Also called <strong>monetary tightening</strong>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>What are the effects of a monetary expansion?</p>
+</li>
+<li><p>Three steps of analysis:</p>
+<ul>
+<li><p><strong>Step 1</strong>. Change in interest rate <strong>does not change the relation</strong> between output and the interest rate, so it does not shift the IS curve. The LM curve shifts downward.</p>
+</li>
+<li><p><strong>Step 2</strong>. As the LM curve shifts downward, the economy moves down <strong>along</strong> the IS curve, leading to an increase in output.</p>
+</li>
+<li><p><strong>Step 3</strong>. Put in words.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;A monetary expansion shifts the LM curve down, and leads to higher output.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image16.png&#39; width=&#39;800&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>A monetary expansion shifts the LM curve down, and leads to higher output.</center></td><td><img src='blanchardchap05/pptimages/image16.png' width='800' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Policy-Mix">4. Policy Mix<a class="anchor-link" href="#4.-Policy-Mix">&#182;</a></h3><ul>
+<li><p>Monetary-fiscal policy mix is the combination (coordination?) of monetary and fiscal policies.</p>
+</li>
+<li><p>Suppose that the economy is in a recession and output is "too" low.</p>
+</li>
+<li><p>Both fiscal and monetary policies can be used to increase output.</p>
+</li>
+<li><p>Why both?</p>
+<ul>
+<li><p>Fiscal policy can be limited, say if government's budget deficit is already high. Cutting tax is often hard.</p>
+</li>
+<li><p>Monetary policy is limited too, say due to the zero lower bound.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4-1.-Fiscal-expansion-and-monetary-expansion">4-1. Fiscal expansion and monetary expansion<a class="anchor-link" href="#4-1.-Fiscal-expansion-and-monetary-expansion">&#182;</a></h4>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;The fiscal expansion shifts the IS curve to the right. A monetary expansion shifts the LM curve down. Both lead to higher output.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image17.png&#39; width=&#39;800&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>The fiscal expansion shifts the IS curve to the right. A monetary expansion shifts the LM curve down. Both lead to higher output.</center></td><td><img src='blanchardchap05/pptimages/image17.png' width='800' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4-2.-Fiscal-consolidation-and-monetary-expansion">4-2. Fiscal consolidation and monetary expansion<a class="anchor-link" href="#4-2.-Fiscal-consolidation-and-monetary-expansion">&#182;</a></h4>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;Fiscal consolidation shifts the IS curve to the left. Monetary expansion shifts the LM curve down: a reduction in deficit without a recession.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap05/pptimages/image21.png&#39; width=&#39;800&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>Fiscal consolidation shifts the IS curve to the left. Monetary expansion shifts the LM curve down: a reduction in deficit without a recession.</center></td><td><img src='blanchardchap05/pptimages/image21.png' width='800' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
+</body>
 
 
 </html>

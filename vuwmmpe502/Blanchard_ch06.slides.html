@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch06 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,79 +13112,996 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
+<p><img src='VUW_SEFLogo.png' width='600' height='60'/></p>
+<h3 id="MMPE502-Open-Economy-Macroeconomics"><center>MMPE502 Open-Economy Macroeconomics</center><a class="anchor-link" href="#MMPE502-Open-Economy-Macroeconomics">&#182;</a></h3><h4 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h4><h4 id="Lecture-Week-#3:-Financial-Markets-II:-Extending-IS-LM"><center>Lecture Week #3: Financial Markets II: Extending IS-LM</center><a class="anchor-link" href="#Lecture-Week-#3:-Financial-Markets-II:-Extending-IS-LM">&#182;</a></h4><h4 id="23-July-2019"><center>23 July 2019</center><a class="anchor-link" href="#23-July-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="We-assumed-that">We assumed that<a class="anchor-link" href="#We-assumed-that">&#182;</a></h3><ul>
+<li><p>there were two financial assets---money and bonds, and</p>
+</li>
+<li><p>there was one interest rate---the nominal interest rate on bonds, determined by central bank.</p>
+</li>
+<li><p>We als ignored that it is the real interest rate that affects investment.</p>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>We now distinguish different interest rates in the IS-LM model, and</p>
+</li>
+<li><p>look more closely at the role of the financial system.</p>
+</li>
+<li><p><strong>Reading</strong>: Blanchard Chapter 6.</p>
+</li>
+</ul>
+
 </div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>Nominal versus real interest rates.</p>
+</li>
+<li><p>Risk and the interest rate.</p>
+</li>
+<li><p>Extending the IS-LM model and its applications.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.--Nominal-versus-Real-Interest-Rates">1.  Nominal versus Real Interest Rates<a class="anchor-link" href="#1.--Nominal-versus-Real-Interest-Rates">&#182;</a></h3><ul>
+<li><p>When deciding whether or not to borrow, an individual needs to compare the amount of goods gained today and the amount of goods to give up in the future.</p>
+</li>
+<li><p><strong>Nominal interest rate</strong> is the interest rate in terms of dollars, e.g., the rate on bonds.</p>
+<ul>
+<li>$\$1$ this year becomes $\$(1+i)$ next year.</li>
+</ul>
+</li>
+<li><p><strong>Real interest rate</strong> is the interest rate in terms of a basket of goods.</p>
+<ul>
+<li>One basket of goods this year becomes an equivalence of $(1+r)$ baskets of goods next year.</li>
+</ul>
+</li>
+<li><p>The difference between the two rates lies in the inflation rate.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>We want to adjust the nominal interest rate to take into account expected inflation.</p>
+<ul>
+<li><p>Why? We consume goods, not dollars.</p>
+</li>
+<li><p>Suppose, nominal interest rate is 10% each year. You have $\$100$, which you can buy goods today or save it receiving $\$110$ next year. In deciding whether you want to save the $\$100$, you really care about the mount of the same goods that the $\$100$ can exchange for, not the $\$110$ per se.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>How to calculate the real interest rate?</li>
+</ul>
+<center><img src='blanchardchap06/pptimages/image4.png' width='600' height='80'/></center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The above derivation shows that $1+r_t = (1+i_t) \frac{P_t}{P_{t+1}^e}$.<ul>
+<li>$r_t$, real interest rate</li>
+<li>$i_t$, nominal interest rate</li>
+<li>$P_t$, the price of goods in period $t$</li>
+<li>$P_{t+1}^e$, the price of goods in period $t+1$, expected (perceived) when we are in period $t$.</li>
+</ul>
+</li>
+<li>Define the expected inflation as $\pi_{t+1}^e =\frac{P_{t+1}^e - P_t}{P_t}$.</li>
+<li>Then $\frac{P_t}{P_{t+1}^e} = \frac{1}{1+\pi_{t+1}^e}$. Therefore, the real interest rate satisfies
+  $$1+r_t = \frac{1+i_t}{1+\pi_{t+1}^e}.$$</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>When $i_t$ and $\pi_{t+1}^e$ are not too large, we can use an approximation</p>
+<p>$$ \large r_t \approx i_t - \pi_{t+1}^e.$$</p>
+</li>
+</ul>
+<ul>
+<li><p>The real interest rate is based on expected inflation.</p>
+</li>
+<li><p>It can be negative, e.g., at the zero lower bound ($i_t=0$).</p>
+</li>
+<li><p>If actual inflation turns out to be different from expected inflation, then the <em>realized</em> real interest rate in the future will be different from the real interest rate.</p>
+<ul>
+<li>We sometimes call $r_t$ the <em>ex-ante real interest rate</em>, and call the realized interest rate the <em>ex-post real interest rate</em>.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Nominal and real one-year Treasury-Bill rates in the U.S., since 1978.</li>
+</ul>
+<p><img src='blanchardchap06/pptimages/image9.png' width='600' height='100'/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Nominal 10-year government bond yields and expected inflation, New Zealand.</li>
+<li>Expected inflation is assumed to be the 4-quarter average value.
+<img src='blanchardchap06/pptimages/nzBondRate.png' width='700' height='40'/></li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Risk-and-Risk-Premium">2. Risk and Risk Premium<a class="anchor-link" href="#2.-Risk-and-Risk-Premium">&#182;</a></h3><ul>
+<li><p>In reality, there are many types of bonds. They differ in maturity and risk.</p>
+<ul>
+<li><p><strong>Maturity</strong> of a bond is the length of time over which the bond promises payments. E.g., 1-year bond promises payment one year later.</p>
+</li>
+<li><p><strong>Risk</strong>. For some bonds, the probability of not honoring a repayment is negligible (nearly riskless), for others it is high (risky).</p>
+</li>
+</ul>
+</li>
+<li><p>To compensate for the risk, bond holders request a <strong>risk premium</strong> on top of the risk-free rate.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Two factors are important in determining the risk premium.</p>
+</li>
+<li><p>First, the <strong>probability of default</strong>. Let $i$ be the nominal risk-free interest rate (e.g., on treasury bill), $x$ be the risk premium, and $p$ be the probability of defaulting a risky bond.</p>
+<ul>
+<li><p><strong>To get the same <em>expected</em> return on the risky bonds as on the riskless bond</strong>, the following should hold</p>
+<p>$$ (1+i) = (1-p) \cdot (1+i+x) + p \cdot 0,$$</p>
+</li>
+<li><p>or $$x = (1+i) \frac{p}{1-p} = (1+i) \left(\frac{1}{1-p} - 1\right).$$</p>
+</li>
+<li><p>The higher the probability of defaulting, the higher the risk premium.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Second, the degree of <strong>risk aversion</strong> of bond holders. Even if the expected return on the risky bond was the same as on a risk-free bond, the risk itself will make investors reluctant to hold the risky bond.<ul>
+<li>The more risk averse the investors are, the higher the risk premium they will ask for.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Yields on 10-year U.S. government Treasury, AAA and BBB corporate bonds.</li>
+</ul>
+<p><img src='blanchardchap06/pptimages/image11.png' width='600' height='60'/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-The-Role-of-Financial-Intermediaries">3. The Role of Financial Intermediaries<a class="anchor-link" href="#3.-The-Role-of-Financial-Intermediaries">&#182;</a></h3><ul>
+<li><p>Until now, we have looked at the direct finance---borrowing directly by the ultimate borrowers from the ultimate lenders.</p>
+</li>
+<li><p>But, much of borrowing and lending takes places through financial intermediaries, e.g., financial institutions that receive funds from investors then lend these funds to others.</p>
+</li>
+<li><p>Why do financial intermediaries exist? Many reasons, but at least they exist</p>
+<ul>
+<li>to reduce <em>transaction costs</em>. Think about how you look for a lender if you want to borrow, in a world without banks.</li>
+<li>to transform maturity. A large fraction of bank lending is long-term (e.g., business investment, mortgages), while deposits are often short-term (e.g., savers can withdraw money from banks any time).</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-1.-Bank-balance-sheet">3-1. Bank balance sheet<a class="anchor-link" href="#3-1.-Bank-balance-sheet">&#182;</a></h4><center><img src='blanchardchap06/pptimages/image13.png' width='300' height='30'/></center><ul>
+<li><p><strong>Assets</strong>, includes reserves, loans to consumers (e.g., mortgages) and firms, loans to other banks, government bond holding, etc.</p>
+</li>
+<li><p><strong>Liabilities</strong>, includes checkable deposits, interest-paying deposits, borrowing from other banks, etc.</p>
+</li>
+<li><p><strong>Capital</strong>, funds of the bank owners.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-3.-The-choice-of-leverage">3-3. The choice of leverage<a class="anchor-link" href="#3-3.-The-choice-of-leverage">&#182;</a></h4><ul>
+<li><p><strong>Capital ratio</strong>  = capital divided by assets (=20% in the above table).</p>
+</li>
+<li><p>The <strong>leverage ratio</strong> of a bank is the ratio of assets to capital, = the inverse of capital ratio.</p>
+</li>
+<li><p>In choosing the leverage ratio, a bank faces a trade-off.</p>
+<ul>
+<li><p>A higher leverage ratio implies a higher expected profit (per unit of capital);</p>
+</li>
+<li><p>A higher leverage, on the other hand, implies a higher risk of <strong>insolvency</strong> and bankruptcy.</p>
+<ul>
+<li>A bank becomes insolvent if the value of its assets is lower than the value of its liabilities.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Liquidity--and-bank-runs">Liquidity  and bank runs<a class="anchor-link" href="#Liquidity--and-bank-runs">&#182;</a></h4><ul>
+<li><p>Bank's assets tend to be illiquid, liabilities tend to be liquid.</p>
+</li>
+<li><p>If, for some reason, depositors (and other investors) become doubtful about the bank's value of assets.</p>
+<ul>
+<li><p>They will want to take their funds out of the bank.</p>
+</li>
+<li><p>This creates a severe problem for the bank, because the bank cannot easily call back the loans. Loans mostly have been used to buy machines, houses, etc.</p>
+</li>
+<li><p>Selling the loans to other banks is likely to be hard too (difficult to assess the value of loans). The liquidity of the bank's assets is then low.</p>
+</li>
+<li><p>The bank may have to sell assets (e.g., loans) at a <strong>fire sale price</strong>, much below the true value of the loans.</p>
+</li>
+<li><p>By the time the bank resorts to fire sales, it is likely to have already become insolvent.</p>
+</li>
+<li><p>If depositors realize that bankruptcy may happen, they likely will expedite taking out funds, worsening the problem.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>This is a case of <strong>bank runs</strong>: worries about the value of bank assets lead to runs on banks.</p>
+</li>
+<li><p>A healthy bank can become insolvent because of bank runs. (self-fulfilling, herding, etc.)</p>
+</li>
+<li><p>The lower the liquidity of assets (i.e., the more difficult they can be sold), the higher the risk of fire sales, the higher the risk that the bank goes bankrupt.</p>
+</li>
+<li><p>The higher the liquidity of liabilities (i.e., the easier it is for depositors to withdraw funds at short notice), the higher the risk of fire sales, the higher the risk of bankruptcy.</p>
+</li>
+<li><p>The consequence of bank runs is serious, proven in history.</p>
+</li>
+<li><p>The 2008/2009 financial crisis is considered (by some) a bank run on non-bank financial intermediaries (e.g., investment companies, insurance companies), by wholesale funders (banks and financial intermediaries).</p>
+</li>
+<li><p>FOCUS: Bank Runs in textbook is worth reading.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Extending-the-IS-LM-Model">4. Extending the IS-LM Model<a class="anchor-link" href="#4.-Extending-the-IS-LM-Model">&#182;</a></h3><ul>
+<li><p>We extend the IS-LM model to reflect the distinction between:</p>
+<ul>
+<li><p>the nominal interest rate and the real interest rate;</p>
+</li>
+<li><p>the policy interest rate set by the central bank and the interest rates faced by borrowers.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The original IS-LM model was</p>
+<ul>
+<li><p>IS relation: $Y = C(Y-T) + I(Y,i) + G$.</p>
+</li>
+<li><p>LM relation: $i=\overline{i}$.</p>
+</li>
+</ul>
+</li>
+<li><p>The extended IS-LM model is</p>
+<ul>
+<li><p>IS relation: $Y=C(Y-T) + \color{red}{I(Y, i-\pi^e+x)} + G$.</p>
+</li>
+<li><p>LM relation: $i = \overline{i}$.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The extension: $I(Y,i)$ is replaced by $I(Y, i-\pi^e+x)$ in the IS relation.</p>
+<ul>
+<li><p>It is the real interest rate that is relevant for investment, and investment is risky.</p>
+</li>
+<li><p>$\overline{i}$ is the (nominal) <strong>policy rate</strong>, set by the central bank as a monetary policy instrument.</p>
+</li>
+<li><p>($i-\pi^e+x$) is the (real) <strong>borrowing rate</strong>, at which the firms and consumers can borrow.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Given the expected inflation $\pi^e$, setting the policy rate $\overline{i}$ is equivalent to <em>implicitly</em> setting the <strong>real policy rate</strong> $\overline{r} = \overline{i} - \pi^e$.</p>
+</li>
+<li><p>The extended IS-LM can then be formulated as</p>
+<ul>
+<li><p>IS relation: $Y=C(Y-T) + \color{red}{I(Y, r+x)} + G$.</p>
+</li>
+<li><p>LM relation: $r = \overline{r}$.</p>
+</li>
+</ul>
+</li>
+<li><p>Reminder: zero lower bound of nominal policy rate. $\overline{r}$ cannot be below $-\pi^e$.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="An-application:-financial-shocks">An application: financial shocks<a class="anchor-link" href="#An-application:-financial-shocks">&#182;</a></h4><ul>
+<li><p>Suppose risk premium, $x$, rises due to financial shocks, e.g.,</p>
+<ul>
+<li>investors become more risk averse;</li>
+<li>or a mid-sized or a major bank goes bankrupt (potentially causing a systemic bank run).</li>
+</ul>
+</li>
+<li><p>Suppose policy rate $\overline{r}$ remains unchanged.</p>
+</li>
+<li><p>Risk premium is taken as exogenous.</p>
+</li>
+<li><p>The real borrowing rate, $r+x$, then also rises.</p>
+<ul>
+<li><p>leading to decreases in demand and output: the IS curve shifts left.</p>
+</li>
+<li><p>A financial crisis then becomes a macroeconomic crisis.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;An increase in $x$ leads to a shift of the IS curve to the left and a decrease in equilibrium output.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap06/pptimages/image16.png&#39; width=&#39;1000&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
     </div>
-  </div>
-</body>
+</div>
+</div>
 
- 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>An increase in $x$ leads to a shift of the IS curve to the left and a decrease in equilibrium output.</center></td><td><img src='blanchardchap06/pptimages/image16.png' width='1000' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Policy-options-to-reduce-the-impact-of-financial-shocks">Policy options to reduce the impact of financial shocks<a class="anchor-link" href="#Policy-options-to-reduce-the-impact-of-financial-shocks">&#182;</a></h4><ul>
+<li>Fiscal policy, say an increase in $G$ or decrease in $T$, can shift the IS curve to the right and increase output.<ul>
+<li>Doing so implies an increase in budget deficit, which government may be reluctant to do.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>A better policy may be that, the central bank reduces the real policy rate $r$, to keep $r+x$ unchanged.<ul>
+<li>However, central bank is constrained by the zero lower bound (ZLB) of nominal policy rate.</li>
+<li>The lower limit of real policy rate is $\overline{r} = -\pi^e$, which is when nominal policy rate is at ZLB.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;center&gt;A decrease in policy rate can in principle offset the increased risk premium. ZLB however puts a limit on the real policy rate.&lt;/center&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap06/pptimages/image17.png&#39; width=&#39;1000&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><center>A decrease in policy rate can in principle offset the increased risk premium. ZLB however puts a limit on the real policy rate.</center></td><td><img src='blanchardchap06/pptimages/image17.png' width='1000' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>If the expected inflation is low, the $\overline{r}$ may not be enough to offset the increase in risk premium $x$.<ul>
+<li>This suggests that low inflation can be a problem, it limits the central bank's ability to achieve its goal.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Low-inflation-after-the-Great-Recession">Low inflation after the Great Recession<a class="anchor-link" href="#Low-inflation-after-the-Great-Recession">&#182;</a></h4><center><img src='blanchardchap06/pptimages/inflationNZUS.png' width='600' height='60'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-The-2008-Financial-Crisis-in-the-U.S.-(optional)">5. The 2008 Financial Crisis in the U.S. (optional)<a class="anchor-link" href="#5.-The-2008-Financial-Crisis-in-the-U.S.-(optional)">&#182;</a></h3><ul>
+<li>The IS-LM model can be used to study government policy and monetary policy over the 2008-2009 crisis.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">startTime</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
+<span class="n">stopTime</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">())</span>
+<span class="n">vid</span> <span class="o">=</span> <span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;8D2xhq7X5aQ&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">startTime</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">stopTime</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">vid</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+
+        <iframe
+            width="700"
+            height="400"
+            src="https://www.youtube.com/embed/8D2xhq7X5aQ?start=100&end=217"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-1.-The-Crisis:-housing-and-mortgage">5-1. The Crisis: housing and mortgage<a class="anchor-link" href="#5-1.-The-Crisis:-housing-and-mortgage">&#182;</a></h4><ul>
+<li><p>House price started to drop in 2006, by 35 percent when it reached the valley.</p>
+</li>
+<li><p>House price went up in the 2000s, partly due to lower interest rate (hence mortgage rate).</p>
+</li>
+<li><p>Subprime mortgages accounted for 20% mortgage loans in 2006.</p>
+</li>
+<li><p>As house price fell, house value was below mortgage loan for many, triggering defaults.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap01/pptimages/HouseStockPrices.png" alt="Drawing"  width="800" height="40"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-2.-The-Crisis:-financial-intermediaries.">5-2. The Crisis: financial intermediaries.<a class="anchor-link" href="#5-2.-The-Crisis:-financial-intermediaries.">&#182;</a></h4><ul>
+<li><p>Banks were <strong>highly leveraged</strong>. They circumvented regulation, by creating Structured Investment Vehicles.</p>
+</li>
+<li><p><strong>Securitization increased</strong>. Banks created securities based on bundles of mortgages, called mortgage-based security (MBS).</p>
+<ul>
+<li>Problem: MBS is off balance sheet (making banks no longer careful about the mortgage quality).</li>
+<li>Problem: MBS is hard to assess, thus hard to sell.</li>
+</ul>
+</li>
+<li><p><strong>Wholesale funding increased</strong>. Other than checkable deposits, banks increasingly relied on very short-term loans from other banks and other investors, to purchase assets.</p>
+<ul>
+<li>Problem: checkable deposits are protected by deposit insurance; but wholesale funding is not protected.</li>
+<li>Problem: Banks' liabilities became more liquid (due to short-term borrowing).</li>
+</ul>
+</li>
+<li><p>The combination of high leverage, illiquid assets, and liquid liabilities was a major financial crisis since WWII.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-3.-The-Crisis-led-to-recession.">5-3. The Crisis led to recession.<a class="anchor-link" href="#5-3.-The-Crisis-led-to-recession.">&#182;</a></h4><ul>
+<li><p>Bond interest rate spiked in 2008-2009. Banks froze their lending, driving down consumption and investment.</p>
+</li>
+<li><p>The IS curve shifted to the left.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-4.-Policy-responses-to-the-crisis">5-4. Policy responses to the crisis<a class="anchor-link" href="#5-4.-Policy-responses-to-the-crisis">&#182;</a></h4><ul>
+<li><p>Financial policies:</p>
+<ul>
+<li>increased cap for insured deposit.</li>
+<li>Federal Reserve provided liquidity to the financial system</li>
+<li>Government acquired shares of large banks, hence injecting capital of these banks.</li>
+</ul>
+</li>
+<li><p>Monetary policy:</p>
+<ul>
+<li>Federal funds rate was set to literally zero by December 2008.</li>
+<li>Unconventional monetary policy: In March 2009, the Fed purchased $\$1.25$ trillion in mortgage-backed securities and $\$200$ billion in federal agency debt.</li>
+</ul>
+</li>
+<li><p>Fiscal policy:</p>
+<ul>
+<li>Tax reductions.</li>
+<li>Government spending increase.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Analysis</strong></p>
+<ul>
+<li>The IS shifted left in crisis. Financial and fiscal policies shifted the IS back (somehow). Monetary policy shifted the LM downward. Policies were not enough to avoid a major recession.</li>
+</ul>
+<center><img src='blanchardchap06/pptimages/image22.png' width='500' height='40'/></center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-5.-Policy-responses:-did-they-work?">5-5. Policy responses: did they work?<a class="anchor-link" href="#5-5.-Policy-responses:-did-they-work?">&#182;</a></h4><ul>
+<li><p>Slow recovery from the recession, in historical standard.</p>
+</li>
+<li><p>Debate: some think that recession could have been worse if there had been no policy intervention; Others think that (at least) some policies may have made recession worse.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
+</body>
 
 
 </html>
