@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch08 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,83 +13112,697 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch07.slides.html#/1">ch07</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch08.slides.html#/1">ch08</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartA.slides.html#/1">ch09</a></p>
-<p>Topic 3, week 4: <a href="https://shutaocao.github.io/vuwmmpe502/topic02_News.slides.html#/1">News</a></p>
+<p><img src="VUW_SEFLogo.png" width="600" height="60"/></p>
+<h3 id="MMPE502-Macroeconomics-in-Context"><center>MMPE502 Macroeconomics in Context</center><a class="anchor-link" href="#MMPE502-Macroeconomics-in-Context">&#182;</a></h3><h4 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h4><h3 id="Topic-3,-week-#4:-The-Phillips-Curve,-the-Natural-Rate-of-Unemployment,-and-Inflation"><center>Topic 3, week #4: The Phillips Curve, the Natural Rate of Unemployment, and Inflation</center><a class="anchor-link" href="#Topic-3,-week-#4:-The-Phillips-Curve,-the-Natural-Rate-of-Unemployment,-and-Inflation">&#182;</a></h3><h4 id="30-July-2019"><center>30 July 2019</center><a class="anchor-link" href="#30-July-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Today-we-study">Today we study<a class="anchor-link" href="#Today-we-study">&#182;</a></h3><ul>
+<li><p>The Phillips curve.</p>
+<ul>
+<li><p>The negative relation between inflation and unemployment.</p>
+</li>
+<li><p>First observed in 1958 by A.W. Phillips, an economist from New Zealand.</p>
+</li>
+<li><p>Important, trade-off between inflation and unemployment, if we can choose.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Readings:-Blanchard-Chapter-8">Readings: Blanchard Chapter 8<a class="anchor-link" href="#Readings:-Blanchard-Chapter-8">&#182;</a></h4>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Expected-Inflation,-Unemployment-and-Inflation">1. Expected Inflation, Unemployment and Inflation<a class="anchor-link" href="#1.-Expected-Inflation,-Unemployment-and-Inflation">&#182;</a></h3><ul>
+<li>Phillips observed a negative relation between inflation and unemployment for the UK data from 1861 to 1957.</li>
+<li>Samuelson and Solow replicated it using the U.S. data, from 1900 to 1960. Shown below<center><img src='blanchardchap08/pptimages/image4.png' width='400' height='40'/></center></li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>We want to derive a relation between inflation and unemployment in which expected inflation plays a role.</p>
+</li>
+<li><p>First, recall the wage-setting equation, $W = P^e F(u,z)$; and the price-setting equation, $P = (1+m)W$.</p>
+</li>
+<li><p>The two equations implies, $P = P^e (1+m) F(u,z)$.</p>
+</li>
+<li><p>The equation says: An increase in the expected price level leads to an increase in nominal wages, which in turn leads firms to raise their prices, thus the (actual) price level also rises.</p>
+</li>
+<li><p>It also says: A higher unemployment rate leads to a lower nominal wage, thus a lower price level.</p>
+</li>
+</ul>
+
 </div>
-    </div>
-  </div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>We need a functional form for $F(u,z)$ to facilitate the analysis, we assume
+ $$F(u,z) = 1 - \alpha u +z.$$</p>
+<ul>
+<li>Parameter $\alpha&gt;0$ captures the strength of the effect of unemployment rate on wage.</li>
+</ul>
+</li>
+<li><p>We then have $P = P^e(1+m)(1-\alpha u +z)$, a <em>relation between the expected price, unemployment rate and price</em>.</p>
+</li>
+<li><p>We want to derive the relation between unemployment and inflation (in which expected inflation plays a role). Let $\pi_t = \frac{P_t}{P_{t-1}} -1$ be the inflation rate, and $\pi_t^e=\frac{P_t^e}{P_{t-1}} -1$ be the expected inflation rate. Also, we need to use the time subscript.</p>
+</li>
+<li><p>Divide the above equation by $P_{t-1}$: $\frac{P_t}{P_{t-1}} = \frac{P_t^e}{P_{t-1}} (1+m_t)(1-\alpha u_t+z_t)$. It can be written as $\frac{1+\pi_t}{(1+m_t)(1+\pi_t^e)} = 1 - \alpha u_t + z_t$.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>By Proposition 3 in Appendix 2 of textbook, $(1+m_t)(1+\pi_t^e) \approx 1+m_t + \pi_t^e$. By Proposition 6, $\frac{1+\pi_t}{1+m_t+\pi_t^e} \approx 1+\pi_t - (m_t + \pi_t^e)$.</li>
+<li><p>We then arrive at, approximately,  $\pi_t = \pi_t^e +(m_t+z_t) - \alpha u_t$.</p>
+</li>
+<li><p>Treating $m_t$ and $z_t$ as given constants, then
+  $$\large \pi_t = \pi_t^e +(m+z) - \alpha u_t.$$</p>
+</li>
+<li>This gives a <em>relation between the expected inflation rate, the unemployment rate and the inflation rate</em>.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>What does this equation mean?</p>
+<ul>
+<li><p>An increase in expected inflation rate, $\pi_t^e$, leads to an increase in actual inflation rate $\pi_t$. Intuition?</p>
+</li>
+<li><p>Given $\pi_t^e$, an increase in markup $m$ or in $z$ (e.g., unemployment benefits) leads to an increase in $\pi_t$.</p>
+</li>
+<li><p>Given $\pi_t^e$, a decrease in unemployment rate $u_t$ leads to an increase in $\pi_t$. Intuition?</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-The-Phillips-Curve-and-Its-Mutations">2. The Phillips Curve and Its Mutations<a class="anchor-link" href="#2.-The-Phillips-Curve-and-Its-Mutations">&#182;</a></h3><ul>
+<li>Originally, Phillips' relation between unemployment and inflation was empirical, no model was used.</li>
+</ul>
+<h4 id="2-1.-The-Phillips-curve,-according-to-Phillips">2-1. The Phillips curve, according to Phillips<a class="anchor-link" href="#2-1.-The-Phillips-curve,-according-to-Phillips">&#182;</a></h4><ul>
+<li>Suppose that from year to year, inflation varies around some constant value $\overline{\pi}$.</li>
+<li><p>Also assume that inflation is not persistent, e.g., inflation of this year is not a good predictor of inflation of next year.</p>
+</li>
+<li><p>Then, reasonably, $\pi_t^e = \overline{\pi}$. This leads to
+ $$\pi_t = \overline{\pi} +(m+z) - \alpha u_t.$$</p>
+</li>
+<li>This was the original Phillips curve, as found by Phillips using the UK data.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>It was a significant discovery: policy makers face a trade-off between unemployment and inflation.</li>
+<li>Phillips curve was observed clearly between 1961 and 1969. It seemed indeed there was such a trade-off.<center><img src='blanchardchap08/pptimages/image14.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-2.-The-disappearance-of-the-Phillips-curve-in-1970s">2-2. The disappearance of the Phillips curve in 1970s<a class="anchor-link" href="#2-2.-The-disappearance-of-the-Phillips-curve-in-1970s">&#182;</a></h4><ul>
+<li>However, since 1970, the negative relation between $\pi_t$ and $u_t$ broke down in the U.S. data.<center><img src='blanchardchap08/pptimages/image15.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Why was the negative relation no longer visible after 1970?</p>
+<ul>
+<li><p>Firms, when setting wages, changed the way they formed expectations about inflation,</p>
+</li>
+<li><p>which in turn came from a change in the behavior of actual inflation: The rate of inflation became more persistent, i.e., high inflation today suggests that inflation tomorrow is (more) likely high.</p>
+</li>
+<li><p>This led people to take into account the persistence of inflation, in forming inflation expectations.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Expectation-formation-and-the-Phillips-curve">Expectation formation and the Phillips curve<a class="anchor-link" href="#Expectation-formation-and-the-Phillips-curve">&#182;</a></h4><ul>
+<li><p>To continue the argument, suppose that expectations about inflation are formed according to
+ $$\pi_t^e = (1-\theta)\overline{\pi} + \theta \pi_{t-1}.$$</p>
+<ul>
+<li>People form the expectation by assigning some weights on a constant value and on the inflation of previous year.</li>
+<li>The larger the $\theta$, the closer between the expected inflation and the lagged inflation.</li>
+</ul>
+</li>
+<li><p>We can think of what happened since 1970 as an increase in the value of $\theta$, as inflation became more persistent.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>What is the implication for the Phillips curve?</p>
+</li>
+<li><p>Recall, $\pi_t = \pi_t^e +(m+z) - \alpha u_t$. Using new way of forming expectations suggests that
+ $$ \pi_t = (1-\theta)\overline{\pi} + \theta \pi_{t-1} +(m+z) - \alpha u_t.$$</p>
+</li>
+<li>As inflation became more persistent, people and businesses change the way they form expectations (an increase in $\theta$).</li>
+<li>When $\theta=0$, $ \pi_t = \overline{\pi} +(m+z) - \alpha u_t$, the original Phillips curve.</li>
+<li>When $0&lt;\theta&lt;1$, $\pi_t = (1-\theta)\overline{\pi} + \theta \pi_{t-1} +(m+z) - \alpha u_t$.</li>
+<li><p>When $\theta=1$, $ \pi_t - \pi_{t-1} = (m+z) - \alpha u_t$.</p>
+</li>
+<li><p>In the last case ($\theta=1$), it is the <strong>change</strong> of inflation rate that is negatively related to the unemployment rate.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-3.-The-modified-Phillips-curve">2-3. The modified Phillips curve<a class="anchor-link" href="#2-3.-The-modified-Phillips-curve">&#182;</a></h4><ul>
+<li>When $\theta=1$, the relation $ \pi_t - \pi_{t-1} = (m+z) - \alpha u_t$ is called the <strong>modified Phillips curve</strong>.</li>
+<li>It turns out that the modified Phillips curve is supported by the U.S. data since 1970,<ul>
+<li>with an estimate of $\alpha$ at 0.5.<center><img src='blanchardchap08/pptimages/image21.png' width='500' height='40'/></center></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The original Phillips curve appears to hold for New Zealand.<center><img src='blanchardchap08/phillipsCurveNZ.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>But the modified Phillips curve does not appear to hold,<ul>
+<li>suggesting that inflation might be not persistent in New Zealand.</li>
+</ul>
+</li>
+<li>But NZ is a small open economy, more to come later.<center><img src='blanchardchap08/phillipsCurveNZmodified.png' width='600' height='50'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Inflation expectation is important, affecting to what extent the negative relation between inflation and unemployment holds.</p>
+</li>
+<li><p>Nowadays, central banks regularly survey households and businesses about their expectations of inflation,</p>
+<ul>
+<li>to understand how they formulate inflation expectations, and how $\theta$ may change.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-The-Phillips-Curve-and-the-Natural-Rate-of-Unemployment.">3. The Phillips Curve and the Natural Rate of Unemployment.<a class="anchor-link" href="#3.-The-Phillips-Curve-and-the-Natural-Rate-of-Unemployment.">&#182;</a></h3><ul>
+<li><p>Recall, the <strong>natural rate of unemployment</strong> is the equilibrium unemployment rate at which the actual price level equals the expected price level.</p>
+</li>
+<li><p>In other words, natural rate of unemployment is the equilibrium unemployment rate such that the actual inflation rate equals the expected inflation rate.</p>
+</li>
+<li><p>We just saw the Phillips curve as $\pi_t = \pi_t^e + (m+z) - \alpha u_t$.</p>
+</li>
+<li><p>Setting $\pi_t^e=\pi_t$, we then obtain the natural rate of unemployment, as
+$$ \large u_n = \frac{m+z}{\alpha}.$$</p>
+<ul>
+<li>No time subscripts, because we assume that $m$ and $z$ are constant.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Now, let's go back to $\pi_t = \pi_t^e +(m+z) - \alpha u_t$.</p>
+</li>
+<li><p>It can be written as $\pi_t - \pi_t^e = -\alpha \left( u_t - \frac{m+z}{\alpha}\right)$.</p>
+</li>
+<li><p>That is, $$\pi_t - \pi_t^e = -\alpha \left( u_t - u_n\right).$$</p>
+</li>
+<li><p>Further, if the expected rate of inflation, $\pi_t^e$, is <em>well approximated</em> by previous year's inflation rate, $\pi_{t-1}$, the above equation becomes
+ $$\pi_t - \pi_{t-1} = -\alpha (u_t - u_n).$$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>It says that changes in inflation rate are negatively related to the deviation of unemployment rate from its natural rate. It is an important relation.</p>
+</li>
+<li><p>The above equation is another way of thinking about the <em>Phillips curve</em>.</p>
+<ul>
+<li>The change in inflation rate depends on the difference between the actual and the natural unemployment rates.</li>
+<li>If $u_t&lt;u_n$, then $\pi_t&gt;\pi_{t-1}$. If $u_t&gt;u_n$, then $\pi_t&lt;\pi_{t-1}$.</li>
+</ul>
+</li>
+<li><p>It is also another way of thinking about the <em>natural rate of unemployment</em>.</p>
+<ul>
+<li><strong>The natural rate of unemployment is the unemployment rate required to keep the inflation rate <em>constant</em></strong>.</li>
+<li><p>Because of this, the natural rate is also called NAIRU (non-accelerating inflation rate of unemployment).</p>
+</li>
+<li><p>NAIRU in the U.S. since 1970 is estimated to be 6%.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Summary-and-warnings">4. Summary and warnings<a class="anchor-link" href="#4.-Summary-and-warnings">&#182;</a></h3><h4 id="4-1.-Taking-stock">4-1. Taking stock<a class="anchor-link" href="#4-1.-Taking-stock">&#182;</a></h4><ul>
+<li><p>The relation between unemployment and inflation in the U.S. today is well captured by a relation between the change in inflation rate and the deviation of unemployment rate from the natural rate of unemployment.</p>
+</li>
+<li><p>When the unemployment rate is above the natural rate of unemployment, the inflation rate typically decreases.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4-2.-Caveats">4-2. Caveats<a class="anchor-link" href="#4-2.-Caveats">&#182;</a></h4><ul>
+<li>The negative relation between unemployment and inflation does not appear to be tight.</li>
+</ul>
+<h5 id="4-2-1.-Natural-rate-of-unemployment-varies-with-country-and-over-time">4-2-1. Natural rate of unemployment varies with country and over time<a class="anchor-link" href="#4-2-1.-Natural-rate-of-unemployment-varies-with-country-and-over-time">&#182;</a></h5><ul>
+<li><p>The natural rate of unemployment <strong>differs</strong> across counties due to, e.g., <strong>labor-market rigidities</strong>, and also <strong>changes</strong> over time.</p>
+<ul>
+<li>$\alpha$, $m$, and $z$ all can differ across countries, they can also change over time.</li>
+<li>Changes in these factors shift the inflation-unemployment relation.</li>
+</ul>
+</li>
+<li><p>Natural rate of unemployment and its changes are unobserved and hard to measure. (Hard to know from the data whether $\pi_t^e=\pi_t$.)</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="4-2-2.-High-inflation-and-the-Phillips-curve">4-2-2. High inflation and the Phillips curve<a class="anchor-link" href="#4-2-2.-High-inflation-and-the-Phillips-curve">&#182;</a></h5><ul>
+<li><p>The inflation-unemployment relation is likely to change with both the level and the persistence of inflation.</p>
+</li>
+<li><p>When the inflation rate becomes <strong>high</strong>, inflation also tends to be more variable.</p>
+<ul>
+<li>Workers and firms the become reluctant to sign labor contracts setting nominal wages for a long period of time.</li>
+<li>the terms of wage agreements then tend to change with the level of inflation.</li>
+<li>At high inflation, wage contracts tend to be shorter.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>Wage indexation</strong> is a provision that automatically increases wages in line with inflation.<ul>
+<li>It can be more prevalent when inflation is high, <em>which leads to a stronger response of inflation to unemployment</em>.</li>
+</ul>
+</li>
+<li>Suppose that a $\lambda$ fraction of labor contracts is indexed, so nominal wages move one-for-one with changes in the actual price level, then $\pi_t = [\lambda \pi_t + (1-\lambda) \pi_{t}^e] - \alpha(u_t-u_n)$.<ul>
+<li>To derive, go back to the wage-setting equation.</li>
+</ul>
+</li>
+<li><p>Further suppose $\pi_t^e = \pi_{t-1}$ then $\pi_t = [\lambda \pi_t + (1-\lambda) \pi_{t-1}] - \alpha(u_t-u_n)$, which can be re-written as   $$\pi_t - \pi_{t-1} = -\frac{\alpha}{1-\lambda}(u_t-u_n).$$</p>
+</li>
+<li><p>Wage indexation increases the effect of unemployment on inflation: the larger $\lambda$, the stronger the effect.</p>
+<ul>
+<li>Without wage indexation, a lower unemployment increases wages, which in turn leads to an increase in price.</li>
+<li>With indexation, such an increase in price further increases wages, and so on, resulting a stronger response of inflation to the lower unemployment (than without indexation).</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="4-2-3.-Low-inflation-and-the-Phillips-curve.">4-2-3. Low inflation and the Phillips curve.<a class="anchor-link" href="#4-2-3.-Low-inflation-and-the-Phillips-curve.">&#182;</a></h5><ul>
+<li>When <strong>low inflation</strong> or <strong>deflation</strong> occurs, the Phillips curve relation can become weaker or even breaks down.<ul>
+<li>One possible reason is the reluctance of workers to accept cuts in nominal wages when price level becomes lower.</li>
+<li>Again, use the wage-setting equation for the intuition.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Inflation has been low.</li>
+</ul>
+<center><img src='blanchardchap06/inflationNZUS.png' width='800' height='80'/></center>
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>

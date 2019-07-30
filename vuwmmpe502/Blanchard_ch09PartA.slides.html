@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch09PartA slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,83 +13112,581 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch07.slides.html#/1">ch07</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch08.slides.html#/1">ch08</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartA.slides.html#/1">ch09</a></p>
-<p>Topic 3, week 4: <a href="https://shutaocao.github.io/vuwmmpe502/topic02_News.slides.html#/1">News</a></p>
+<p><img src="VUW_SEFLogo.png" width="600" height="60"/></p>
+<h2 id="MMPE502-Macroeconomics-in-Context"><center>MMPE502 Macroeconomics in Context</center><a class="anchor-link" href="#MMPE502-Macroeconomics-in-Context">&#182;</a></h2><h3 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="Topic-3,-Week-#4:-From-the-Short-to-the-Medium-Run:-The-IS-LM-PC-Model-(Part-A)"><center>Topic 3, Week #4: From the Short to the Medium Run: The IS-LM-PC Model (Part A)</center><a class="anchor-link" href="#Topic-3,-Week-#4:-From-the-Short-to-the-Medium-Run:-The-IS-LM-PC-Model-(Part-A)">&#182;</a></h3><h4 id="30-July-2019"><center>30 July 2019</center><a class="anchor-link" href="#30-July-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Review-of-Chapter-8">Review of Chapter 8<a class="anchor-link" href="#Review-of-Chapter-8">&#182;</a></h3><ul>
+<li><p>We built the <strong>Phillips curve</strong>, a negative relation between inflation and unemployment</p>
+<ul>
+<li>$\pi_t = \pi_t^e + (m+z) - \alpha u_t$.</li>
+</ul>
+</li>
+<li><p>Phillips curve may break down over time, due to changes in</p>
+<ul>
+<li><p>how people form the expectation of inflation</p>
+</li>
+<li><p>how firms set wages when inflation is high or low.</p>
+</li>
+</ul>
+</li>
+<li><p>We also examined the relation between inflation and natural rate of unemployment.</p>
+<ul>
+<li>$ \pi_t - \pi_{t}^e = -\alpha (u_t - u_n)$.</li>
+<li>Changes in inflation rate depend on how actual unemployment rate deviates from the natural rate of unemployment.</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Earlier-...">Earlier ...<a class="anchor-link" href="#Earlier-...">&#182;</a></h4><ul>
+<li><p>In Chapter 3 through 6, we studied the equilibrium in the goods and financial markets,</p>
+</li>
+<li><p>saw that, in the short run, output is driven by demand, firms fulfill whatever the demand is.</p>
+</li>
+</ul>
+<h4 id="We-now">We now<a class="anchor-link" href="#We-now">&#182;</a></h4><ul>
+<li><p>revisit the equilibrium in the goods and financial markets,</p>
+<ul>
+<li>allowing firms to decide employment and set wages.</li>
+</ul>
+</li>
+<li><p>In doing so, we put together three markets: the goods market, financial market, and the labor market.</p>
+<ul>
+<li>Financial market equilibrium (LM curve) is in fact the monetary policy rule.</li>
+</ul>
+</li>
+</ul>
+
 </div>
-    </div>
-  </div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Reading</strong>: Blanchard Chapter 9. Be careful, this chapter appears inaccurate in a couple of places.</p>
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>The IS-LM-PC model</p>
+</li>
+<li><p>Dynamics of output and inflation</p>
+</li>
+<li><p>Dynamic effects of fiscal policy</p>
+</li>
+<li><p>Dynamic effects of an increase in oil price</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-The-IS-LM-PC-Model">1. The IS-LM-PC Model<a class="anchor-link" href="#1.-The-IS-LM-PC-Model">&#182;</a></h3><ul>
+<li><p>From Chapter 6, output in the short run is driven by demand on the IS curve, as
+ $$ Y = C(Y-T) + I(Y, i-\pi^e +x) + G.$$</p>
+<ul>
+<li>$r = i - \pi^e$ is the real policy interest rate.</li>
+<li>$x$ is the risk premium.</li>
+</ul>
+</li>
+<li><p>From Chapter 8, inflation is determined as in the Phillips curve:
+ $$\pi = \pi^e -\alpha (u - u_n).$$</p>
+</li>
+<li><p>The employed, not unemployed, produce. Thus, need to link inflation to employment and output in the Phillips curve.</p>
+</li>
+<li><p>By definition, $u = \frac{L-N}{L}$. Then $N = L(1-u)$. Further recall that production function is $Y=N$.</p>
+</li>
+<li><p>Therefore, $Y = L(1-u)$. When $u=u_n$, $Y_n = L(1-u_n)$ is the natural level of output, also called <strong>potential output</strong>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The <strong>output gap</strong>, the difference between output and potential output, can be derived, as
+  $$ Y - Y_n = - L(u-u_n).$$</p>
+</li>
+<li><p>In the Phillips curve, substitute for the term $u-u_n$, we have
+$$\pi - \pi^e = \frac{\alpha}{L} (Y - Y_n).$$</p>
+</li>
+<li><p>Let $\pi_{-1}$ be the lagged inflation. If $\pi^e = \pi_{-1}$, we obtain
+ $$\pi - \pi_{-1} = \frac{\alpha}{L} (Y - Y_n).$$</p>
+</li>
+<li><p>We transformed the Phillips curve into a relation between inflation and the output gap, using the production function. We call the inflation-output gap relation the Phillips curve as well.</p>
+</li>
+<li><p>When output gap is positive, inflation keeps increasing.</p>
+</li>
+<li>When output gap is negative, inflation keeps decreasing.</li>
+<li>When output gap is zero, inflation stays at a constant level.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="In-summary">In summary<a class="anchor-link" href="#In-summary">&#182;</a></h4><ul>
+<li><p>The IS-LM-PC model is a three-equation system</p>
+<ul>
+<li>The IS relation $Y = C(Y-T) + I(Y, i-\pi^e +x) + G$.</li>
+<li>The LM relation $i = \overline{i}$.</li>
+<li>The Phillips curve $\pi - \pi^e = \frac{\alpha}{L} (Y - Y_n)$.</li>
+</ul>
+</li>
+<li><p>We often focus on particular case: $\pi^e = \pi_{-1}$.</p>
+</li>
+<li><p>The model can be studied using diagrams, as on the next slide.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center><img src='blanchardchap09/pptimages/image6.png' width='400' height='20'/></center>
+<center><img src='blanchardchap09/pptimages/image7.png' width='400' height='20'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Dynamics-and-the-Medium-Run-Equilibrium">2. Dynamics and the Medium-Run Equilibrium<a class="anchor-link" href="#2.-Dynamics-and-the-Medium-Run-Equilibrium">&#182;</a></h3><h4 id="2-1.-Short-run-and-medium-run-equilibria">2-1. Short-run and medium-run equilibria<a class="anchor-link" href="#2-1.-Short-run-and-medium-run-equilibria">&#182;</a></h4><ul>
+<li>Suppose that real policy rate is at some level $r$ ($=i-\pi^e$, central bank chooses $i$). On the IS-LM panel, the equilibrium output level associated with the particular $r$ is $Y$. If, at the level $Y$, output gap is positive as shown in the lower diagram on the previous slide, then $(\pi - \pi_{-1})&gt;0$. Inflation is increasing.</li>
+<li>In this case, the economy is "overheating", putting pressure on inflation. This is a <em>short-run equilibrium</em>.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>We have omitted</strong> some details in the above analysis.</p>
+</li>
+<li><p>At some level of policy interest rate $r$, if output (and demand) is above the potential, then</p>
+<ul>
+<li>demand for labor is above some natural level, unemployment is below its natural rate.</li>
+<li>Producers have to offer a higher nominal wage to attract workers. Recall the function $F(u,z)$ in wage setting!</li>
+<li>Nominal wage will then rise, leading producers to raise the nominal output price.</li>
+<li>More than that, inflation can also rise. Think about the Phillips curve, $\pi - \pi_{-1} = -\alpha (u - u_n)$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>As time goes</strong>, if the policy rate $r$ does <em>not</em> change, nor do other variables affecting the IS curve, output remains above the potential and inflation <strong>keeps</strong> rising.</p>
+<ul>
+<li>It requires central bank to keep raising $i$ in order to keep $r$ unchanged, since $r = i-\pi_{-1}$. This is missing from the textbook.</li>
+<li>In fact, if central bank fixes the nominal policy rate at $i=\overline{i}$, real policy rate $r = \overline{i}-\pi_{-1}$ keeps falling since inflation keeps rising.</li>
+<li>A falling $r$ <em>amplifies</em> the "overheating", further speeding up the increase in inflation.</li>
+</ul>
+</li>
+<li><p><strong>At some point</strong>, central bank <em>will</em> react to the rising inflation by raising (or further raising) the nominal policy rate, the LM curve shifts up, output $Y$ can fall <strong>back to the potential level</strong>, no longer is there is a pressure on inflation. Inflation is then stabilized (, no longer changing). The <em>medium-run equilibrium</em> is reached, see the figure next page.</p>
+</li>
+<li><p>In the medium run, output will (tend to) be at the potential level, where inflation stays constant.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Medium-run output and inflation</strong></p>
+<center><img src='blanchardchap09/pptimages/image12.png' width='400' height='80'/></center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Real policy interest rate $r_n$ associated with the potential output $Y_n$ is called the <strong>natural interest rate</strong> or the <strong>neutral interest rate</strong>.</p>
+</li>
+<li><p>Dynamics to medium-run equilibrium. Can't the central bank fix the real policy rate at $r_n$? They wish, but cannot</p>
+<ul>
+<li>Potential output is unobserved. Central bank measures it, but often not sure how large exactly the output gap is.</li>
+<li>Changes in inflation provides a signal of the output gap, in fact a highly noisy signal.</li>
+<li>Also, production technology is $Y=N$. In reality, it is far more complicated, making it difficult to assess potential output.</li>
+<li>It takes time for the economy to respond to changes in monetary policy: both consumption and investment take time to adjust. Worse, there are likely new shocks to the economy while economy adjusts to policy change.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>Importantly</strong>, by the time the output comes back to its potential level (point $A'$ in the figure), inflation no longer increases, but is already at a <strong>higher level</strong> than in the initial equilibrium (point $A$).<ul>
+<li>Central bank wants both a <strong>stable</strong> inflation (not changing much over time) and a low <strong>level</strong> of inflation.</li>
+<li>To pull the inflation level back to an "acceptable" level, central bank first needs to set nominal poilicy rate such that $r&gt;r_n$, moving output to a level lower than the potential (point $C$ in the figure), then reduces $r$ to $r_n$.</li>
+<li>This <strong>over-shooting</strong> of policy rate causes a recession (in order to pull down the inflation).</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-2.--Role-of-expectations-revisited">2-2.  Role of expectations revisited<a class="anchor-link" href="#2-2.--Role-of-expectations-revisited">&#182;</a></h4><ul>
+<li><p>In the above, we assumed that $\pi_t^e = \pi_{t-1}$. What if instead $\pi_t^e = \overline{\pi}$? We have
+ $$\pi - \overline{\pi} = \frac{\alpha}{L} (Y - Y_n).$$</p>
+</li>
+<li><p>A positive output gap generates a <em>higher level</em> of inflation, rather than an <em>increase</em> in inflation.</p>
+</li>
+<li><p>To move the output to the potential level, there is no need for $r$ to go above $r_n$.</p>
+</li>
+<li><p>So long as inflation expectations remain <strong>anchored</strong> at $\overline{\pi}$, the central bank does not need to compensate for the initial boom by a recession later.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-3.-The-zero-lower-bound-and-deflation-spiral">2-3. The zero lower bound and deflation spiral<a class="anchor-link" href="#2-3.-The-zero-lower-bound-and-deflation-spiral">&#182;</a></h4><ul>
+<li><p>Monetary policy appears easy: to reduce the output gap, central bank changes real policy rate to $r_n$.</p>
+</li>
+<li><p>However, the zero lower bound constraint may make it impossible to achieve a negative real policy rate.</p>
+</li>
+<li><p>Consider one case: $\pi^e = \pi_{-1}$; the economy is in recession (point $A$ in the figure below); output is below the potential level; inflation is <em>declining</em>.</p>
+</li>
+<li><p>The central bank should reduce policy rate to the natural rate $r_n$, in this case, negative. This may not be feasible.</p>
+</li>
+<li><p>Suppose that the initial inflation is zero, the central bank can then reduce $r$ only down to 0%, achieving output $Y'$ which is below $Y_n$.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>$Y'&lt;Y_n$, inflation keeps declining, in fact, it is <strong>deflation</strong> since the initial inflation is zero.</p>
+</li>
+<li><p>If we continue to assume that $\pi^e = \pi_{-1}$, then $r$ keeps increasing even if $i$ remains zero. (Recall $r = i - \pi^e$)</p>
+</li>
+<li><p>Increases in $r$ lead to lower demand, hence lower output, which in turn leads to larger deflation, which in turn leads to further higher $r$ and further lower output, ...</p>
+</li>
+<li><p>Deflation spiral! The economy is trapped in deflation.</p>
+</li>
+<li><p>Output is going farther from $Y_n$, instead of converging to $Y_n$.</p>
+</li>
+<li><p>Once again, this scenario relies on the assumption $\pi^e = \pi_{-1}$. It is less likely to occur if inflation expectation is anchored ($\pi^e = \overline{\pi}$).</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Deflation spiral</strong></p>
+<center><img src='blanchardchap09/pptimages/image14.png' width='400' height='80'/></center>
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>

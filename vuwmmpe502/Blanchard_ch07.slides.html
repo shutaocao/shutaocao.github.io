@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch07 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,83 +13112,883 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch07.slides.html#/1">ch07</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch08.slides.html#/1">ch08</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartA.slides.html#/1">ch09</a></p>
-<p>Topic 3, week 4: <a href="https://shutaocao.github.io/vuwmmpe502/topic02_News.slides.html#/1">News</a></p>
+<p><img src="VUW_SEFLogo.png" width="600" height="60"/></p>
+<h3 id="MMPE502-Macroeconomics-in-the-Context"><center>MMPE502 Macroeconomics in the Context</center><a class="anchor-link" href="#MMPE502-Macroeconomics-in-the-Context">&#182;</a></h3><h4 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h4><h3 id="Topic-03,-Week-#4:-The-Labor-Market"><center>Topic 03, Week #4: The Labor Market</center><a class="anchor-link" href="#Topic-03,-Week-#4:-The-Labor-Market">&#182;</a></h3><h4 id="30-July-2019"><center>30 July 2019</center><a class="anchor-link" href="#30-July-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Review-of-the-Short-Run">Review of the Short Run<a class="anchor-link" href="#Review-of-the-Short-Run">&#182;</a></h3><ul>
+<li><p>The determination of output and the interest rate in the IS-LM model where, in the short run</p>
+<ul>
+<li>Producers supply any amount of demand, at a given price level.</li>
+</ul>
+</li>
+<li><p>We used the model to analyze the consequences of fiscal and monetary policies.</p>
+</li>
+<li><p>We also extended the IS-LM model to incorporate roles of financial intermediaries.</p>
+</li>
+<li><p>Largely, a demand-driven determination of output and interest rate.</p>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Supply-side-decisions-were-subdued.">Supply-side decisions were subdued.<a class="anchor-link" href="#Supply-side-decisions-were-subdued.">&#182;</a></h4><ul>
+<li><p>Producers were not allowed to have a less-than-full response to changes in demand</p>
+</li>
+<li><p>There was no decision on employment.</p>
+</li>
+<li><p>The price level was fixed. Producers could not adjust prices.</p>
+</li>
+</ul>
+
 </div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Relaxing-these-assumptions-leads-to-the-medium-run,-in-which-the-supply-side-plays-a-role:">Relaxing these assumptions leads to the <em>medium run</em>, in which the supply side plays a role:<a class="anchor-link" href="#Relaxing-these-assumptions-leads-to-the-medium-run,-in-which-the-supply-side-plays-a-role:">&#182;</a></h4><ul>
+<li><p>Prices and wages are adjusted.</p>
+</li>
+<li><p>Producers respond to demand, by adjusting the employment.</p>
+</li>
+<li><p>These adjustments in turn affect the output.</p>
+</li>
+<li><p>We start with the labor market.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Reading</strong>: Blanchard Chapter 7</p>
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>Facts of the labor market.</p>
+</li>
+<li><p>Unemployment.</p>
+</li>
+<li><p>Wage and price determination.</p>
+</li>
+<li><p>Equilibrium in the labor market.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Some-Facts-of-Labor-Market,-in-the-U.S.-and-New-Zealand">1. Some Facts of Labor Market, in the U.S. and New Zealand<a class="anchor-link" href="#1.-Some-Facts-of-Labor-Market,-in-the-U.S.-and-New-Zealand">&#182;</a></h3><ul>
+<li>The U.S., in 2014. Labor force participation rate, 62%; unemployment rate: 6.1%.<center><img src='blanchardchap07/pptimages/image4.png' width='400' height='80'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-1.-Worker-flows-in-the-U.S.">1-1. Worker flows in the U.S.<a class="anchor-link" href="#1-1.-Worker-flows-in-the-U.S.">&#182;</a></h4><ul>
+<li><p>The flows of workers in and out of <em>employment</em> are large. On average, in each month,</p>
+<ul>
+<li><p>8.2m separations (out of 139m employment pool).</p>
+<ul>
+<li>3/4 are <strong>quits</strong>; 1/4 are <strong>layoffs</strong>.</li>
+</ul>
+</li>
+<li><p>3.0m change jobs.</p>
+</li>
+<li><p>3.4m move from employment to out of the labor force.</p>
+</li>
+<li><p>1.8m move from employment to unemployment</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The flows in and out of <em>unemployment</em> are large (relative to the number of unemployed). On average, each month,</p>
+<ul>
+<li><p>3.9m out of unemployment, of which, 2m get a job; 1.9m stop searching for a job, drop out of labor force.</p>
+</li>
+<li><p>The average <strong>duration of unemployment</strong>, the average length of time people staying unemployed, is 2 to 3 months.</p>
+</li>
+</ul>
+</li>
+<li><p>The flows in and out the <em>labor force</em> are large. Each month,</p>
+<ul>
+<li>5.3m drop out of the labor force; 5.7m into the labor force. First-time entrants and retirees account for a tiny fraction of the in-out flow.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-2.-Recent-statistics-of-labor-market,-New-Zealand">1-2. Recent statistics of labor market, New Zealand<a class="anchor-link" href="#1-2.-Recent-statistics-of-labor-market,-New-Zealand">&#182;</a></h4><ul>
+<li><a href="http://nzdotstat.stats.govt.nz/wbos/Index.aspx?DataSetCode=TABLECODE7080">Household Labor Force Survey (HLFS)</a></li>
+</ul>
+<table>
+<thead><tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">Employed</th>
+<th style="text-align:center">Unemployed</th>
+<th style="text-align:center">Total LF</th>
+<th style="text-align:center">Working-age pop.</th>
+<th style="text-align:center">LF partic. rate</th>
+<th style="text-align:center">Empl. rate</th>
+<th>Unemp. rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2018-06</td>
+<td style="text-align:center">2631k</td>
+<td style="text-align:center">124.0k</td>
+<td style="text-align:center">2754.0k</td>
+<td style="text-align:center">3885.0k</td>
+<td style="text-align:center">70.9%</td>
+<td style="text-align:center">67.7%</td>
+<td>4.5%</td>
+</tr>
+<tr>
+<td style="text-align:center">2016-03</td>
+<td style="text-align:center">2409k</td>
+<td style="text-align:center">152.3k</td>
+<td style="text-align:center">2561.3k</td>
+<td style="text-align:center">3684.2k</td>
+<td style="text-align:center">69.5%</td>
+<td style="text-align:center">65.4%</td>
+<td>5.9%</td>
+</tr>
+<tr>
+<td style="text-align:center">2009-12</td>
+<td style="text-align:center">2155k</td>
+<td style="text-align:center">157.4k</td>
+<td style="text-align:center">2312.8k</td>
+<td style="text-align:center">3372.0k</td>
+<td style="text-align:center">68.6%</td>
+<td style="text-align:center">63.9%</td>
+<td>6.8%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Worker flows, in March 2017. Data source: <a href="http://nzdotstat.stats.govt.nz/wbos/Index.aspx?DataSetCode=TABLECODE7001">LEED (Linked Employer-Employee Data)</a>.<ul>
+<li>Worker turnover rate = (separation + hires)/total jobs: 16.0%.</li>
+<li>Separations (340k) slightly more than hires.</li>
+<li>Job turnover rate = (job creation + job destruction)/total jobs: 15.3%.</li>
+<li>Job creation (by growing businesses): 139.6k; job destruction (by declining businesses): 169.6k.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Movements-in-Unemployment">2. Movements in Unemployment<a class="anchor-link" href="#2.-Movements-in-Unemployment">&#182;</a></h3><ul>
+<li>Unemployment rate in New Zealand and the U.S.</li>
+<li>Higher unemployment in recessions, lower unemployment in expansions.<center><img src='blanchardchap02/pptimages/unemploymentUSNZ.png' width='680' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>When unemployment rate is higher, fraction of unemployed finding a job is smaller. Figure is for the U.S.</li>
+</ul>
+<center><img src='blanchardchap07/pptimages/image10.png' width='600' height='60'/></center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="s1">&#39;New Zealand&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;table&gt;&lt;tr&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap07/flowutoeNZ.gif&#39; width=&#39;400&#39; height=&#39;30&#39;/&gt;&lt;/td&gt;&lt;td&gt;&lt;img src=&#39;blanchardchap07/unempNZannual.png&#39; width=&#39;500&#39; height=&#39;60&#39;/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+
     </div>
-  </div>
-</body>
+</div>
+</div>
 
- 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>&#39;New Zealand&#39;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table><tr><td><img src='blanchardchap07/flowutoeNZ.gif' width='400' height='30'/></td><td><img src='blanchardchap07/unempNZannual.png' width='500' height='60'/></td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>High unemployment is associated with high separation. Figure is for the U.S.<center><img src='blanchardchap07/pptimages/image13.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Wage-Determination">3. Wage Determination<a class="anchor-link" href="#3.-Wage-Determination">&#182;</a></h3><h4 id="3-1.-Theories-of-wage-setting">3-1. Theories of wage setting<a class="anchor-link" href="#3-1.-Theories-of-wage-setting">&#182;</a></h4><ul>
+<li><p>Wage can be set by <em>collective bargaining</em> between unions and employers.</p>
+<ul>
+<li><p>In the U.S., slightly more than 10% of U.S. workers, whose wages are set by collective bargaining.</p>
+</li>
+<li><p>In New Zealand, <a href="http://www.stats.govt.nz/browse_for_stats/income-and-work/employment_and_unemployment/improving-labour-market-statistics/union-memship-emplymt-agmt.aspx#union">20% of employees belong to unions</a> in 2016Q2, according to HLFS.</p>
+</li>
+</ul>
+</li>
+<li><p><em>Individual bargaining</em>. Take-it-or-leave-it.</p>
+</li>
+<li><p>Specific ways of wage setting depend on</p>
+<ul>
+<li>the nature of jobs and required skills, e.g., skilled versus unskilled, cognitive versus routine.</li>
+<li>labor-market institutions (e.g., employment protection laws).</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Two common factors at work in wage determination</p>
+<ul>
+<li><p><strong>Reservation wage</strong>: the wage that would make a worker indifferent between working and not working.</p>
+</li>
+<li><p>The labor market condition. The lower the unemployment rate, the higher the wages.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Wage bargaining theory</strong>. A worker's bargaining power depends on:</p>
+<ul>
+<li><p>The nature of the job. How costly for a firm to replace workers.</p>
+</li>
+<li><p>The labor market condition (e.g., unemployment rate). How easy for a worker to find another job if he/she is to leave the current job.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Efficiency wage theories</strong> link the productivity or the efficiency of workers to wage.</p>
+<ul>
+<li>Firms may want to pay a wage above the reservation wage in order to reduce workers’ turnover and increase productivity. Think about a job requiring intensive training.</li>
+</ul>
+<ul>
+<li><p>Firms that see employee morale and commitment as essential to the quality of workers’ work will pay more than those whose activities are routine.</p>
+</li>
+<li><p>Labor market conditions affect wage. When unemployment is low, firms want to avoid an increase in quits, so will increase wages to retain workers.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-2.-Wage,-price,-and-unemployment">3-2. Wage, price, and unemployment<a class="anchor-link" href="#3-2.-Wage,-price,-and-unemployment">&#182;</a></h4><ul>
+<li>Pooling together the above theories, the aggregate nominal wage can be determined as follows
+ $$ \large W = P^e F(u,z).$$<ul>
+<li>$P^e$ is the expected price level.</li>
+<li>$u$ is the unemployment rate. $F(u,z)$ decreases as $u$ rises.</li>
+<li>$z$ is a capture-the-rest variable. Assume that, as $z$ increases, so does $F(u,z)$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Expected price level</strong></p>
+<ul>
+<li><p>Price level affects nominal wage, because both employers and workers care about the <em>real</em> wage.</p>
+</li>
+<li><p>The nominal wage depends on the <em>expected</em> price level $P^e$ because when nominal wages are set, the relevant price level is not yet known.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Unemployment rate</strong></p>
+<ul>
+<li>An increase in the unemployment rate decreases wages.<ul>
+<li>Higher unemployment ($u$) either weakens the worker’s bargaining power, or allows firms to pay a lower wage at which the worker is still willing to work.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Other factors</strong></p>
+<ul>
+<li><p>$z$ stands for all other factors, given $P^e$ and $u$. For example:</p>
+<ul>
+<li><p><strong>Unemployment insurance</strong> as the payment of unemployment benefits to workers who lose their jobs. Without it, a worker may be willing to work at a very low wage.</p>
+</li>
+<li><p><strong>Minimum wage</strong>.</p>
+</li>
+<li><p>More stringent <strong>employment protection</strong> laws may make it more expensive for firms to lay off workers, raising the workers' bargaining power.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Note</strong>, these factors affect wages, <strong>given</strong> an unemployment rate. But these factors will affect unemployment in equilibrium. It will be clear shortly.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Price-Determination">4. Price Determination<a class="anchor-link" href="#4.-Price-Determination">&#182;</a></h3><ul>
+<li><p>The output price is set by producers, it depends on market power and production technology.</p>
+</li>
+<li><p>Assume that production requires one factor, labor, and production technology is $Y = A \cdot N$.</p>
+<ul>
+<li>$Y$ is the real output, $A$ is the <strong>labor productivity</strong>, $N$ is the employment.</li>
+<li>For now, we set $A=1$, as we do not focus on its role.</li>
+<li>These assumptions appear strong, but capture well the reality.</li>
+</ul>
+</li>
+<li><p>Then, the <strong>marginal cost</strong> of production is $W$, the wage paid to workers.</p>
+<ul>
+<li>Marginal cost of production is the cost of producing an additional unit of output.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>If there is <strong>perfect competition</strong> in goods market, production is carried at a level at which output price equals the marginal cost:</p>
+<ul>
+<li>$P=W$, a result of the assumed production technology.</li>
+</ul>
+</li>
+<li><p>Many goods markets are imperfectly competitive, firms charge a price higher than marginal cost, as follows
+ $$ P = (1+m) W.$$</p>
+<ul>
+<li>$m$ is the <strong>markup</strong> of the price over the marginal cost, $m \ge 0$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Proof-of-the-price-setting,-the-simple-case.-(Optional)">Proof of the price setting, the simple case. (Optional)<a class="anchor-link" href="#Proof-of-the-price-setting,-the-simple-case.-(Optional)">&#182;</a></h4><p>Suppose the demand for output is $D = P^{-\frac{1}{m} - 1}$. Producer has market power, hence it can determine the price. Producer chooses price $P$ to maximize its profit: $P \cdot D - W \cdot N$. Producer produces $D$ amount, that is, $D=Y = N$. Profit can then be written as
+$$(P - W)\cdot P^{-\frac{1}{m} - 1}.$$
+The optimal price $P$ is given by setting to zero the derivative of profit with respect to $P$. That is, $P^{-\frac{1}{m} - 1} + (P-W) (-\frac{1}{m} - 1) P^{-\frac{1}{m}-2}=0$, solving this equation for $P$ gives $P = (1+m)W$. Often, we calso call $(1+m)$ the markup.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-The-Natural-Rate-of-Unemployment">5. The Natural Rate of Unemployment<a class="anchor-link" href="#5.-The-Natural-Rate-of-Unemployment">&#182;</a></h3><ul>
+<li>Wage setting and price setting jointly determine the equilibrium rate of unemployment.</li>
+<li>When $P^e = P$, the equilibrium rate of unemployment is called the <strong>natural rate of unemployment</strong>.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-1.-The-wage-setting-relation">5-1. The wage-setting relation<a class="anchor-link" href="#5-1.-The-wage-setting-relation">&#182;</a></h4><ul>
+<li>Assume <strong>that the expected price level equals actual price level</strong>, that is, $P^e=P$.</li>
+<li>Real wage is then $\frac{W}{P} = F(u,z)$, which is called the <strong>wage-setting (WS) relation</strong>.<ul>
+<li>A negative relation between the real wage and the rate of unemployment.</li>
+<li>Price $P$ is given in this relation.</li>
+<li>The higher the unemployment, the lower the real wage. How? Lower worker bargaining power, or adverse economic condition.</li>
+</ul>
+</li>
+<li>The wage-setting relation is similar to but not the same as a "labor supply" relation.<ul>
+<li>"Labor supply" relation is usually studied in terms of <em>employment</em>, not <em>unemployment</em>.</li>
+<li>For a given labor force, high employment is equivalent to low unemployment, since $L = U + N$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-2.-The-price-setting-relation">5-2. The price-setting relation<a class="anchor-link" href="#5-2.-The-price-setting-relation">&#182;</a></h4><ul>
+<li><p>Price to wage ratio equals 1 plus the markup: $\frac{P}{W} = 1 + m$.</p>
+</li>
+<li><p>Re-writing it as $\frac{W}{P} = \frac{1}{1 + m}$: this is the <strong>price-setting (PS) relation</strong>.</p>
+</li>
+<li><p><strong>Interpretation</strong>: Given a nominal wage, an increase in markup leads the producer to raise the price level, which in turn reduces the real wage.</p>
+</li>
+<li><p>The price-setting relation is similar to but not the same as a "labor demand" relation.</p>
+<ul>
+<li>After producer chooses $P$, the demand for output is determined, so is the production.</li>
+<li>This in turn determines the demand for labor (since production requires labor, recall, $Y=N$).</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-3.-The-natural-rate-of-unemployment">5-3. The natural rate of unemployment<a class="anchor-link" href="#5-3.-The-natural-rate-of-unemployment">&#182;</a></h4><ul>
+<li><p><strong>Equilibrium in the labor market requires: real wage <em>chosen</em> in wage setting equals real wage <em>implied</em> by price setting</strong>.</p>
+</li>
+<li><p>The equilibrium unemployment rate, $u_n$, is <em>determined</em> from the two relations</p>
+<ul>
+<li>$\frac{W}{P} = F(u,z)$ and $\frac{W}{P} = \frac{1}{1 + m}$.</li>
+</ul>
+</li>
+<li><p>This implies that, the equilibrium unemployment rate $u_n$ is such that $F(u_n,z) = \frac{1}{1+m}$.</p>
+<ul>
+<li>$u_n$ is also called the <strong>natural rate of unemployment</strong> or the structural rate of unemployment.</li>
+<li>$u_n$ depends on $z$ and $m$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Natural rate of unemployment.<center><img src='blanchardchap07/pptimages/image20.png' width='600' height='40'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>An increase in unemployment benefits, represented by an increase in $z$, shifts the WS relation upward, leading to an increase in the equilibrium rate of unemployment.</li>
+<li>A higher unemployment rate brings back the higher real wage (due to upward shifting WS relation) to the level the producers are willing to pay.<center><img src='blanchardchap07/pptimages/image24.png' width='600' height='30'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>An increase in markup $m$, say due to less stringent enforcement of antitrust laws, leads to<ul>
+<li>a decrease in the real wage (due to higher price); and an increase in the natural rate of unemployment.<center><img src='blanchardchap07/pptimages/image25.png' width='600' height='40'/></center></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.-Some-clarifications">6. Some clarifications<a class="anchor-link" href="#6.-Some-clarifications">&#182;</a></h3><ul>
+<li><p>For a given labor force, unemployment rate determines the level of employment, which in turn determines the level of output (in production function).</p>
+<ul>
+<li>Labor force being given or fixed in short run and medium run is a reasonable assumption.</li>
+</ul>
+</li>
+<li><p>Therefore, associated with the natural rate of unemployment is a <strong>natural level of output</strong>. Two assumptions are needed:</p>
+<ul>
+<li>Equilibrium in the labor market;</li>
+<li>Expected price level equals actual price level.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Looking-ahead">Looking ahead<a class="anchor-link" href="#Looking-ahead">&#182;</a></h3><ul>
+<li><p>In the short run (as in Chapters 3, 4, 5, 6), factors that determine movements of output are monetary and fiscal policies, through the aggregate demand.</p>
+<ul>
+<li>Price level likely differs from the expected price level, suggesting that unemployment is unlikely to be at the nature rate.</li>
+</ul>
+</li>
+<li><p>In the medium run (as in Chapter 7, 8, 9), output tends to return to the natural level, affected by factors of determining the unemployment (e.g., $m$ and $z$ in WS and PS relations).</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
+</body>
 
 
 </html>
