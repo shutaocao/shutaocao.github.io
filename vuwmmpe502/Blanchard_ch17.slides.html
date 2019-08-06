@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch17 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,88 +13112,718 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch07.slides.html#/1">ch07</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch08.slides.html#/1">ch08</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartA.slides.html#/1">ch09 A</a></p>
-<p>Topic 3, week 4: <a href="https://shutaocao.github.io/vuwmmpe502/topic02_News.slides.html#/1">News</a></p>
-<p>Topic 3, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartB.slides.html#/1">ch09 B</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch23.slides.html#/1">ch23</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch17.slides.html#/1">ch17</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch18.slides.html#/1">ch18</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch19.slides.html#/1">ch19</a></p>
+<p><img src="VUW_SEFLogo.png" width="600" height="60"/></p>
+<h2 id="MMPE502-Macroeconomics-in-Context"><center>MMPE502 Macroeconomics in Context</center><a class="anchor-link" href="#MMPE502-Macroeconomics-in-Context">&#182;</a></h2><h3 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="Topic-4,-Week-#5:-Openness-in-Goods-and-Financial-Markets"><center>Topic 4, Week #5: Openness in Goods and Financial Markets</center><a class="anchor-link" href="#Topic-4,-Week-#5:-Openness-in-Goods-and-Financial-Markets">&#182;</a></h3><h4 id="6-August-2019"><center>6 August 2019</center><a class="anchor-link" href="#6-August-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Open-Economy">Open Economy<a class="anchor-link" href="#Open-Economy">&#182;</a></h3><ul>
+<li><p>"Closed economy" is rather an assumption, not a reality.</p>
+<ul>
+<li>The 2008/2009 financial crisis in the U.S. has impacted many other countries.</li>
+</ul>
+</li>
+<li><p>Markets are connected across countries.</p>
+<ul>
+<li><p>The goods market: exports and imports of consumption and investment goods.</p>
+</li>
+<li><p>Financial markets: transactions of foreign versus domestic assets. About 30% of the U.S. government debt is owned by foreign countries (China, Japan, etc.).</p>
+</li>
+<li><p>Factor markets: global production; intermediate inputs; immigration.</p>
+</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Global production: Boeing 787 Dreamliner, source: Antras (2015)
+<img src="blanchardchap17/AntrasBookFig.png" width="800" height="60"/></p>
+
 </div>
-    </div>
-  </div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>Openness in the goods market and financial markets.</p>
+</li>
+<li><p>Exchange rates.</p>
+</li>
+</ul>
+<p><strong>Readings</strong>: Blanchard Chapter 17.</p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Openness-in-Goods-Markets">1. Openness in Goods Markets<a class="anchor-link" href="#1.-Openness-in-Goods-Markets">&#182;</a></h3><h4 id="1-1.-Exports-and-imports-in-the-U.S.">1-1. Exports and imports in the U.S.<a class="anchor-link" href="#1-1.-Exports-and-imports-in-the-U.S.">&#182;</a></h4><ul>
+<li><p>The U.S. economy becomes more open over time.</p>
+<ul>
+<li>Exports account for 13.5% of GDP; imports to GDP ratio is 16.5%.</li>
+</ul>
+</li>
+<li><p>The U.S. has been in <strong>trade deficit</strong> since mid-1980s. (China's economic reform started in 1980/1981.)</p>
+</li>
+<li><p><strong>Tradable goods</strong> represent 60% of aggregate output in the U.S.</p>
+<ul>
+<li>These goods compete in international markets.</li>
+<li>A better index of openness is the ratio of exports over the portion of GDP by tradable goods.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap17/pptimages/image6.png" width="600" height="60"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Exports to GDP ratio is fairly low in the U.S., relative other OECD countries (shown in the table, 2014 data).
+<img src="blanchardchap17/pptimages/image8.png" width="600" height="70"/></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap17/NZtradeGDP.png" width="800" height="80"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Factors determining the exports-to-GDP ratio</strong></p>
+<ul>
+<li><p>Real exchange rate.</p>
+</li>
+<li><p>Productivity/efficiency.</p>
+</li>
+<li><p>Geographical distances between countries.</p>
+</li>
+<li><p>Country size.</p>
+</li>
+<li><p>Policy, e.g., tariffs.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-2.-Exchange-rates">1-2. Exchange rates<a class="anchor-link" href="#1-2.-Exchange-rates">&#182;</a></h4><ul>
+<li><p>In an open economy, consumers decide not only how much to consume, but also the split between domestic and foreign goods.</p>
+<ul>
+<li>The trade-off is mostly determined by the <strong>Real exchange rate (RER)</strong>, the price of domestic goods relative to that of foreign goods.</li>
+<li>Real exchange rate is unobserved.</li>
+</ul>
+</li>
+<li><p>Observed is the <strong>nominal exchange rate (NER)</strong>, the price of domestic currency in terms of foreign currency.</p>
+<ul>
+<li>Currently, 1 NZD = 0.66 USD. NZD is domestic currency.</li>
+<li>Nominal exchange rate is determined in <em>foreign exchange markets</em>.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Appreciation</strong> of domestic currency: an increase in the price of domestic currency in terms of foreign currency.</p>
+<ul>
+<li>An appreciation means an increase in nominal exchange rate.</li>
+</ul>
+</li>
+<li><p><strong>Depreciation</strong> of the domestic currency: corresponds to a decrease in nominal exchange rate.</p>
+<ul>
+<li>Recently, NZD has been depreciating relative to USD since April 2018.</li>
+</ul>
+</li>
+<li><p><strong>Devaluation</strong> and <strong>revaluation</strong>. Under fixed-exchange-rate system, increases in nominal exchange rate are called <strong>revaluations</strong>; decreases in nominal exchange rate are called <strong>devaluations</strong>.</p>
+<ul>
+<li>Fixed exchange rates: a system in which <em>two or more</em> countries maintain a constant nominal exchange rate between their currencies.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-3.-Calculating-the-real-exchange-rate">1-3. Calculating the real exchange rate<a class="anchor-link" href="#1-3.-Calculating-the-real-exchange-rate">&#182;</a></h4><ul>
+<li>Let $P$ be the GDP deflator in home country (denoted in domestic currency).</li>
+<li>Let $P^*$ be the GDP deflator in foreign country (denoted in foreign currency).</li>
+<li><p>Let $E$ be the domestic-foreign nominal exchange rate.</p>
+</li>
+<li><p><strong>Real exchange rate (RER)</strong>, the price of domestic goods in terms of the price of foreign goods is given by
+$$ \varepsilon = E \cdot\frac{P}{P^*}.$$</p>
+</li>
+<li><p>$P$ and $P^*$ are <strong>index numbers</strong>, so is the real exchange rate. The level of RER has no significant meaning.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>An increase in RER is called <strong>real appreciation</strong>; a decrease in RER is called <strong>real depreciation</strong>.</p>
+</li>
+<li><p>Real and nominal exchange rates can move in opposite directions.</p>
+</li>
+<li><p>Real exchange rate fluctuates, mainly driven by nominal exchange rate. $P/P^*$ moves slowly and by small amounts.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Illustrative example</strong>: Suppose that nominal exchange rate of NZD is $E=0.66$USD per one USD. Suppose New Zealand produces only Whittaker's chocolate and the U.S. produces only Wilson footballs.</p>
+<ul>
+<li>Price of a pack of Whittaker’s chocolate is $P=30$NZD in New Zealand.</li>
+<li>Price of a Wilson football is $P^* = 15$USD in U.S.</li>
+<li>Real exchange rate (between New Zealand and U.S.) is $\varepsilon = EP/P^* = \frac{0.66 \cdot 30}{15} = 1.32$.</li>
+<li>This is the price of a pack of Whittaker's chocolate in terms of Wilson footballs. A pack of chocolate is 32% more expensive than a football.</li>
+<li>In other words, A chocolate pack can exchange for 1.32 footballs.</li>
+</ul>
+</li>
+<li><p>In actual data, GDP deflators are used as prices to calculate RER, as GDP deflator is the implicit price of goods produced in a country.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Nominal versus Real Exchange Rate: USD-Pound</strong></p>
+<center><img src='blanchardchap17/pptimages/image13.png' width='600' height='60'/></center>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-4.-Multilateral-exchange-rate">1-4. Multilateral exchange rate<a class="anchor-link" href="#1-4.-Multilateral-exchange-rate">&#182;</a></h4><ul>
+<li>Multilateral nominal exchange rate: the price of domestic currency in terms of a weighted sum of prices of foreign currencies.<ul>
+<li>Weights are related to the composition of trade.</li>
+</ul>
+</li>
+<li>Multilateral real exchange rate: the price of domestic goods in terms of a weighted sum of prices of foreign goods.<ul>
+<li>Also called trade-weighted real exchange rate, or <strong>effective exchange rate</strong>.</li>
+</ul>
+</li>
+<li>The Country Composition of U.S. Exports and Imports, 2014<center><img src='blanchardchap17/pptimages/image15.png' width='600' height='40'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The U.S. multilateral real exchange rate.<center><img src='blanchardchap17/pptimages/image17.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center><img src='blanchardchap17/NZrer.png' width='800' height='60'/></center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Openness-in-Financial-Markets.">2. Openness in Financial Markets.<a class="anchor-link" href="#2.-Openness-in-Financial-Markets.">&#182;</a></h3><ul>
+<li><p><strong>Foreign exchange</strong>: buying and selling foreign currencies.</p>
+<ul>
+<li>Foreign exchange transactions has been growing fast.</li>
+</ul>
+</li>
+<li><p>Openness in financial markets allows a country to run a trade surplus or deficit.</p>
+<ul>
+<li>A country's trade deficit is paid by borrowing from foreign countries.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-1.-Balance-of-payments">2-1. Balance of payments<a class="anchor-link" href="#2-1.-Balance-of-payments">&#182;</a></h4><ul>
+<li><p><strong>Balance of payments</strong> is a set of accounts summarizing a country's transactions with the rest of the world.</p>
+<ul>
+<li>Current account and capital account.</li>
+</ul>
+</li>
+<li><p><strong>Current account</strong>: payments to and from the rest of the world.</p>
+<ul>
+<li>Trade balances = Exports - Imports.</li>
+<li>Net income = Income received - Income paid. E.g., income of domestic residents from holding foreign assets, income of foreign residents from holding domestic assets.</li>
+<li>Net transfer received. E.g., foreign aid.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The U.S. Balance of Payments, 2014, in Billions of U.S. Dollars<center><img src='blanchardchap17/pptimages/image18.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><em>Current account balance</em>: the sum of net payments to and from the rest of the world.</p>
+<ul>
+<li><p>Current account surplus, if <em>positive</em> net payments <em>from</em> the rest of the world.</p>
+</li>
+<li><p>Current account deficit, if <em>negative</em> net payments <em>from</em> the rest of the world.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Capital account</strong>: records net foreign holdings of domestic assets.</p>
+<ul>
+<li><p><strong>Net capital flows</strong> or <strong>capital account balance</strong>: the increase in foreign holdings of domestic assets minus the increase in domestic holdings of foreign assets).</p>
+</li>
+<li><p>Capital account surplus: positive net capital flows.</p>
+</li>
+<li><p>Capital account deficit: negative net capital flows.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>In principle, net capital flows (equivalently, the capital account surplus) should equal the current account deficit.</p>
+<ul>
+<li>In practice, they do not.</li>
+</ul>
+</li>
+<li><p><strong>Statistical discrepancy</strong>: the difference between current account and capital account balances, due to</p>
+<ul>
+<li>Measurement error: different data sources in constructing the accounts;</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>GDP versus GNP</strong></p>
+<ul>
+<li><p>GDP measures value added domestically: domestic income from domestic production.</p>
+<ul>
+<li>some income from domestic production may go to foreigners.</li>
+</ul>
+</li>
+<li><p>Gross national product (GNP) measures the value added by domestic factors of production
+$$ GNP = GDP + NI.$$</p>
+<ul>
+<li>$NI$ is the net income: income of domestic residents received from the rest of the world less income paid to the rest of the world.</li>
+<li>In most countries, difference between GDP and GNP is small.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-2.-The-choice-between-domestic-and-foreign-assets">2-2. The choice between domestic and foreign assets<a class="anchor-link" href="#2-2.-The-choice-between-domestic-and-foreign-assets">&#182;</a></h4><ul>
+<li>Foreign currencies cannot be used for transactions in home country.<ul>
+<li>Holding them as an asset is less desirable than holding foreign bonds.</li>
+</ul>
+</li>
+<li>Consider a U.S. investor’s decision between holding U.S. (domestic) one-year bonds and U.K. (foreign) one-year bonds.</li>
+<li>Expected returns of holding domestic and foreign bonds. Ignore differences in risk, for now.<center><img src='blanchardchap17/pptimages/image20.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Arbitrage implies that
+$$(1+i_t) = (1+i_t^*) \frac{E_t}{E_{t+1}^e}.$$<ul>
+<li>This equation is the <strong>uncovered interest parity relation</strong>, or <strong>interest parity condition</strong>.</li>
+</ul>
+</li>
+<li><p>The relation abstracts from transaction costs and risks.</p>
+</li>
+<li><p>This above relation can be approximated as
+$$i_t \approx i_t^* - \frac{E_{t+1}^e - E_t}{E_t}.$$</p>
+</li>
+<li>It says: Arbitrage by investors implies that the domestic interest rate must equal the foreign interest rate minus the expected appreciation rate of the domestic currency.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>(Optional) There is also a covered interest parity condition based on choices</p>
+<p>1) buy and hold U.S. bonds for one year.</p>
+<p>2) buy pounds today, buy one-year U.K. bonds with pounds, and agree to sell the pounds for U.S. dollars a year ahead at a predetermined price (called forward exchange rate).</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Three-Month Nominal Interest Rates in the United States and in the United Kingdom<center><img src='blanchardchap17/pptimages/image27.png' width='600' height='60'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>10-year government bonds yields, nominal.<center><img src='blanchardchap17/nzUSbonds.png' width='600' height='40'/></center></li>
+</ul>
+
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>

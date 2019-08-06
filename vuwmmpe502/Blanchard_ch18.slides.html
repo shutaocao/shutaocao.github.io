@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch18 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,88 +13112,772 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch07.slides.html#/1">ch07</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch08.slides.html#/1">ch08</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartA.slides.html#/1">ch09 A</a></p>
-<p>Topic 3, week 4: <a href="https://shutaocao.github.io/vuwmmpe502/topic02_News.slides.html#/1">News</a></p>
-<p>Topic 3, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartB.slides.html#/1">ch09 B</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch23.slides.html#/1">ch23</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch17.slides.html#/1">ch17</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch18.slides.html#/1">ch18</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch19.slides.html#/1">ch19</a></p>
+<p><img src="VUW_SEFLogo.png" width="600" height="60"/></p>
+<h2 id="MMPE502-Macroeconomics-in-Context"><center>MMPE502 Macroeconomics in Context</center><a class="anchor-link" href="#MMPE502-Macroeconomics-in-Context">&#182;</a></h2><h3 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="Topic-4,-Week-#5:-The-Goods-Market-in-an-Open-Economy"><center>Topic 4, Week #5: The Goods Market in an Open Economy</center><a class="anchor-link" href="#Topic-4,-Week-#5:-The-Goods-Market-in-an-Open-Economy">&#182;</a></h3><h4 id="6-August-2019"><center>6 August 2019</center><a class="anchor-link" href="#6-August-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Readings</strong>: Blanchard Chapter 18</p>
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>Equilibrium in the goods market in an open economy.</p>
+</li>
+<li><p>Effects of changes in exchange rates.</p>
+</li>
+<li><p>Current account balance.</p>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-The-IS-Relation-in-an-Open-Economy">1. The IS Relation in an Open Economy<a class="anchor-link" href="#1.-The-IS-Relation-in-an-Open-Economy">&#182;</a></h3><ul>
+<li>A similar analysis/model as in an closed economy, taking into account exports and imports.</li>
+</ul>
+<h4 id="1-1.-Demand-for-$\color{red}{\textbf{domestic}}$-goods">1-1. Demand for $\color{red}{\textbf{domestic}}$ goods<a class="anchor-link" href="#1-1.-Demand-for-$\color{red}{\textbf{domestic}}$-goods">&#182;</a></h4><ul>
+<li>In open economy, we need to know demand by whom for which goods.</li>
+<li>The (total) demand for domestic goods is
+$$Z = C + I + G - IM/\varepsilon + X.$$<ul>
+<li>$C+I+G$ constitutes the total <strong>domestic demand for goods</strong>, domestic and foreign.</li>
+<li>$IM/\varepsilon$ is the value of imported goods priced in terms of domestic goods; $1/\varepsilon$ is the price of foreign goods in terms of domestic goods.</li>
+<li>$X$ is the exports (priced in terms of domestic goods), the <strong>foreign demand for domestic goods</strong>.</li>
+<li>Why must we subtract imports in the total demand?</li>
+</ul>
+</li>
+</ul>
+
 </div>
-    </div>
-  </div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><em>Domestic demand for goods</em> is given by $C+I+G = C(Y-T)+I(Y,r) + G$.<ul>
+<li>It is assumed to be unaffected by the real exchange rate, although the composition of domestic demand is.<ul>
+<li><em>This implies that when $\varepsilon$ changes, it only affects the composition of consumption, not the total consumption. Similar, for investment.</em></li>
+</ul>
+</li>
+<li>Note also that net income from abroad $NI$ does not affect $C$ and $I$, for simplicity.</li>
+</ul>
+</li>
+<li><p><em>Imports</em> depend on income and real exchange rate: $IM = IM(Y,\varepsilon)$.</p>
+<ul>
+<li><p>Given $\varepsilon$, a higher income leads to a higher demand for imports.</p>
+</li>
+<li><p>Given $Y$, a higher real exchange rate leads to higher imports.</p>
+</li>
+<li><p>When $\varepsilon$ changes, the effect on the <em>value</em> of imports, $IM/\varepsilon$, is ambiguous.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><em>Exports</em> are determined by foreign income and the real exchange rate: $X = X(Y^*, \varepsilon)$.</p>
+<ul>
+<li><p>The higher $Y^*$, the higher the exports.</p>
+</li>
+<li><p>The larger the real exchange rate, the <em>lower</em> the exports.</p>
+</li>
+</ul>
+</li>
+<li><p>To clarify different terms:</p>
+<ul>
+<li><p>(Total) demand for domestic goods: $Z= C+I + G - IM/\varepsilon + X$.</p>
+</li>
+<li><p>Domestic demand for domestic goods: $C+I+G - IM/\varepsilon$.</p>
+</li>
+<li><p>Foreign demand for domestic goods: $X$.</p>
+</li>
+<li><p>Domestic demand for goods: $C+I+G$, domestic and foreign.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Putting together all components, we obtain the <em>demand for domestic goods</em>, see figures below.</p>
+<ul>
+<li><p>First, draw domestic demand (for goods), $C+I+G$, line $DD$. (Recall, it is flatter than the 45-degree line)</p>
+</li>
+<li><p>Second, draw domestic demand for domestic goods, $C+I+G-IM/\varepsilon$, line $AA$:</p>
+<ul>
+<li>Subtracting the value of imports $IM/\varepsilon$ from domestic demand.</li>
+</ul>
+</li>
+<li><p>Third, add exports $X$ to the domestic demand for domestic goods, we get $ZZ$.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap18/pptimages/image8.png" width="700" height="70"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Assumptions (or facts?):</p>
+<ul>
+<li><p>Line $AA$ is flatter than line $DD$: as income (output) increases, the domestic demand for domestic goods increases less than total domestic demand.</p>
+</li>
+<li><p>This is because imports ($IM$) increases with income.</p>
+</li>
+</ul>
+</li>
+<li><p>Exports do not depend on domestic income, thus $ZZ$ and $AA$ are parallel.</p>
+</li>
+<li><p>Trade balance is $NX = (X - IM/\varepsilon)$ = vertical distance between line $ZZ$ and line $DD$.</p>
+<ul>
+<li>As income (output) increases, imports rise but exports are unaffected, at some point leading to trade deficit.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1-2.-Equilibrium-output-and-the-trade-balance">1-2. Equilibrium output and the trade balance<a class="anchor-link" href="#1-2.-Equilibrium-output-and-the-trade-balance">&#182;</a></h4><ul>
+<li>The goods market is in equilibrium when <strong>domestic output equals the demand for domestic goods</strong>, $Y=Z$. Or
+$$Y = C(Y-T) + I(Y,r)+G - IM(Y,\varepsilon)+X(Y^*,\varepsilon).$$</li>
+<li><p>Solving the above condition gives the equilibrium $Y$,</p>
+<ul>
+<li>taking as given variables $T, r, G, \varepsilon$, and $Y^*$.</li>
+</ul>
+</li>
+<li><p>In equilibrium, the trade balance can be either surplus or deficit.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap18/pptimages/image10.png" width="380" height="40"/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Changes-in-Demand">2. Changes in Demand<a class="anchor-link" href="#2.-Changes-in-Demand">&#182;</a></h3><ul>
+<li>How does the equilibrium output change as other variables (e.g., $G$, $Y^*$) change.</li>
+</ul>
+<h4 id="2-1.-Effects-of-increased-government-spending.">2-1. Effects of increased government spending.<a class="anchor-link" href="#2-1.-Effects-of-increased-government-spending.">&#182;</a></h4><ul>
+<li><p>Suppose government increases its spending by $\Delta G$.</p>
+</li>
+<li><p>Demand curve $ZZ$ shifts upward, to $ZZ'$, see the figure next page.</p>
+</li>
+<li><p>The equilibrium output increases from $Y$ (point $A$) to $Y'$ (point $A'$).</p>
+<ul>
+<li>Note the multiplier effect: change in output, $\Delta Y$, is larger than $\Delta G$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap18/pptimages/image11.png" width="380" height="40"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Change in $G$ does not affect directly affect next export $(X(Y^*,\varepsilon) - IM(Y,r)/\varepsilon)$.<ul>
+<li>the relation between $NX$ and $Y$ does not shift.</li>
+</ul>
+</li>
+<li>After output increases to $Y'$, imports also increase, while exports are unchanged.<ul>
+<li>Trade balance drops, there is a trade deficit.</li>
+</ul>
+</li>
+<li>The multiplier effect is smaller than in a closed economy.<ul>
+<li>Algebra: demand curve $ZZ$ is flatter than demand curve $DD$, meaning a smaller multiplier.</li>
+<li>Intuition: Some increased income is spent on foreign goods. Therefore, the effect of increased income on domestic demand is smaller (than in a closed economy).</li>
+<li>A smaller multiplier and a lowered trade balance have the same origin.</li>
+</ul>
+</li>
+<li><strong>In an open economy, an increase in domestic demand has a smaller effect on output than in a closed economy, and has an adverse effect on trade balance.</strong></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-2.-Effects-of-increased-foreign-demand">2-2. Effects of increased foreign demand<a class="anchor-link" href="#2-2.-Effects-of-increased-foreign-demand">&#182;</a></h4><ul>
+<li><p>Suppose the foreign demand (for domestic goods) increases by $\Delta X$, attributed to increased foreign income (output) $Y^*$.</p>
+</li>
+<li><p>On impact, this shifts two curves, both by $\Delta X$.</p>
+<ul>
+<li><p>Demand for domestic goods shifts up, from $ZZ$ to $ZZ'$.</p>
+</li>
+<li><p>Net exports shift up, from $NX$ to $NX'$.</p>
+</li>
+</ul>
+</li>
+<li><p>In the new equilibrium (point $A'$), output increases to $Y'$.</p>
+</li>
+<li><p>Net exports increase by $\Delta NX$: at point A', the demand for domestic goods higher than the domestic demand for goods.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap18/pptimages/image12.png" width="380" height="40"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>$\Delta NX &lt; \Delta X$, because imports also increase (due to a higher level of output $Y'$).</p>
+</li>
+<li><p>Can $\Delta NX&lt;0$? No.</p>
+<ul>
+<li><p>The increase in $X$ shifts the demand for domestic goods, line $ZZ$. But such increase in $X$ does not shift the domestic demand for goods, line $DD$. Note that $(C+I+G)$ does become larger (due to a higher output).</p>
+</li>
+<li><p>When the line $ZZ$ shifts up while the line $DD$ remains unchanged, it represents an improvement in trade balance.</p>
+</li>
+<li><p>Increases in imports do not fully offset the increased exports.</p>
+</li>
+</ul>
+</li>
+<li><strong>An increase in foreign demand leads to increases in domestic output and improvements in trade balance.</strong></li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="2-3.-Fiscal-policy-in-an-open-economy">2-3. Fiscal policy in an open economy<a class="anchor-link" href="#2-3.-Fiscal-policy-in-an-open-economy">&#182;</a></h4><ul>
+<li><p>Fiscal expansion is less effective (than it would be in a closed economy) in increasing domestic output, the expansion also deteriorates the trade balance. If with a trade deficit, home country would have to borrow from the rest of the world, paying interests.</p>
+<ul>
+<li>Likely, a budget deficit, a trade deficit, and costs of borrowing. Not desirable!</li>
+</ul>
+</li>
+<li><p>But a fiscal expansion in home country benefits its trade partners, increasing their outputs and improving their trade balances.</p>
+<ul>
+<li>Similarly, fiscal expansions in foreign countries increase output and improve trade balance in home country.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Consider a group of trade partners, all in recession. probably no country is willing to conduct a fiscal expansion, all hope or wait for trade partners to do that.</p>
+</li>
+<li><p>This can be an example of the "<strong>Prisoner's Dilemma</strong>": all countries gain more if they all conduct a fiscal expansion than if no country acts. However, an individual country has incentives to defect (no action), regardless of what it believes other countries will do.</p>
+</li>
+<li><p>In reality, countries likely differ in government budget, trade balance, etc. A <strong>policy coordination</strong> among countries may be infeasible.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Real-depreciation,-trade-balance,-and-output">3. Real depreciation, trade balance, and output<a class="anchor-link" href="#3.-Real-depreciation,-trade-balance,-and-output">&#182;</a></h3><ul>
+<li><p>Suppose government takes policy measures leading to a depreciation of home currency, i.e., nominal exchange rate falls.</p>
+</li>
+<li><p>Assume that, in the short run, price levels, $P$ and $P^*$ are given.</p>
+</li>
+<li><p>Then, real depreciation equals nominal depreciation.</p>
+<ul>
+<li>Domestic goods become cheaper compared to foreign goods.</li>
+<li>Domestic goods become cheaper in foreign countries.</li>
+<li>Foreign goods become more expensive in home country.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-1.-Effects-of-depreciation">3-1. Effects of depreciation<a class="anchor-link" href="#3-1.-Effects-of-depreciation">&#182;</a></h4><ul>
+<li><p>Net exports: $NX = X(Y^*,\varepsilon) - IM(Y,\varepsilon)/\varepsilon$.</p>
+</li>
+<li><p>A real depreciation (drop in $\varepsilon$) leads to</p>
+<ul>
+<li><p>an increase in exports $X$;</p>
+</li>
+<li><p>a decrease in imports $IM$;</p>
+</li>
+<li><p>an increase in the relative price of foreign goods in terms of domestic goods, $1/\varepsilon$.</p>
+</li>
+</ul>
+</li>
+<li><p>The <strong>Marshall-Lerner condition</strong>: In home country, for <em>the trade balance to improve following a real depreciation</em>, exports must increase enough and imports must decrease enough to compensate the increase in the price of imports.</p>
+</li>
+<li><p>From now on, we assume this condition holds: a real depreciation improves trade balance.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Effects-of-a-real-depreciation-on-domestic-output">Effects of a real depreciation on domestic output<a class="anchor-link" href="#Effects-of-a-real-depreciation-on-domestic-output">&#182;</a></h4><ul>
+<li><p>Effects of a real depreciation are similar to those of an increase in foreign demand, in terms of changing domestic output.</p>
+</li>
+<li><p>Analysis is the same as in Section 2-2 in the above.</p>
+</li>
+<li><p><strong>Summary</strong>: Assume that the Marshall-Learner condition holds. A depreciation leads to a shift in demand, both foreign and domestic, toward domestic goods. This shift in demand in turn leads to both an increase in domestic output and an improvement in trade balance.</p>
+</li>
+<li><p>Different from the case of increasing foreign demand, a depreciation makes foreign goods relatively more expensive.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-2.-Combining-exchange-rate-and-fiscal-policies">3-2. Combining exchange rate and fiscal policies<a class="anchor-link" href="#3-2.-Combining-exchange-rate-and-fiscal-policies">&#182;</a></h4><ul>
+<li><p>Suppose: output is at the potential level, and there is a large trade deficit. Government wants to reduce the trade deficit while leaving output unchanged.</p>
+</li>
+<li><p>What should government do to achieve that?</p>
+<ul>
+<li><p>A depreciation alone does not work. Depreciation reduces trade deficit, and increases output.</p>
+</li>
+<li><p>A fiscal contraction does not work, it will reduce both the trade deficit and output.</p>
+</li>
+</ul>
+</li>
+<li>The combination of depreciation and a fiscal contraction will do the job.</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap18/pptimages/image16.png" width="380" height="40"/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Dynamics:-the-J-Curve">4. Dynamics: the J-Curve<a class="anchor-link" href="#4.-Dynamics:-the-J-Curve">&#182;</a></h3><ul>
+<li><p>Dynamic effects a depreciation on net exports.</p>
+</li>
+<li><p>After depreciation, the relative price of imports goes up; the relative price of exports goes down.</p>
+</li>
+<li><p>It takes a longer time for the quantity of exports and imports to adjust.</p>
+</li>
+<li><p>The initial impact is the deterioration of trade balance: $\varepsilon$ drops, while $X$ and $IM$ change little.</p>
+</li>
+<li><p>Over time, changes in prices lead to decreases in imports and and increases in exports.</p>
+</li>
+<li><p>Eventually, the Marshall-Learner condition holds, trade balance improves from that before depreciation.</p>
+</li>
+<li><p>The <strong>J-curve</strong>: Depreciation first deteriorates then improves the trade balance.</p>
+</li>
+<li><p>It is supported by some evidence.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The J-Curve</strong>
+<img src="blanchardchap18/pptimages/image20.png" width="360" height="60"/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Saving,-Investment,-and-the-Current-Account-Balance">5. Saving, Investment, and the Current Account Balance<a class="anchor-link" href="#5.-Saving,-Investment,-and-the-Current-Account-Balance">&#182;</a></h3><ul>
+<li><p>As in a closed economy, equilibrium in goods market in an open economy can be characterized by saving and investment conditions.</p>
+</li>
+<li><p>In equilibrium, we know that $Y = C + I + G - IM/\varepsilon +X$.</p>
+</li>
+<li><p>Re-ordering and subtracting net tax $T$ from both sides gives $Y- T - C = I + (G-T) + NX$.</p>
+</li>
+<li><p>Disposable income of domestic residents is $(Y + NI + NT -T)$.</p>
+<ul>
+<li>$NI$ is the net income from abroad;</li>
+<li>$NT$ is the net transfer received.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Add $NI$ and $NT$ to both sides of the above equation, we obtain the private saving: $$\underbrace{(Y+NI+NT-T) - C }_S = I + (G-T) + \underbrace{(NI + NT + NX)}_{CA}.$$</p>
+<ul>
+<li>$CA$ is the current account balance.</li>
+</ul>
+</li>
+<li><p>We then have $CA = S + (T-G) - I$.</p>
+</li>
+<li><p>In words: <strong>Current account balance equals total saving minus investment.</strong></p>
+<ul>
+<li>$CA&gt;0$, current account surplus: a country saves more than it invests, implying a net lending to the rest of the world.</li>
+<li>$CA&lt;0$, current account deficit: a country saves less than it invests, imply a net borrowing from the rest of the world.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>More about $CA = S + (T-G) - I$</p>
+<ul>
+<li>An increase in investment must reflect either an increase in total saving or a deterioration of the CA balance.</li>
+<li>A deterioration of the government budget balance must reflect either an increase in private saving, or a decrease in investment, or a deterioration of the CA balance.</li>
+</ul>
+</li>
+<li><p>Caution: The above equation cannot be used to study, say the effects of a government budget deficit on each component. A full and explicit equilibrium analysis is necessary for such effects.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>

@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch19 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,88 +13112,675 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch07.slides.html#/1">ch07</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch08.slides.html#/1">ch08</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartA.slides.html#/1">ch09 A</a></p>
-<p>Topic 3, week 4: <a href="https://shutaocao.github.io/vuwmmpe502/topic02_News.slides.html#/1">News</a></p>
-<p>Topic 3, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartB.slides.html#/1">ch09 B</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch23.slides.html#/1">ch23</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch17.slides.html#/1">ch17</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch18.slides.html#/1">ch18</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch19.slides.html#/1">ch19</a></p>
+<p><img src="VUW_SEFLogo.png" width="600" height="60"/></p>
+<h2 id="MMPE502-Macroeconomics-in-Context"><center>MMPE502 Macroeconomics in Context</center><a class="anchor-link" href="#MMPE502-Macroeconomics-in-Context">&#182;</a></h2><h3 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="Topic-4,-Week-#5:-Output,-the-Interest-Rate,-and-the-Exchange-rate"><center>Topic 4, Week #5: Output, the Interest Rate, and the Exchange rate</center><a class="anchor-link" href="#Topic-4,-Week-#5:-Output,-the-Interest-Rate,-and-the-Exchange-rate">&#182;</a></h3><h4 id="6-August-2019"><center>6 August 2019</center><a class="anchor-link" href="#6-August-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Review-of-Chapter-18">Review of Chapter 18<a class="anchor-link" href="#Review-of-Chapter-18">&#182;</a></h3><ul>
+<li><p>We characterized the equilibrium in the goods market in an open economy.</p>
+</li>
+<li><p>Differential effects of demand shocks.</p>
+</li>
+<li><p>Real exchange and net export: the J curve.</p>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Readings</strong>: Blanchard Chapter 19</p>
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>The open-economy IS-LM model.</p>
+<ul>
+<li>Mundell-Fleming Model.</li>
+</ul>
+</li>
+<li><p>Effects of policy under flexible and fixed exchange rates.</p>
+</li>
+</ul>
+
 </div>
-    </div>
-  </div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-The-Goods-Market-Again.">1. The Goods Market Again.<a class="anchor-link" href="#1.-The-Goods-Market-Again.">&#182;</a></h3><ul>
+<li>Equilibrium condition in the goods market: output equals the demand for domestic goods,
+$$Y = C(Y-T) + I(Y,r)+G - IM(Y, \varepsilon)/\varepsilon + X(Y^*,\varepsilon).$$</li>
+<li><p>Re-write the <strong>net exports</strong> as $NX(Y,Y^*,\varepsilon) = X(Y^*,\varepsilon) - IM(Y, \varepsilon)/\varepsilon$.</p>
+<ul>
+<li>Assume that the Marshall-Lerner condition holds: <em>a real appreciation decreases the net exports</em>.</li>
+<li>Net exports <em>decrease</em> as domestic income rises, and <em>increase</em> as foreign income rises.</li>
+</ul>
+</li>
+<li><p>The equilibrium condition in the goods market then becomes
+$$Y = C(Y-T) + I(Y,r)+G + NX(Y,Y^*,\varepsilon).$$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Further make two <strong>assumptions</strong> (for simplification):</p>
+<ul>
+<li>$\varepsilon=E$: in the short run, price level is fixed, and $P=P^*$.</li>
+<li>$r=i$: expected inflation is zero since we fixed the price level.</li>
+</ul>
+</li>
+<li><p>With the simplifications, the equilibrium condition in the goods market becomes.
+$$Y = C(Y-T) + I(Y,\color{red}{i})+G + NX(Y,Y^*,\color{red}{E}).$$</p>
+</li>
+<li><p>Always keep in mind the assumptions associated with this equilibrium condition, repeated as:</p>
+<ul>
+<li>$\varepsilon = E$, as $P/P^*=1$.</li>
+<li>$r=i$, as expected inflation is zero.</li>
+<li>Marshall-Lerner condition holds: <em>a real appreciation decreases the net exports</em>.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Equilibrium-in-Financial-Markets">2. Equilibrium in Financial Markets<a class="anchor-link" href="#2.-Equilibrium-in-Financial-Markets">&#182;</a></h3><ul>
+<li><p>The choice of investors is to hold domestic bonds or foreign bonds.</p>
+<ul>
+<li>Assume that people do not hold currency, domestic or foreign, on its own.</li>
+</ul>
+</li>
+<li><p>Investors chase after a higher expected rate of return. This implies that, in equilibrium, the expected rate of return must equalize.</p>
+<ul>
+<li>Otherwise, demand for the bonds with a higher return increases, until two rates of return equalize.</li>
+</ul>
+</li>
+<li><p>This results in the uncovered interest parity condition, as seen earlier
+$$(1+i_t) = (1+i_t^*) \frac{E_t}{E_{t+1}^e}.$$</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>For now, assume that $E_{t+1}^e = \overline{E}^e$, a constant. We then re-write the interest parity condition as $E = \frac{1+i}{1+i^*} \overline{E}^e$.</p>
+</li>
+<li><p>The equilibrium in financial markets determines the exchange rate $E$.</p>
+<ul>
+<li>An increase in domestic interest rate relative to foreign interest rate leads to an appreciation.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-IS-LM-in-an-Open-Economy">3. IS-LM in an Open Economy<a class="anchor-link" href="#3.-IS-LM-in-an-Open-Economy">&#182;</a></h3><ul>
+<li><p>Substitute for $E$ in the equilibrium condition for the goods market.</p>
+</li>
+<li><p>Think of the interest rate $i$ as the policy rate set by the central bank.</p>
+</li>
+<li><p>We obtain the IS-LM model as</p>
+<ul>
+<li><p>IS: $Y = C(Y-T) + I(Y, i) + G + NX \left(Y,Y^*, \frac{1+i}{1+i^*} \overline{E}^e\right)$.</p>
+</li>
+<li><p>LM: $i=\overline{i}$.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>The two equations jointly determine the interest rate $i$ and the equilibrium output $Y$</strong>.</p>
+<ul>
+<li>The exchange rate $E$ implied by the equilibrium is also known.</li>
+</ul>
+</li>
+<li><p>This IS-LM model for an open economy is also called the <strong>Mundell-Fleming</strong> model.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap19/pptimages/image13.png" width="600" height="60"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>IS is downward sloping, meaning that a higher interest rate $i$ reduces the output, in two ways. 
+1) A higher $i$ leads to a lower investment.
+2) A higher $i$ leads to an appreciation (higher exchange rate), in turn leading to decreases in net exports.</p>
+</li>
+<li><p>Both a lower investment and lower net exports mean that demand for domestic goods decreases, so does the output.</p>
+</li>
+<li><p>The LM curve is the same as in the closed economy: interest rate is set by the central bank.</p>
+</li>
+<li><p><strong>Equilibrium in both the goods and financial markets</strong> is reached at point $A$ in the diagram.</p>
+</li>
+<li><p>The implied <strong>equilibrium value of the exchange rate</strong> then follows: point $B$.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Factors shifting the IS curve, the LM curve, and the interest parity relation?</strong></p>
+<ul>
+<li><p>The IS curve: $T, G, Y^*$.</p>
+</li>
+<li><p>The LM curve: central bank shifts it.</p>
+</li>
+<li><p>Effects of changes in $i^*$ and $\overline{E}^e$ are more complicated:</p>
+<ul>
+<li>These changes cause the IS curve to shift, but also make it steeper or flatter.</li>
+<li>Similarly, these changes shift the interest parity relation, but also change its slope.</li>
+</ul>
+<p>NOTES: need to clarify this place in 2019</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Effects-of-Policy-Changes-in-an-Open-Economy">4. Effects of Policy Changes in an Open Economy<a class="anchor-link" href="#4.-Effects-of-Policy-Changes-in-an-Open-Economy">&#182;</a></h3><h4 id="4-1.-Monetary-policy-in-an-open-economy">4-1. Monetary policy in an open economy<a class="anchor-link" href="#4-1.-Monetary-policy-in-an-open-economy">&#182;</a></h4><ul>
+<li><p>Suppose that the central bank raises the policy rate.</p>
+</li>
+<li><p>The LM curve shifts upward to $\overline{i}'$. Two effects:</p>
+<ul>
+<li><p>The equilibrium output moves along the IS curve to the left. (Which demands have changed?)</p>
+</li>
+<li><p>Increase in interest rate leads to an appreciation (an increase in $E$).</p>
+</li>
+<li><p>In addition, the net exports decrease (since we assumed that the Marshall-Learner condition holds).</p>
+</li>
+</ul>
+</li>
+<li><p>NOTE: a change in interest rate changes $E$ and $\varepsilon$, hence net exports. But change in NX does not shift the IS curve.</p>
+<ul>
+<li>Plugging the UIP into the IS curve, only interest rate (not $E$) shows up in aggregate demand. A change in $i$ moves output along the IS curve, does not shift the curve.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap19/pptimages/image14.png" width="600" height="60"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4-2.-Fiscal-policy-in-an-open-economy">4-2. Fiscal policy in an open economy<a class="anchor-link" href="#4-2.-Fiscal-policy-in-an-open-economy">&#182;</a></h4><ul>
+<li><p>Suppose that, from initially a balanced budget, government increases its spending by $\Delta G$.</p>
+</li>
+<li><p>Also suppose that the equilibrium output before and after the change in government spending is below potential.</p>
+<ul>
+<li>Central bank does not need to change policy rate.</li>
+</ul>
+</li>
+<li><p>The IS curve shifts to the right, equilibrium output increases along the LM curve.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap19/pptimages/image15.png" width="600" height="60"/></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Effects:</p>
+<ul>
+<li><p>Both consumption and investment go up.</p>
+</li>
+<li><p>Net exports decrease: exports remain unaffected, while imports are larger.</p>
+</li>
+<li><p>Exchange rate remains unchanged.</p>
+</li>
+<li><p>Output increases in countries selling goods to the home country.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>A budget deficit can lead to a trade deficit</strong>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4-3.-Fiscal-expansion-and-monetary-policy">4-3. Fiscal expansion and monetary policy<a class="anchor-link" href="#4-3.-Fiscal-expansion-and-monetary-policy">&#182;</a></h4><ul>
+<li><p>Suppose that the initial output is at the potential level (output gap is zero).</p>
+</li>
+<li><p>An increase in government spending improves output to be above potential, pushing up inflation.</p>
+</li>
+<li><p>Central bank likely will respond by raising the interest rate.</p>
+<ul>
+<li>Output could go back to the potential level, depending on the magnitude of policy changes.</li>
+</ul>
+</li>
+<li><p>These policy changes have the following effects (as illustrated next page)</p>
+<ul>
+<li>Exchange rate appreciates.</li>
+<li>Consumption goes up. (Why doesn't it go down?)</li>
+<li>Changes in investment is ambiguous.</li>
+<li>Net exports decrease: 1) Imports are larger (due to appreciation, and maybe higher output); 2) Exports are lower (due to appreciation).</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap19/fig19_5.png" width="600" height="60"/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Fixed-Exchange-Rates">5. Fixed Exchange Rates<a class="anchor-link" href="#5.-Fixed-Exchange-Rates">&#182;</a></h3><ul>
+<li><p>In the above Mundell-Fleming model, central bank chooses a level of interest rate, market responds to determine the exchange rate: flexible exchange rate.</p>
+</li>
+<li><p>Some countries use the <strong>fixed exchange rates</strong> regime:</p>
+<ul>
+<li><p>Some <strong>peg</strong> their currency to the U.S. dollar, e.g., Argentina in 1991-2001.</p>
+</li>
+<li><p>Others operate under a <strong>crawling peg</strong> by moving to an exchange rate target slowly. Recall $\varepsilon = E \frac{P}{P^*}$. If $E$ is fixed at a level, and suppose domestic inflation is higher than in foreign country (say the U.S.). There is a real appreciation, hurting exports, which can be avoided with crawling peg.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The European Monetary System (EMS) determined the movements of exchange rates within the European Union from 1978 and 1998.</p>
+</li>
+<li><p>In the EMS, member countries agreed to maintain their exchange rate relative to the other currencies in the system within narrow limits or <strong>bands</strong> around a central parity---a given value for the exchange rate.</p>
+</li>
+<li><p>Beginning on January 1, 1999, a number of those European countries adopted a common currency, the <strong>euro</strong>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-1.-Monetary-policy-with-fixed-exchange-rate">5-1. Monetary policy with fixed exchange rate<a class="anchor-link" href="#5-1.-Monetary-policy-with-fixed-exchange-rate">&#182;</a></h4><ul>
+<li><p>Suppose a country pegs its exchange rate at a chosen value, $E_t = \overline{E}$. This implies $\overline{E}_{t+1}^e= \overline{E}$.</p>
+</li>
+<li><p>Further suppose that the uncovered interest parity relation holds: this requires perfect capital mobility across borders.</p>
+<ul>
+<li>Implying, $i_t=i_t^*$.</li>
+<li>Perfect capital mobility is a strong assumption, not realistic for many countries.</li>
+</ul>
+</li>
+<li><p><strong>Under a fixed exchange rate and perfect capital mobility, it must be that $i_t=i_t^*$</strong>.</p>
+<ul>
+<li>Central bank then has to give up monetary policy as a policy instrument.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="5-2.-Fiscal-policy-with-fixed-exchange-rate">5-2. Fiscal policy with fixed exchange rate<a class="anchor-link" href="#5-2.-Fiscal-policy-with-fixed-exchange-rate">&#182;</a></h4><ul>
+<li><p>The effect of an increase in government spending is the same as the case of the flexible exchange rate.</p>
+<ul>
+<li>Exchange rate is unaffected by fiscal policy.</li>
+</ul>
+</li>
+<li><p>However, under the fixed exchange rate, central bank loses its tool if fiscal expansion pushes up the inflation.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Appendix:-Approximation-Formula-for-Nominal-Exchange-Rate.">Appendix: Approximation Formula for Nominal Exchange Rate.<a class="anchor-link" href="#Appendix:-Approximation-Formula-for-Nominal-Exchange-Rate.">&#182;</a></h3><ul>
+<li>The nominal exchange rate determined by the uncovered interest parity (UIP) condition is given by
+$$ E_t = \frac{1+i_t}{1+i_t^*}E_{t+1}^e.$$
+Applying Proposition 6 in Appendix 2 of the textbook, we can approximate the above equation as follows
+$$ E_t = (1+i_t - i_t^*)E_{t+1}^e.$$
+It can be re-written as 
+$$ E_t = (1- i_t^*)E_{t+1}^e + E_{t+1}^e \cdot i_t.$$
+In the short run where we assume that $E_{t+1}^e = \overline{E}^e$, the nominal exchange rate is then given by
+$$ E = (1- i^*)\overline{E}^e + \overline{E}^e \cdot i.$$</li>
+</ul>
+<p>Using the above approximation formula for nominal exchange rate simplifies our analysis. E.g., if $i^*$ rises, $E$ is smaller for any fixed value of $i$, this says that the IP curve shifts horizontally to the left on the IP diagram following an increase in $i^*$.</p>
+
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>
