@@ -1,13 +1,65 @@
+
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8" />
+<head>
 
-<title>mmpe502_Lecture_slides</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+<title>Blanchard_ch20 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
 
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13060,90 +13112,661 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+.reveal {
+  font-size: 160%;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
-}@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #727272;
+}
+.reveal .controls .navigate-left.enabled:hover,
+.reveal .controls .navigate-left.enabled.enabled:hover {
+  border-right-color: #dfdfdf;
+}
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #727272;
+}
+.reveal .controls .navigate-right.enabled:hover,
+.reveal .controls .navigate-right.enabled.enabled:hover {
+  border-left-color: #dfdfdf;
+}
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #727272;
+}
+.reveal .controls .navigate-up.enabled:hover,
+.reveal .controls .navigate-up.enabled.enabled:hover {
+  border-bottom-color: #dfdfdf;
+}
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #727272;
+}
+.reveal .controls .navigate-down.enabled:hover,
+.reveal .controls .navigate-down.enabled.enabled:hover {
+  border-top-color: #dfdfdf;
+}
+.reveal .progress span {
+  background: #727272;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
+.rendered_html p {
+  text-align: inherit;
+}
+::-webkit-scrollbar
+{
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar *
+{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb
+{
+  background: #727272 !important;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration --></head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
+</head>
 
+
+<body>
+
+
+<div class="reveal">
+<div class="slides">
+<section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="MMPE-502--Lecture-Plan">MMPE 502  Lecture Plan<a class="anchor-link" href="#MMPE-502--Lecture-Plan">&#182;</a></h3><h3 id="Trimester-2,-2019">Trimester 2, 2019<a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><hr>
-<p>Topic 0, week 1: <a href="https://shutaocao.github.io/vuwmmpe502/topic00_overview.slides.html#/1">overview</a>.</p>
-<p>Discussion, week 1: <a href="topic00_discussion.slides.html#/1">Recession</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch02.slides.html#/1">Measurement</a>.</p>
-<p>Topic 1, week 2: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch03_04.slides.html#/1">Goods and Financial Markets</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch05.slides.html#/1">IS-LM model (I)</a>.</p>
-<p>Topic 2, week 3: <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch06.slides.html#/1">IS-LM model (II)</a>.</p>
-<p>Work on data: <a href="https://shutaocao.github.io/vuwmmpe502/addtionalChartsChap02.py">Python Code</a>.</p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch07.slides.html#/1">ch07</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch08.slides.html#/1">ch08</a></p>
-<p>Topic 3, week 4: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartA.slides.html#/1">ch09 A</a></p>
-<p>Topic 3, week 4: <a href="https://shutaocao.github.io/vuwmmpe502/topic02_News.slides.html#/1">News</a></p>
-<p>Topic 3, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch09PartB.slides.html#/1">ch09 B</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch23.slides.html#/1">ch23</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch17.slides.html#/1">ch17</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch18.slides.html#/1">ch18</a></p>
-<p>Topic 4, week 5: Blanchard <a href="https://shutaocao.github.io/vuwmmpe502/Blanchard_ch19.slides.html#/1">ch19</a></p>
-<p>Topic 5, week 6: <a href="https://shutaocao.github.io/vuwmmpe502/topic05_IntroGE.slides.html#/1">GE, static</a></p>
-<p>Topic 6, week 7: <a href="https://shutaocao.github.io/vuwmmpe502/topic06_DynamicGE.pdf">GE, dynamic</a></p>
+<p><img src="VUW_SEFLogo.png" width="600" height="60"/></p>
+<h2 id="MMPE502-Macroeconomics-in-Context"><center>MMPE502 Macroeconomics in Context</center><a class="anchor-link" href="#MMPE502-Macroeconomics-in-Context">&#182;</a></h2><h3 id="Trimester-2,-2019"><center>Trimester 2, 2019</center><a class="anchor-link" href="#Trimester-2,-2019">&#182;</a></h3><h3 id="Topic-4,-Week-#5:-Exchange-Rate-Regimes"><center>Topic 4, Week #5: Exchange Rate Regimes</center><a class="anchor-link" href="#Topic-4,-Week-#5:-Exchange-Rate-Regimes">&#182;</a></h3><h4 id="6-August-2019"><center>6 August 2019</center><a class="anchor-link" href="#6-August-2019">&#182;</a></h4>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="These-slides-are-optional-readings.">These slides are optional readings.<a class="anchor-link" href="#These-slides-are-optional-readings.">&#182;</a></h3><h3 id="Review-of-Chapter-19">Review of Chapter 19<a class="anchor-link" href="#Review-of-Chapter-19">&#182;</a></h3><ul>
+<li><p>IS-LM model in an open economy.</p>
+</li>
+<li><p>Effects of policy under fixed and flexible exchange rates.</p>
+</li>
+</ul>
 
 </div>
 </div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Readings</strong>: Blanchard Chapter 20</p>
+<h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><ul>
+<li><p>The medium run.</p>
+</li>
+<li><p>Benefits and costs of different exchange rate regimes.</p>
+</li>
+</ul>
+
 </div>
-    </div>
-  </div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-The-Medium-Run">1. The Medium Run<a class="anchor-link" href="#1.-The-Medium-Run">&#182;</a></h3><ul>
+<li><p>In the short run, under fixed exchange rate: 1) interest rate cannot be adjusted; 2) and related, trade deficit can no longer be reduced by expansionary monetary policy.</p>
+<ul>
+<li>This appears to make flexible exchange rate more appealing. Indeed, in the short run.</li>
+</ul>
+</li>
+<li><p>In the medium run, the difference between two regimes of exchange rate fades away. The economy reaches the same real exchange rate and the same output level irrespective of exchange rate regimes.</p>
+</li>
+<li><p>Real exchange rate, $\varepsilon = EP/P^*$, can adjust</p>
+<ul>
+<li>through changes in nominal exchange rate $E$ (under flexible exchange rate regime), and/or</li>
+<li>through changes in domestic price level $P$ (under either regime), in the medium run.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The IS relation under fixed exchange rates</strong></p>
+<ul>
+<li><p>Under fixed exchange rates, $E = \overline{E}$ and $i=i^*$. The IS relation becomes
+$$Y = C(Y-T) + I(Y,i^* - \pi^e) + G + NX\left(Y, Y^*,\frac{\overline{E}P}{P^*}\right).$$</p>
+</li>
+<li><p>Equilibrium output in the goods market can then be written as
+$$Y = \underset{\ \ \   \big( \ \Large{\mathbf{-}},\ \ \    \Large{+},\   \Large{-},  \quad \Large{-},\quad \ \ \Large{+} \ \big)}{Y\left(\frac{\overline{E}P}{P^*}, G, T, i^*-\pi^e, Y^*\right)}.$$</p>
+</li>
+<li><p>What are the effects of an increase in $i^*$?</p>
+<ul>
+<li>Lower investment.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Equilibrium in the short and the medium run</strong></p>
+<ul>
+<li>Suppose an economy has a trade deficit. In the short run,<ul>
+<li>under flexible exchange rate, central bank can decrease interest rate, nominal and real depreciation follows, reducing trade deficit.</li>
+<li>under fixed exchange rate, central bank loses the interest rate tool, trade deficit remains.</li>
+</ul>
+</li>
+<li><p>In the medium run, prices adjust.</p>
+</li>
+<li><p>Recall the Philips curve
+$$\pi - \pi^e = \frac{\alpha}{L} (Y - Y_n).$$</p>
+</li>
+<li><p>For simplicity, assume that $\pi^e = \overline{\pi}$, a constant.</p>
+</li>
+<li><p>Suppose that, if both countries operate at the potential, domestic inflation equals inflation abroad: $\pi = \pi^* = \overline{\pi}$, then $P/P^*$ remains constant.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>Dynamics in the medium run</strong> under fixed exchange rate</p>
+<ul>
+<li><p>Suppose, initially domestic output was below potential ($Y&lt; Y_n$) and foreign is at potential($Y^* = Y_n^*$).</p>
+</li>
+<li><p>This implies that $\pi&lt;\pi^*$, then $\varepsilon$ is decreasing (real depreciation).</p>
+</li>
+<li><p>Net exports then increase, so does the output.</p>
+</li>
+<li><p>In the medium run, domestic output returns to the potential level ($Y \rightarrow Y_n$), inflation is also back to $\overline{\pi}$.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Therefore, under a fixed exchange rate regime:</p>
+<ul>
+<li><p>Real exchange rate is fixed in the short run. Monetary policy does not work to affect output.</p>
+</li>
+<li><p>Real exchange rate in the medium run adjusts through movements in relative prices. Output returns to potential.</p>
+</li>
+</ul>
+</li>
+<li><p>Government can allow for a <em>one-time</em> devaluation to lower real exchange rate, in order to increase output in the short run.</p>
+<ul>
+<li>Then there is a chance that government may give up fixing exchange rate.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Exchange-Rate-Crisis-under-Fixed-Exchange-Rates">2. Exchange Rate Crisis under Fixed Exchange Rates<a class="anchor-link" href="#2.-Exchange-Rate-Crisis-under-Fixed-Exchange-Rates">&#182;</a></h3><ul>
+<li><p>In an economy with fixed exchange rate and <em>perfect capital mobility</em>, suppose investors expect (believe) that government will devaluate the exchange rate.</p>
+</li>
+<li><p>Given the approximate uncovered interest parity $i_t = i_t^* -\frac{E_{t+1}^e-E_t}{E_{t+1}^e}$, maintaining the exchange rate requires an increase in domestic interest rate.</p>
+<ul>
+<li><p>Nominal exchange rate is fixed, $E_t = \overline{E}$, then $E_t = E_{t+1}^e = \overline{E}$.</p>
+</li>
+<li><p>Now suppose, participants in financial markets believe a 20% devaluation at time $t+1$, with some probability.</p>
+</li>
+<li><p>Then $\frac{E_{t+1}^e-E_t}{E_{t+1}^e}$ will be lower (since $E_{t+1}^e$ is smaller while $E_t$ is fixed at $\overline{E}$).</p>
+</li>
+<li><p>Central bank must set $i$ to a higher value to maintain the same interest parity.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Higher $i$ triggered by changes in expectation can have severe adverse impact on the economy.<ul>
+<li>Higher interest rate lowers output and employment, etc.</li>
+</ul>
+</li>
+</ul>
+<p><strong>What can be done then?</strong></p>
+<ul>
+<li><p>Government can make a commitment of not devaluating the exchange.</p>
+</li>
+<li><p>Central bank can raise the interest rate, but by a smaller percentage point (thus interest parity condition no longer holds).</p>
+<ul>
+<li><p>This can lead to a large capital outflow: selling domestic bonds and purchasing foreign bonds.</p>
+</li>
+<li><p>Capital outflow requires buying foreign currency, this can lead to a depreciation of domestic currency.</p>
+</li>
+<li><p>Central bank then wants to sell foreign currency from its reserve, to keep exchange rate fixed.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>In summary, expecting a future devaluation can trigger an exchange rate crisis.<ul>
+<li>Government and central bank then either give up the fixed exchange rate regime, or</li>
+<li>fight hard with higher interest rates.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Exchange-Rate-Movements-under-Flexible-Exchange-Rates.">3. Exchange Rate Movements under Flexible Exchange Rates.<a class="anchor-link" href="#3.-Exchange-Rate-Movements-under-Flexible-Exchange-Rates.">&#182;</a></h3><ul>
+<li><p>There are issues with a flexible exchange rate regime: expectations; volatility.</p>
+</li>
+<li><p>Recall, by the interest parity condition, nominal exchange rate is determined as
+$$E_t = \frac{1+i_t}{1+i_t^*} E_{t+1}^e.$$</p>
+</li>
+<li><p>In year $t+1$, $E_{t+1} = \frac{1+i_{t+1}}{1+i_{t+1}^*} E_{t+2}^e$.</p>
+</li>
+<li><p>If investors know this condition, we can (roughly) think that $E_{t+1}^e = \frac{1+i_{t+1}^e}{1+i_{t+1}^{*^e}} E_{t+2}^e$.</p>
+</li>
+<li><p>Then, $E_t = \frac{(1+i_t)(1+i_{t+1}^e)}{(1+i_t^*)(1+i_{t+1}^{*^e})} E_{t+2}^e$.</p>
+</li>
+<li><p>Doing the above for $n$ years, $E_t = \frac{(1+i_t)(1+i_{t+1}^e) \cdots (1+i_{t+n}^e)}{(1+i_t^*)(1+i_{t+1}^{*^e})\cdots (1+i_{t+n}^{*^e})} E_{t+n+1}^e$.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>Nominal exchange rate in year $t$</p>
+<ul>
+<li><p>moves one-for-one with the future expected exchange rate;</p>
+</li>
+<li><p>moves when future expected interest rates move in either country;</p>
+</li>
+</ul>
+</li>
+<li><p>Nominal exchange rate will be volatile: it moves frequently with large fluctuations.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>It can be shown (as in appendix 2 of Chapter 20) that the above applies to <strong>real</strong> exchange rates.
+$$\varepsilon_t = \frac{(1+r_t)(1+r_{t+1}^e) \cdots (1+r_{t+n}^e)}{(1+r_t^*)(1+r_{t+1}^{*^e})\cdots (1+r_{t+n}^{*^e})} \varepsilon_{t+n+1}^e.$$</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-1.-Exchange-rate-and-current-account">3-1. Exchange rate and current account<a class="anchor-link" href="#3-1.-Exchange-rate-and-current-account">&#182;</a></h4><ul>
+<li><p>In the longer run (when $n$ becomes larger), we expect that current account will be balanced or it moves towards to be balanced: a country cannot borrow from or lend to other countries forever.</p>
+</li>
+<li><p>There is an exchange rate, to achieve a zero current account balance (think about $NX$ in IS relation).</p>
+</li>
+<li><p>This affects our expectations, $E_{t+n+1}^e$.</p>
+</li>
+<li><p>Thus, any news that affects forecasts of the current account balance in the future likely affects $E_{t+n+1}^e$.</p>
+<ul>
+<li>E.g., the announcement of a larger-than-expected current account deficit makes investors think that a depreciation will be needed to reduce such deficit. Thus, $E_{t+n+1}^e$ becomes lower, so does $E_t$.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-2.-Exchange-rate-and-interest-rates">3-2. Exchange rate and interest rates<a class="anchor-link" href="#3-2.-Exchange-rate-and-interest-rates">&#182;</a></h4><ul>
+<li><p>Factors and news affecting investors' expectation on future interest rates, domestic and foreign, will change $E_t$.</p>
+</li>
+<li><p>For instance, after the U.S. unemployment rate dropped below 6% in late 2014, investors/forecasters anticipated that Fed would raise the federal funds rate. This should lead to an appreciation of the U.S. dollar. It turned out that the U.S. dollar appreciated in 2015.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="blanchardchap20/usExchange.png" width="600" height="40"/></p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3-3.-Exchange-rate-volatility">3-3. Exchange rate volatility<a class="anchor-link" href="#3-3.-Exchange-rate-volatility">&#182;</a></h4><ul>
+<li><p>Reactions to market movements and news, as well as to changes in policy, are complex.</p>
+</li>
+<li><p>Exchange rate can be volatile.</p>
+</li>
+<li><p>Suppose, $E_{t+n+1}^e = 1$, and current and expected interest rates equal 5%, then $E_t = \frac{1.05^n}{1.05^n}=1$.</p>
+</li>
+<li><p>Now, if $i_t$ reduces to 3%, while the rest remains unchanged, then $E_t = \frac{1.03 \cdot 1.05^{n-1}}{1.05^n} = 0.98$.</p>
+</li>
+<li><p>Instead, if, after seeing that $i_t$ drops from 5% to 3%, investors expect interest rate in the next 4 years also drops to 3%. Then $E_t = \frac{1.03^5 \cdot 1.05^{n-5}}{1.05^n} = 0.91$.</p>
+</li>
+<li><p><em>High volatility of exchange rate can be a challenge for monetary policy</em>.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Choosing-an-Exchange-Rate-Regime">4. Choosing an Exchange Rate Regime<a class="anchor-link" href="#4.-Choosing-an-Exchange-Rate-Regime">&#182;</a></h3><ul>
+<li><p>In general, a flexible exchange rate regime is preferable.</p>
+<ul>
+<li>It enables an active role of monetary policy in the short run to reduce trade deficit and improve output.</li>
+<li>Though, under this regime, exchange rate can be volatile, difficult to "control" through monetary policy.</li>
+</ul>
+</li>
+<li><p>There are two exceptions.</p>
+<ul>
+<li>A group of countries are tightly integrated (say the European Union).</li>
+<li>Central bank is not trusted.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4-1.-Common-currency-area">4-1. Common currency area<a class="anchor-link" href="#4-1.-Common-currency-area">&#182;</a></h4><ul>
+<li><p>An <strong>optimal currency area</strong> needs to satisfy one of two conditions:</p>
+<ul>
+<li>countries experience similar shocks. Or</li>
+<li>countries must have high (cross-country) factor mobility, if they experience different shocks.</li>
+</ul>
+</li>
+<li><p>The Euro area: 19 European countries use the common currency Euro.</p>
+</li>
+<li><p>Benefits of using common currency.</p>
+<ul>
+<li>Reduce (transaction) costs.</li>
+<li>Increase competition.</li>
+<li>?</li>
+</ul>
+</li>
+<li><p>Questions remain on whether the Euro area satisfies one of the above two conditions for common currency.</p>
+<ul>
+<li>Shocks appear different among some member countries.</li>
+<li>Factor mobility is not high (due to, e.g., cultural differences).</li>
+</ul>
+</li>
+<li><p>Real exchange rate can differ between countries.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="4-2.-Hard-pegs,-currency-boards,-and-dollarization">4-2. Hard pegs, currency boards, and dollarization<a class="anchor-link" href="#4-2.-Hard-pegs,-currency-boards,-and-dollarization">&#182;</a></h4><ul>
+<li><p>Fixed exchange rate can be appealing if a country wants to limit its ability to use monetary policy.</p>
+</li>
+<li><p>Suppose a country has large government budget deficit. In order to limit the central bank to print money and gives it to government to cut budget deficit, government can commit to a fixed exchange rate.</p>
+</li>
+<li><p>One such commitment is <strong>hard peg</strong>, e.g., dollarization, replace domestic currency with the U.S. dollar.</p>
+</li>
+<li><p>One less extreme way of fixing exchange rate is to use <strong>currency board</strong>. Under a currency board, central bank is ready to exchange foreign currency for domestic currency at the official exchange rate set by the government. Further, central bank cannot engage in open market operations.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section>
+</div>
+</div>
+
+<script>
+
+require(
+    {
+      // it makes sense to wait a little bit when you are loading
+      // reveal from a cdn in a slow connection environment
+      waitSeconds: 15
+    },
+    [
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
+    ],
+
+    function(head, Reveal){
+
+        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+
+            transition: "slide",
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                { src: "reveal.js/lib/js/classList.js",
+                  condition: function() { return !document.body.classList; } },
+                { src: "reveal.js/plugin/notes/notes.js",
+                  async: true,
+                  condition: function() { return !!document.body.classList; } }
+            ]
+        });
+
+        var update = function(event){
+          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
+            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
+          }
+        };
+
+        Reveal.addEventListener('slidechanged', update);
+
+        function setScrollingSlide() {
+            var scroll = false
+            if (scroll === true) {
+              var h = $('.reveal').height() * 0.95;
+              $('section.present').find('section')
+                .filter(function() {
+                  return $(this).height() > h;
+                })
+                .css('height', 'calc(95vh)')
+                .css('overflow-y', 'scroll')
+                .css('margin-top', '20px');
+            }
+        }
+
+        // check and set the scrolling slide every time the slide change
+        Reveal.addEventListener('slidechanged', setScrollingSlide);
+
+    }
+
+);
+</script>
+
 </body>
-
- 
 
 
 </html>
