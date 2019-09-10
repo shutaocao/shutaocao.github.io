@@ -67,7 +67,7 @@
 			progress: true,
 
 			// Display the page number of the current slide
-			slideNumber: false,
+			slideNumber: true,
 
 			// Use 1 based indexing for # links to match slide number (default is zero
 			// based)
