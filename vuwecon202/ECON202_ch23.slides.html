@@ -13510,12 +13510,16 @@ $$r_t^* = \frac{1}{b_2} \big[c_0 -c_1 T_t + G_t - (1-c_1-b_1)Y_n\big].$$</p>
 <li><p>John Taylor (of Stanford University) proposed the so called <strong>Taylor rule</strong>:
 $$i_t = i^* + a(\pi_t - \pi^*) - b(u_t - u_n).$$</p>
 <ul>
-<li>$i_t$ and $i^*$ are respectively the policy rate and the target interest rate. $i^* = r_n+\pi^e$ with $r_n$ the neutral interest rate.</li>
-<li>$\pi_t$ and $\pi^*$ are respectively the actual and target inflation rates.</li>
-<li>$u_t$ and $u_n$ are respectively the unemployment rate and the natural rate of unemployment.</li>
+<li><p>$i_t$ and $i^*$ are respectively the policy rate and the target interest rate. $i^* = r_n+\pi^e$ with $r_n$ the neutral interest rate.</p>
+</li>
+<li><p>$\pi_t$ and $\pi^*$ are respectively the actual and target inflation rates.</p>
+</li>
+<li><p>$u_t$ and $u_n$ are respectively the unemployment rate and the natural rate of unemployment.</p>
+</li>
 </ul>
 </li>
-<li>Question: If there is a divine coincidence, is $b(u_t-u_n)$ redundant?</li>
+<li><p>Question: If there is a divine coincidence, is $b(u_t-u_n)$ redundant?</p>
+</li>
 </ul>
 
 </div>
@@ -13540,20 +13544,16 @@ $$i_t = i^* + a(\pi_t - \pi^*) - b(u_t - u_n).$$</p>
 <ul>
 <li><p>If following the Taylor rule, central bank then</p>
 <ul>
-<li>sets $i_t=i^*$ if $\pi_t=\pi^*$ and $u_t = u_n$.</li>
-<li>sets $i_t &gt; i^*$ if $\pi_t&gt;\pi^*$ and/or $u_t &lt; u_n$.</li>
-<li>It is possible to $i_t=i^*$ even if $\pi_t\ne \pi^*$ and $u_t \ne u_n$. E.g., suppose central bank sets $a=2, b=0.2$ and it knows that $\pi^*=2\%, u_n=4\%$. If the current economic conditions are $\pi_t = 2.2\%$ and $u_t = 6\%$. Then $a(\pi_t - \pi^*) - b(u_t - u_n) = 0$. By Taylor rule, central bank should set $i_t = i^*$.</li>
+<li><p>sets $i_t=i^*$ if $\pi_t=\pi^*$ and $u_t = u_n$.</p>
+</li>
+<li><p>sets $i_t &gt; i^*$ if $\pi_t&gt;\pi^*$ and/or $u_t &lt; u_n$.</p>
+</li>
+<li>It is possible to set $i_t=i^*$ even if $\pi_t\ne \pi^*$ and $u_t \ne u_n$. E.g., suppose central bank sets $a=2, b=0.2$ and it knows that $\pi^*=2\%, u_n=4\%$. If the current economic conditions are $\pi_t = 2.2\%$ and $u_t = 6\%$. Then $a(\pi_t - \pi^*) - b(u_t - u_n) = 0$. By Taylor rule, central bank should set $i_t = i^*$.</li>
 </ul>
 </li>
 <li><p>The Taylor rule is just one of several alternative rules. Other rules can be used.</p>
 <ul>
 <li>E.g., $i_t = i^* + a(\pi_t - \pi^*)$.</li>
-</ul>
-</li>
-<li><p>Further, Taylor rule or any other rule are not necessarily <em>optimal</em>: setting $i_t=i^*$ does not necessarily lead to $\pi_t=\pi^*$ and $u_t = u_n$.</p>
-<ul>
-<li>It depends on how $Y_t$ will respond to a change in $i_t$.</li>
-<li>It also depends on what values of $a$ and $b$ set by central bank.</li>
 </ul>
 </li>
 </ul>
@@ -13565,6 +13565,14 @@ $$i_t = i^* + a(\pi_t - \pi^*) - b(u_t - u_n).$$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
+<li><p>Further, Taylor rule or any other rule are not necessarily <em>optimal</em>: an interest rate following the Taylor rule does not necessarily lead to $\pi_t=\pi^*$ and $u_t = u_n$.</p>
+<ul>
+<li><p>It depends on how $Y_t$ will respond to a change in $i_t$.</p>
+</li>
+<li><p>It also depends on what values of $a$ and $b$ set by central bank.</p>
+</li>
+</ul>
+</li>
 <li><p>In deciding the policy rate, the Taylor rule can be and should be used together with other events (e.g., exchange rate crisis).</p>
 </li>
 <li><p>The 2008 financial crisis raised two issues: 1) the zero lower bound of nominal interest rate; 2) financial stability. Central bank should care about financial stability, in addition to inflation and unemployment.</p>
@@ -13628,7 +13636,7 @@ $$i_t = i^* + a(\pi_t - \pi^*) - b(u_t - u_n).$$</p>
 <ul>
 <li>Suppose a house was bought 10 years ago for 50 thousand dollars, and is now sold for $50 (1+\pi)^{10}$: its real value is unchanged.</li>
 <li>If the capital-gains tax rate is 30%. Total capital-gains tax paid is $[50(1+\pi)^{10} - 50]\cdot 0.3$ thousand dollars.</li>
-<li>Real capital gain is zero, one should pay this tax. But the capital-gains tax is positive as long as $\pi&gt;0$.</li>
+<li>Real capital gain is zero, one should not pay this tax. But the capital-gains tax is positive as long as $\pi&gt;0$.</li>
 <li>The higher the inflation, the more tax is paid.</li>
 </ul>
 </li>
@@ -13731,7 +13739,7 @@ $$i_t = i^* + a(\pi_t - \pi^*) - b(u_t - u_n).$$</p>
 </li>
 <li><p>Balance sheet of the Federal Reserve changed significantly, see the figure on next page.</p>
 </li>
-<li><p>Right now, a major challenge is how and when to unwind the QEs, given that the U.S. economy now grows faster, and the unemployment is historically low (4.0% in Q2 2018).</p>
+<li><p>Right now, a major challenge is how and when to unwind the QEs, given that the U.S. economy now grows faster, and the unemployment is historically low (below 4% in 2019).</p>
 </li>
 </ul>
 
