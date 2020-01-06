@@ -3,7 +3,7 @@
 #### [Victoria University of Wellington](www.victoria.ac.nz)
 
 
-I am a lecturer (assistant professor) in economics at the Victoria University of Wellington, New Zealand. I research and teach macroeconomics, with a focus on quantitative models.
+I am an assistant professor in economics at [Trent University](https://www.trentu.ca/). I research and teach macroeconomics, with a focus on quantitative models.
 
 [Research papers](research.html).
 
