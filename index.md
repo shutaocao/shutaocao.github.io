@@ -1,7 +1,4 @@
 ### Shutao Cao
-#### School of Economics and Finance
-#### [Victoria University of Wellington](www.victoria.ac.nz)
-
 
 I am an assistant professor in economics at [Trent University](https://www.trentu.ca/). I research and teach macroeconomics, with a focus on quantitative models.
 
