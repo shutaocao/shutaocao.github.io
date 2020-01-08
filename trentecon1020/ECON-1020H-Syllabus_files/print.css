@@ -1,0 +1,28 @@
+body{
+    font-family: 'Museo Sans W01 300', Arial;
+    font-size:12pt;
+    line-height:1em;
+}
+table{
+    border-collapse: collapse;
+    -webkit-print-color-adjust: exact;
+}
+th,td{
+    border-bottom:1px solid #888;
+    border-left:1px solid #fff;
+    padding:5px;
+}
+hr {
+    display: block;
+    height: 1px;
+    background: transparent;
+    width: 100%;
+    border: none;
+    border-top: solid 1px #a8cd87;
+}
+h1,h2,h3,h4,h5,p,ul,ol{
+    line-height: 1.3em;
+}
+a{
+    color:blue !important;
+}
