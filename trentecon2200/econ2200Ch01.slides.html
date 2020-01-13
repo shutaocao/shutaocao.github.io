@@ -13068,18 +13068,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    .rise-enabled {
-    background-color: azure !important;
-    font-size: 125% !important;
-    background-image: url(CRS-Enterprises.jpg), linear-gradient(30deg, #7ab8ec, white 75%, white);
-    background-position: right top;
-    background-repeat: no-repeat;
-    background-origin: content-box;
-    padding: 5px 5px 5px 5px;
-}
-
-    </style>
 
 
 <style type="text/css">
@@ -13214,7 +13202,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<right> <img src="trentLogo5.png" align="middle" width=200 height=100 /></right><h2 id="ECON1020H-"><center>ECON1020H </center><a class="anchor-link" href="#ECON1020H-">&#182;</a></h2><h3 id="Introduction-to-Statistics-for-Economics-and-Management"><center>Introduction to Statistics for Economics and Management</center><a class="anchor-link" href="#Introduction-to-Statistics-for-Economics-and-Management">&#182;</a></h3><h3 id="2020-Winter-Term"><center>2020 Winter Term</center><a class="anchor-link" href="#2020-Winter-Term">&#182;</a></h3><h3 id="Week-01:-What-is-Statistics-"><center>Week 01: What is Statistics </center><a class="anchor-link" href="#Week-01:-What-is-Statistics-">&#182;</a></h3><h4 id="6-January-2020"><center>6 January 2020</center><a class="anchor-link" href="#6-January-2020">&#182;</a></h4>
+<right> <img src="trentLogo5.png" align="middle" width=200 height=100 /></right><h2 id="ECON2200H-"><center>ECON2200H </center><a class="anchor-link" href="#ECON2200H-">&#182;</a></h2><h3 id="Introduction-to-Statistics-for-Economics-and-Management"><center>Introduction to Statistics for Economics and Management</center><a class="anchor-link" href="#Introduction-to-Statistics-for-Economics-and-Management">&#182;</a></h3><h3 id="2020-Winter-Term"><center>2020 Winter Term</center><a class="anchor-link" href="#2020-Winter-Term">&#182;</a></h3><h3 id="Week-01:-What-is-Statistics-"><center>Week 01: What is Statistics </center><a class="anchor-link" href="#Week-01:-What-is-Statistics-">&#182;</a></h3><h4 id="6-January-2020"><center>6 January 2020</center><a class="anchor-link" href="#6-January-2020">&#182;</a></h4>
 </div>
 </div>
 </div></section></section><section><section>
@@ -13228,7 +13216,7 @@ a.anchor-link {
 </li>
 <li><p>"what" refers to outcome and findings, but should define "what we want to learn" in the first place.</p>
 </li>
-<li><p>"how" refers to methods: description, inference, prediction.</p>
+<li><p>"how" refers to methods: description, estimation, inference, prediction.</p>
 </li>
 <li><p>"data" refers to information fed to statistical methods.</p>
 </li>
@@ -13249,7 +13237,7 @@ $$y = \frac{1}{10}\sum_{i=1}^{10} x_i.$$</p>
 </li>
 <li><p>See the linked notebook: <a href="http://localhost:8888/notebooks/econ2200Ch01Examples.ipynb">example</a>.</p>
 </li>
-<li><p>Or the <a href="econ2200Ch01Examples.slides.html">results only</a></p>
+<li><p>Or the <a href="https://shutaocao.github.io/trentecon2200/econ2200Ch01Examples.slides.html#/">results only</a></p>
 </li>
 </ul>
 
@@ -13314,7 +13302,7 @@ $$y = \frac{1}{10}\sum_{i=1}^{10} x_i.$$</p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Example: The NetFlix Prize&quot;</span><span class="p">)</span>
@@ -13344,7 +13332,7 @@ $$y = \frac{1}{10}\sum_{i=1}^{10} x_i.$$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[38]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13368,7 +13356,7 @@ $$y = \frac{1}{10}\sum_{i=1}^{10} x_i.$$</p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data, data, data, ...&quot;</span><span class="p">)</span>
@@ -13398,7 +13386,7 @@ $$y = \frac{1}{10}\sum_{i=1}^{10} x_i.$$</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[40]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13573,6 +13561,73 @@ $$y = \frac{1}{10}\sum_{i=1}^{10} x_i.$$</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">  function code_toggle() {</span>
+<span class="s1">    if (code_shown){</span>
+<span class="s1">      $(&#39;div.input&#39;).hide(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Show Code&#39;)</span>
+<span class="s1">    } else {</span>
+<span class="s1">      $(&#39;div.input&#39;).show(&#39;500&#39;);</span>
+<span class="s1">      $(&#39;#toggleButton&#39;).val(&#39;Hide Code&#39;)</span>
+<span class="s1">    }</span>
+<span class="s1">    code_shown = !code_shown</span>
+<span class="s1">  }</span>
+
+<span class="s1">  $( document ).ready(function(){</span>
+<span class="s1">    code_shown=false;</span>
+<span class="s1">    $(&#39;div.input&#39;).hide()</span>
+<span class="s1">  });</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; id=&quot;toggleButton&quot; value=&quot;Show Code&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<script>
+  function code_toggle() {
+    if (code_shown){
+      $('div.input').hide('500');
+      $('#toggleButton').val('Show Code')
+    } else {
+      $('div.input').show('500');
+      $('#toggleButton').val('Hide Code')
+    }
+    code_shown = !code_shown
+  }
+
+  $( document ).ready(function(){
+    code_shown=false;
+    $('div.input').hide()
+  });
+</script>
+<form action="javascript:code_toggle()"><input type="submit" id="toggleButton" value="Show Code"></form>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section></section>
 </div>
 </div>
