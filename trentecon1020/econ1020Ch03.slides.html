@@ -13069,15 +13069,14 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    /*This file contains any manual css for this page that needs to override the global styles.
-This is only required when different pages style the same element differently. This is just
-a hack to deal with our current css styles and no new styling should be added in this file.*/
-
-#ipython-main-app {
-    position: relative;
-}
-#jupyter-main-app {
-    position: relative;
+    .rise-enabled {
+    background-color: azure !important;
+    font-size: 125% !important;
+    background-image: url(CRS-Enterprises.jpg), linear-gradient(30deg, #7ab8ec, white 75%, white);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    padding: 5px 5px 5px 5px;
 }
 
     </style>
@@ -13089,8 +13088,8 @@ a hack to deal with our current css styles and no new styling should be added in
   font-size: 160%;
 }
 .reveal pre {
-  width: inherit;
-  padding: 0.4em;
+  width: 1px;
+  padding: 0.1em;
   margin: 0px;
   font-family: monospace, sans-serif;
   font-size: 80%;
@@ -13159,20 +13158,20 @@ div.code_cell {
   background-color: transparent;
 }
 div.prompt {
-  width: 11ex;
-  padding: 0.4em;
+  width: 1ex;
+  padding: 0.1em;
   margin: 0px;
   font-family: monospace, sans-serif;
-  font-size: 80%;
+  font-size: 98%;
   text-align: right;
 }
 div.output_area pre {
   font-family: monospace, sans-serif;
-  font-size: 80%;
+  font-size: 98%;
 }
 div.output_prompt {
   /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
+  margin: 2px 2px 0 0;
 }
 div.text_cell.rendered .rendered_html {
   /* The H1 height seems miscalculated, we are just hidding the scrollbar */
@@ -13215,7 +13214,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<right> <img src="trentLogo5.png" align="middle" width=200 height=100 /></right><h2 id="ECON1020H-Introductory-Macroeconomics"><center>ECON1020H Introductory Macroeconomics</center><a class="anchor-link" href="#ECON1020H-Introductory-Macroeconomics">&#182;</a></h2><h3 id="2020-Winter-Term"><center>2020 Winter Term</center><a class="anchor-link" href="#2020-Winter-Term">&#182;</a></h3><h3 id="Week-#02:-Demand-and-Supply"><center>Week #02: Demand and Supply</center><a class="anchor-link" href="#Week-#02:-Demand-and-Supply">&#182;</a></h3><h4 id="15-January-2020"><center>15 January 2020</center><a class="anchor-link" href="#15-January-2020">&#182;</a></h4>
+<center> <img src="trentLogo5.png" align="middle" width=200 height=100 /></center><h2 id="ECON1020H-Introductory-Macroeconomics"><center>ECON1020H Introductory Macroeconomics</center><a class="anchor-link" href="#ECON1020H-Introductory-Macroeconomics">&#182;</a></h2><h3 id="2020-Winter-Term"><center>2020 Winter Term</center><a class="anchor-link" href="#2020-Winter-Term">&#182;</a></h3><h3 id="Week-02:-Demand-and-Supply"><center>Week 02: Demand and Supply</center><a class="anchor-link" href="#Week-02:-Demand-and-Supply">&#182;</a></h3><h4 id="15-January-2020"><center>15 January 2020</center><a class="anchor-link" href="#15-January-2020">&#182;</a></h4>
 </div>
 </div>
 </div></section></section><section><section>
@@ -13242,13 +13241,11 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1.-Markets-and-Prices">1. Markets and Prices<a class="anchor-link" href="#1.-Markets-and-Prices">&#182;</a></h2><ul>
-<li><p>A <strong>market</strong> is an arrangement with which buyers and sellers to get information and trade with each other a particular good or service.</p>
-<ul>
+<li><p>A <strong>market</strong> is an arrangement with which buyers and sellers get information and trade with each other a particular good or service.</p>
+</li>
 <li><p>Some markets are highly organized, e.g. stock market, commodity markets, where there is an auctioneer that helps set price and organize the sale.</p>
 </li>
-<li><p>Many markets are less organized, e.g. ice-cream in Peterborough, corporate bond market. Labor market??</p>
-</li>
-</ul>
+<li><p>Many markets are less organized, e.g. ice-cream in Peterborough, corporate bond market, labor market.</p>
 </li>
 </ul>
 
@@ -13259,9 +13256,12 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>A <strong>competitive market</strong> is a market that has many buyers and many sellers, each single buyer or seller has negligible influence the market price.</p>
+<li><p>A <strong>competitive market</strong> is a market that has many buyers and many sellers, each single buyer or seller has <em>negligible</em> influence on the market price.</p>
 </li>
-<li><p>A market is <em>perfectly competitive</em> if no single buyer or seller has any influence on the market price. We often require that the good or service being sold in the market is the same across all sellers.</p>
+<li><p>A market is <em>perfectly competitive</em> if no single buyer or seller has any influence on the market price.</p>
+<ul>
+<li>We often require that the good or service being sold in a perfectly competitive market is the same across all sellers.</li>
+</ul>
 </li>
 <li><p>The money price of a good is the amount of money needed to buy it.</p>
 </li>
@@ -13276,10 +13276,12 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="2.-Demand">2. Demand<a class="anchor-link" href="#2.-Demand">&#182;</a></h2><ul>
-<li><p>The <strong>quantity demanded</strong> of any good is the amount of the good that buyers are willing to and able to purchase,  given a particular price.</p>
+<li><p>The <strong>quantity demanded</strong> of a good is the amount of the good that buyers are willing to and able to purchase,  given a particular price.</p>
 </li>
-<li><p><strong>Demand</strong> for a good reflects
-1) wants of the good (preference, desire, wish);</p>
+<li><p><strong>Demand</strong> for a good describes how the quantity demanded when the price of the good changes.</p>
+</li>
+<li><p>Demand for a good reflects</p>
+<p>1) wants for the good (preference, desire);</p>
 <p>2) the ability to pay for an amount of the good.</p>
 </li>
 </ul>
@@ -13291,11 +13293,11 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="2-1.-The-Law-of-Demand">2-1. The Law of Demand<a class="anchor-link" href="#2-1.-The-Law-of-Demand">&#182;</a></h3><ul>
-<li><p>The <strong>law of demand</strong>: Other things remaining the same, the higher the price of a good, the smaller is the quantity demanded; the lower the price of a good, the larger is the quantity demanded.</p>
+<li><p>The <strong>law of demand</strong>. Other things remaining the same, when the price of a good rises, the quantity demanded of the good falls; when the good's price falls, the quantity demanded rises.</p>
 </li>
-<li><p>A <strong>demand schedule</strong> is a table that shows the relationship between the quantity demanded of a good and its price, <em>holding constant everything else</em> that influences how much of the good consumers want to buy.</p>
+<li><p>The <strong>demand schedule</strong> is a table showing the relationship between the quantity demanded of a good and its price, <em>holding constant everything else</em> that influences how much of the good consumers want to buy.</p>
 </li>
-<li><p>The graph that shows the relationship between the quantity demanded and price is called the <strong>demand curve</strong>.</p>
+<li><p>The graph showing the relationship between the quantity demanded and price is the <strong>demand curve</strong>.</p>
 </li>
 </ul>
 
@@ -13316,7 +13318,7 @@ a.anchor-link {
 <h4 id="Willingness-to-pay">Willingness to pay<a class="anchor-link" href="#Willingness-to-pay">&#182;</a></h4><ul>
 <li><p>The demand curve is also a curve showing the degree of willingness to pay as price varies.</p>
 </li>
-<li><p>The smaller the quantity available, the higher is the price that someone is willing to pay for another unit.</p>
+<li><p>The smaller the quantity available, the higher is the price that one is willing to pay for another unit.</p>
 </li>
 <li><p>Willingness to pay measures <strong>marginal benefit</strong>.</p>
 </li>
@@ -13337,17 +13339,13 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Why-is-the-demand-curve-downward-slopped?">Why is the demand curve downward slopped?<a class="anchor-link" href="#Why-is-the-demand-curve-downward-slopped?">&#182;</a></h4><ul>
-<li><p>When price rises, demand falls. Why?</p>
+<li><p>When price rises, demand falls. Why? Multiple reasons:</p>
 </li>
-<li><p>Two effects:</p>
-<ul>
-<li><p>Substitute effect: when the price of a good rises, substitutes may be more appealing. People switch between goods when prices change.</p>
+<li><p>Substitute effect: when the price of a good rises, substitutes become more appealing. People switch between goods when price changes.</p>
 </li>
-<li><p>Income effect: when the price of a good rises, consumers can no longer afford to a same amount, they reduce the quantity purchased.</p>
+<li><p>Income effect: when the price of a good rises, consumers can no longer afford to the same amount, they reduce the quantity demanded.</p>
 </li>
-</ul>
-</li>
-<li><p>The two effects will be studied extensively in microeconomics.</p>
+<li><p>In addition, marginal benefit declines as quantity increases, so does willingness to pays.</p>
 </li>
 </ul>
 
@@ -13357,12 +13355,12 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2-2.-Changes-in-demand-(,-in-fact-the-demand-curve)">2-2. Changes in demand (, in fact the demand curve)<a class="anchor-link" href="#2-2.-Changes-in-demand-(,-in-fact-the-demand-curve)">&#182;</a></h3><ul>
+<h3 id="2-2.-Changes-in-demand">2-2. Changes in demand<a class="anchor-link" href="#2-2.-Changes-in-demand">&#182;</a></h3><ul>
 <li><p>Quantity demanded varies when price varies, holding constant <em>everything else</em> that influences demand.</p>
 </li>
-<li><p>When "everything else" changes, demand also changes, such change is a <strong>shift in demand</strong>.</p>
+<li><p>When part or all of "everything else" changes, demand also changes, such change is a <strong>shift in demand</strong>.</p>
 </li>
-<li><p>Demand curve shifts to the right, when influencing factors causes demand to increase.</p>
+<li><p>Demand curve shifts to the right, when influencing factors cause demand to increase.</p>
 </li>
 <li><p>Demand curve shifts to the left, when influencing factors lead to a lower demand.</p>
 </li>
@@ -13374,7 +13372,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Shifts in the demand (curve) versus movements along the demand curve</strong></p>
+<p><strong>Shifts in the demand curve versus movements along the demand curve</strong></p>
 <p><img src="ParkinMacroIL/ParkinMacro_Ch03/image13.png" alt="alt" title="Changes in demand"></p>
 
 </div>
@@ -13383,10 +13381,10 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Factors-that-change-demand-(in-fact-the-demand-curve)">Factors that change demand (in fact the demand curve)<a class="anchor-link" href="#Factors-that-change-demand-(in-fact-the-demand-curve)">&#182;</a></h4><ul>
+<h4 id="Factors-that-change-demand">Factors that change demand<a class="anchor-link" href="#Factors-that-change-demand">&#182;</a></h4><ul>
 <li><p>Income</p>
 </li>
-<li><p>Preferences (Tastes)</p>
+<li><p>Preferences (tastes)</p>
 </li>
 <li><p>The prices of related goods</p>
 </li>
@@ -13427,7 +13425,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Preferences-(or-Tastes)">Preferences (or Tastes)<a class="anchor-link" href="#Preferences-(or-Tastes)">&#182;</a></h4><ul>
+<h4 id="Preference">Preference<a class="anchor-link" href="#Preference">&#182;</a></h4><ul>
 <li><p>If I like vanilla ice-cream more, my demand for it increases, demand curve for vanilla ice-cream shifts rightward.</p>
 </li>
 <li><p>Economists normally do not explain changes in tastes. We do examine the impact of changes in tastes.</p>
@@ -13478,10 +13476,7 @@ a.anchor-link {
 </li>
 </ul>
 <h4 id="Number-of-buyers">Number of buyers<a class="anchor-link" href="#Number-of-buyers">&#182;</a></h4><ul>
-<li><p><strong>Market demand</strong> is the sum of all the individual demands for a particular good or service.</p>
-</li>
-<li><p>When there are more buyers of a particular good, market demand for the good rises.</p>
-</li>
+<li>When there are more buyers of a particular good, market demand for the good rises.</li>
 </ul>
 
 </div>
@@ -13503,11 +13498,18 @@ a.anchor-link {
 </li>
 <li><p>The <strong>law of supply</strong>: Other things remaining the same, the higher the price of a good, the greater is the quantity supplied; and the lower the price of a good, the smaller is the quantity supplied.</p>
 </li>
-<li><p>The term <strong>supply</strong> refers to the entire relationship between the quantity supplied and the price of a good.</p>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>The term <strong>supply</strong> refers to the relationship between the quantity supplied and the price of a good.</p>
 </li>
 <li><p>The <strong>supply curve</strong> shows the relationship between the quantity supplied of a good and its price when all other influences on producers' sales remain the same.</p>
-</li>
-<li><p>The <strong>market supply</strong> is the sum horizontally of all individual supplies.</p>
 </li>
 </ul>
 
@@ -13526,9 +13528,9 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="3-1.-Price-and-marginal-cost">3-1. Price and marginal cost<a class="anchor-link" href="#3-1.-Price-and-marginal-cost">&#182;</a></h3><ul>
-<li><p>Recall, the marginal cost of producing a good or service increase as the quantity produced increases.</p>
+<li><p>Recall, the marginal cost of producing a good or service increases as the quantity produced increases.</p>
 </li>
-<li><p>Producers are willing to supply a good only if price of the good allow them to cover the marginal cost of production.</p>
+<li><p>Producers are willing to supply a good only if the price of the good allow them to cover the marginal cost of production.</p>
 </li>
 <li><p>As the quantity produced increases, marginal cost increases, the lowest price at which the producer is willing to sell an additional unit will rise.</p>
 </li>
@@ -13659,7 +13661,7 @@ a.anchor-link {
 <h4 id="State-of-nature">State of nature<a class="anchor-link" href="#State-of-nature">&#182;</a></h4><ul>
 <li><p>Natural disasters can reduce supply.</p>
 </li>
-<li><p>Economics of climate change: currently topical.</p>
+<li><p>Climate change, etc.</p>
 </li>
 </ul>
 
@@ -13669,16 +13671,44 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.-Market-equilibrium">4. Market equilibrium<a class="anchor-link" href="#4.-Market-equilibrium">&#182;</a></h2><ul>
-<li><p><strong>Market equilibrium</strong> is a situation in which price has reached a level at which quantity demanded equals quantity supplied.</p>
+<h2 id="4.-Market-equilibrium">4. Market equilibrium<a class="anchor-link" href="#4.-Market-equilibrium">&#182;</a></h2><h3 id="4-1.-Market-demand-and-market-supply">4-1. Market demand and market supply<a class="anchor-link" href="#4-1.-Market-demand-and-market-supply">&#182;</a></h3><ul>
+<li><p>Market demand is the sum of individual demands for each given price level.</p>
+</li>
+<li><p>Thus, marked demand is also downward slopping.</p>
+</li>
+<li><p>Market supply is the sum of supplies of individual producers for each given price level.</p>
+</li>
+<li><p>Market supply is also upward slopping.</p>
+</li>
+<li><p>For some goods, demand is zero or one at the individual level, but market demand still displays downward slope.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4-2.-Market-equilibrium">4-2. Market equilibrium<a class="anchor-link" href="#4-2.-Market-equilibrium">&#182;</a></h3><ul>
+<li><p><strong>Market equilibrium</strong> is a situation in which price has reached a level such that quantity demanded equals quantity supplied.</p>
 </li>
 <li><p>Equilibrium is a point where the demand curve and supply curve intersect.</p>
 </li>
 <li><p>The price at the intersection is the <strong>equilibrium price</strong>.</p>
 </li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li><p>The <strong>equilibrium quantity</strong> is the quantity bought and sold at the equilibrium price.</p>
 </li>
-<li><p>Price regulates buying and selling plans: it is the instrument used by the "invisible hand".</p>
+<li><p>Price guides buying and selling decisions: it is the instrument used by the "invisible hand".</p>
 </li>
 </ul>
 
@@ -13712,12 +13742,20 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4-1.-Effects-of-changes-in-demand-and-supply">4-1. Effects of changes in demand and supply<a class="anchor-link" href="#4-1.-Effects-of-changes-in-demand-and-supply">&#182;</a></h3><ul>
-<li><p>Suppose demand and/or supply changes, i.e. demand and supply curves shift,</p>
+<h4 id="Discussion">Discussion<a class="anchor-link" href="#Discussion">&#182;</a></h4><p>-</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4-3.-Effects-of-changes-in-demand-and-supply">4-3. Effects of changes in demand and supply<a class="anchor-link" href="#4-3.-Effects-of-changes-in-demand-and-supply">&#182;</a></h3><ul>
+<li><p>Suppose demand and supply change, i.e. demand and supply curves shift,</p>
 <ul>
-<li><p>what is the impact on equilibrium price?</p>
+<li><p>what is the impact on the equilibrium price?</p>
 </li>
-<li><p>what is the impact on equilibrium quantity?</p>
+<li><p>what is the impact on the equilibrium quantity?</p>
 </li>
 </ul>
 </li>
@@ -13780,7 +13818,10 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Changes-in-both-demand-and-supply">Changes in both demand and supply<a class="anchor-link" href="#Changes-in-both-demand-and-supply">&#182;</a></h3>
+<h3 id="Changes-in-both-demand-and-supply">Changes in both demand and supply<a class="anchor-link" href="#Changes-in-both-demand-and-supply">&#182;</a></h3><ul>
+<li>When are the effects on price and quantity ambiguous?</li>
+</ul>
+
 </div>
 </div>
 </div></section><section>
@@ -13819,8 +13860,40 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.-Conclusions">5. Conclusions<a class="anchor-link" href="#5.-Conclusions">&#182;</a></h2><ul>
-<li>Should refer to mankiw pp 83</li>
+<h2 id="5.-Concluding-remarks">5. Concluding remarks<a class="anchor-link" href="#5.-Concluding-remarks">&#182;</a></h2><ul>
+<li><p>Analysis is on demand and supply in a single market. And,</p>
+<ul>
+<li><p>the market is perfectly competitive: buyers and sellers are price takers.</p>
+</li>
+<li><p>we also abstract all details of how a market operates.</p>
+</li>
+</ul>
+</li>
+<li><p>Regardless of simplification, the equilibrium analysis provides a powerful tool, will be used repeatedly.</p>
+</li>
+<li><p>Market is one way to organize economic activities, price is jointly determined by demand and supply.</p>
+</li>
+<li><p>This is a just start, probably a good and useful one.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>There are many more tools and issues to be studied, e.g.</p>
+<ul>
+<li><p>market is not a black box; not all markets are perfectly competitive.</p>
+</li>
+<li><p>are market outcomes good or bad? In what sense?</p>
+</li>
+<li><p>what if market fails?</p>
+</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -13850,11 +13923,15 @@ require(
             progress: true,
             history: true,
 
-            width: '80%',
-            height: '100%',
+            width: 960,
+            height: 700,
             transition: 'none',
             // transition: "slide",
 
+// Bounds for smallest/largest possible scale to apply to content
+	minScale: 0.2,
+	maxScale: 1.5,
+	
             // Optional libraries used to extend on reveal.js
             dependencies: [
                 { src: "reveal.js/lib/js/classList.js",
