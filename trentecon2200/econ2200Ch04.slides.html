@@ -13677,7 +13677,7 @@ $n\cdot (n-1)\cdot (n-2)\cdot \cdots \cdot (n-k+1) \cdot (n-k)! = n!$.</p>
 </li>
 <li><p>The number of possible ordering of 3 different cards is $5\cdot 4 \cdot 3 = 60$.</p>
 </li>
-<li><p>We can also use permutation formula $P_{5,3} = \frac{5!}{(5-3)!} = \frac{5\cdot 4 \cdot 3 \cdot 2 \cdot 1}{2 \cdot 1} = 120$.</p>
+<li><p>We can also use permutation formula $P_{5,3} = \frac{5!}{(5-3)!} = \frac{5\cdot 4 \cdot 3 \cdot 2 \cdot 1}{2 \cdot 1} = 60$.</p>
 </li>
 <li><p><strong>Example</strong>. Count the number of students in the first row in classroom. Find the total number of different ordered sittings.</p>
 </li>
@@ -13720,7 +13720,7 @@ $n\cdot (n-1)\cdot (n-2)\cdot \cdots \cdot (n-k+1) \cdot (n-k)! = n!$.</p>
 </li>
 <li><p>It is much easier to find $P(A^c)$, the probability of all birthdays are different.</p>
 </li>
-<li><p>$A^c$ can have $365 \cdot 364 \cdot 363 \cdot \cdots \cdot (365 - 30 +1)$.</p>
+<li><p>$A^c$ can have $365 \cdot 364 \cdot 363 \cdot \cdots \cdot (365 - 30 +1)$ outcomes.</p>
 </li>
 </ul>
 
@@ -13768,7 +13768,7 @@ $n\cdot (n-1)\cdot (n-2)\cdot \cdots \cdot (n-k+1) \cdot (n-k)! = n!$.</p>
 <ul>
 <li><p>How many combinations of 3 cards taken from 5 cards of different colors are there?</p>
 </li>
-<li><p>Start with permutation, The number permutations of 3 cards is $\frac{5!}{(5-3)!} = 60$.</p>
+<li><p>Start with permutation, The number permutations of 3 cards from 5 cards is $\frac{5!}{(5-3)!} = 60$.</p>
 </li>
 <li><p>For each group of 3 colors, we have $3!=6$ permutations, but one combination.</p>
 </li>
@@ -13850,7 +13850,7 @@ $$P(B|A) = \frac{P(A\cap B)}{P(A)}.$$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Example.-Roll-two-dice.">Example. Roll two dice.<a class="anchor-link" href="#Example.-Roll-two-dice.">&#182;</a></h4><ul>
-<li><p>Let A = "the sum is 8" and B = "the first die is 3".</p>
+<li><p>Let A = "the sum is 8" and B = "the first die observes 3".</p>
 </li>
 <li><p>Sample space is the set consisting of 36 permutations, as shown in Section 2-1 above.</p>
 </li>
@@ -13872,11 +13872,11 @@ $$P(B|A) = \frac{P(A\cap B)}{P(A)}.$$</p>
 <li>recall, $\binom{49}{6} = \frac{49!}{6! (49-6)!}=13,983,816$.</li>
 </ul>
 </li>
-<li><p>Suppose I learned that the event A = {8 is one of the six numbers in the winning play} has occurred.</p>
+<li><p>Suppose I learned that the event A = {4 is one of the six numbers in the winning play} has occurred.</p>
 </li>
 <li><p>The event B = {my ticket wins}.</p>
 </li>
-<li><p>The event A consists of combinations of numbers that include 8, then
+<li><p>The event A consists of combinations of numbers that include 4, then
 $$P(A) = \frac{\binom{48}{5}}{\binom{49}{6}} = \frac{6}{49}=0.1225.$$</p>
 </li>
 </ul>
@@ -13895,7 +13895,7 @@ $$P(A) = \frac{\binom{48}{5}}{\binom{49}{6}} = \frac{6}{49}=0.1225.$$</p>
 <li><p>The conditional probability of B given A is 
 $$P(B|A) = \frac{ 1/\binom{49}{6}}{6/49} = \frac{49/6}{13,983,816}.$$</p>
 </li>
-<li><p>Therefore, knowing one number being 8 increases the probability of winning by a factor of 8 ($\approx$ 49/6).</p>
+<li><p>Therefore, knowing one number being 4 increases the probability of winning by a factor of 8 ($\approx$ 49/6).</p>
 </li>
 </ul>
 
