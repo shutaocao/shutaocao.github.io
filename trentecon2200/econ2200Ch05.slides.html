@@ -13797,13 +13797,30 @@ $$E[X]= \lambda.$$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>The problem is like 310 independent Bernoulli trials with the probability of not showing up at 0.05. A passenger not showing up is counted as a "success". Let the random variable $X$ be the number of passengers not showing up for any given flight.</p>
+<li><p>The problem is like 310 independent Bernoulli trials with the probability of not showing up at 0.05. There are $n=310$ trials, in each trial a passenger not showing up is counted as a "success", and the probability of "success" is $p=0.05$</p>
 </li>
-<li><p>$X$ then has a binomial distribution with $n=310$ and $p=0.05$. The probability of at least one passenger having no seat is $P(X&lt;10)$.</p>
+<li><p>To answer the question, we need to let the random variable $X$ be the number of passengers not showing up for any given flight.</p>
 </li>
-<li><p>We can use Poisson distribution to approximate the binomial distribution since $n$ is large and $p$ is small. The Poisson parameter is $\lambda = np = 310 \cdot 0.05 = 15.5$.</p>
+<li><p>$X$ then has a binomial distribution with $n=310$ and $p=0.05$. The probability of at least one passenger having no seat is $P(X&lt;10)$, it is the probability of fewer than 10 passengers not showing up. That is also the probability of more than 300 passengers showing up at the gate.</p>
 </li>
-<li><p>Then $P(X&lt;10) = \sum_{k=0}^9 \frac{\lambda^k e^{-\lambda}}{k!} = 0.055$. The probability of at least one passenger is bumped from any given flight is 5.5%.</p>
+</ul>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p>We can use the Poisson distribution to approximate the binomial distribution since $n$ is large and $p$ is small. The Poisson parameter is $\lambda = np = 310 \cdot 0.05 = 15.5$.</p>
+</li>
+<li><p>We know that $P(X&lt;10) = P(X=0) + P(X=1) + \cdots + P(X=9)$, and for the Poisson distribution, $P(X=k) = \frac{\lambda^k}{k!}e^{-\lambda}$ for any number $k$.</p>
+</li>
+</ul>
+<ul>
+<li><p>Then $P(X&lt;10) = \frac{\lambda^0 e^{-\lambda}}{0!}+\frac{\lambda^1 e^{-\lambda}}{1!}+\frac{\lambda^2 e^{-\lambda}}{2!}+\cdots+\frac{\lambda^9 e^{-\lambda}}{9!} = 0.055$.</p>
+</li>
+<li><p>The probability of at least one passenger is bumped from any given flight is $5.5\%$.</p>
 </li>
 </ul>
 
@@ -13812,7 +13829,7 @@ $$E[X]= \lambda.$$</p>
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">poisson</span><span class="p">,</span> <span class="n">binom</span>
@@ -13868,7 +13885,7 @@ Prob (X&lt;10), if using binomial, is 0.05089770775898081
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">poisson</span><span class="p">,</span> <span class="n">binom</span>
