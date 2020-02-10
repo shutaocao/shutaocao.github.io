@@ -9,14 +9,14 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>econ2200Ch07 slides</title>
+<title>slideformula slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -24,14 +24,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="reveal.js/lib/js/html5shiv.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Loading the mathjax macro -->
@@ -13202,220 +13202,14 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="ECON2200H-"><center>ECON2200H </center><a class="anchor-link" href="#ECON2200H-">&#182;</a></h2><h3 id="Introduction-to-Statistics-for-Economics-and-Management"><center>Introduction to Statistics for Economics and Management</center><a class="anchor-link" href="#Introduction-to-Statistics-for-Economics-and-Management">&#182;</a></h3><h3 id="2020-Winter-Term"><center>2020 Winter Term</center><a class="anchor-link" href="#2020-Winter-Term">&#182;</a></h3><h3 id="Week-05:-Sampling-and-Sample-Distributions-"><center>Week 05: Sampling and Sample Distributions </center><a class="anchor-link" href="#Week-05:-Sampling-and-Sample-Distributions-">&#182;</a></h3><h4 id="3-February-2020"><center>3 February 2020</center><a class="anchor-link" href="#3-February-2020">&#182;</a></h4>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Reading:-Chapter-7-of-textbook.">Reading: Chapter 7 of textbook.<a class="anchor-link" href="#Reading:-Chapter-7-of-textbook.">&#182;</a></h3><h2 id="Outline">Outline<a class="anchor-link" href="#Outline">&#182;</a></h2><ul>
-<li><p>Law of large numbers</p>
-</li>
-<li><p>Central limit theorems</p>
-</li>
-<li><p>Sampling method</p>
-</li>
-<li><p>Sampling distribution</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.-From-probability-to-statistics">0. From probability to statistics<a class="anchor-link" href="#0.-From-probability-to-statistics">&#182;</a></h2><ul>
-<li><p>Probability theory studies the distribution of random variables based on population,</p>
 <ul>
-<li>i.e., we know the probability functions and we know the parameter values.</li>
-</ul>
+<li><p><strong>Constant: $e = 2.71828$.</strong></p>
 </li>
-<li><p>In statistics, one applies some techniques to a <strong>sample</strong> of data to "guess" the probability function and to estimate its parameters.</p>
+<li><p><strong>Binomial probability mass distribution: $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$
+with mean $np$ and variance $np(1-p)$.</strong></p>
 </li>
-<li><p>Sample surveys are used to obtain information about a large population by examining a small fraction of that population.</p>
-</li>
-<li><p>For example, Statistics Canada conducts hundreds of surveys, including the census survey.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.-The-Law-of-Large-Numbers">1. The Law of Large Numbers<a class="anchor-link" href="#1.-The-Law-of-Large-Numbers">&#182;</a></h2><ul>
-<li><p>A <strong>random sample</strong> from a distribution $f$ consists of $n$ independent random variables $X_1, \cdots, X_n$, where these random variables are independently and identically distributed. That is, $X_i$ has the same distribution $f$ for all $i$.</p>
-</li>
-<li><p>The <strong>sample mean</strong> of a random sample of size $n$ is $\overline{X}_n = \frac{1}{n}(X_1+\cdots+X_n)$.</p>
-</li>
-<li><p>The mean of the sample mean is $E[\overline{X}_n] = \mu$ and the variance of the sample mean is $\text{var}(\overline{X}_n) = \sigma^2 / n$.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><p>The <strong>law of large numbers</strong>. Let $X_1, X_2, \cdots, X_i, \cdots$ be a sequence of independent random variables with $E[X_i] = \mu$ and $\text{var}(X_i) = \sigma^2$ for all $i$. Let $\overline{X}_n = \frac{1}{n}(X_1+\cdots+X_n)$. Then, for any $\varepsilon &gt; 0$, 
-$$P(|\overline{X}_n -\mu|&gt;\varepsilon)\rightarrow 0 \text{  as } n \rightarrow \infty.$$</p>
-</li>
-<li><p>Loosing speaking, as $n\rightarrow \infty$, $\overline{X}_n$ approaches to $\mu$.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.-The-Central-Limit-Theorem">2. The Central Limit Theorem<a class="anchor-link" href="#2.-The-Central-Limit-Theorem">&#182;</a></h2><ul>
-<li><p>The most important theorem in probability and statistics.</p>
-</li>
-<li><p><strong>Central limit theorem</strong>: Let $X_1, X_2, \cdots, X_n$ be a sequence of independent random variables. These random variables all have the same distribution with mean $\mu$ and variance $\sigma^2$. Define $S_n = X_1+X_2+\cdots+X_n$. For any real numbers $a$ and $b$, 
-$$\lim_{n \rightarrow \infty} P\left( a \le \frac{S_n - n \mu}{\sigma \sqrt{n}} \le b \right) = \Phi(b) - \Phi(a),$$
-where $\Phi(x)$ is the standard normal cumulative distribution function.</p>
-</li>
-<li><p><strong>Interpretation</strong>: If $X_1, X_2,\cdots,X_n$ are independent random variables each having the same distribution with mean $\mu$ and variance $\sigma^2$, then the standardized random variable $\frac{S_n-n \mu}{\sigma \sqrt{n}}$ has an approximately the standard normal distribution (with mean $0$ and variance $1$), when $n$ is sufficiently large.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><p><strong>Interpretation</strong>: In terms of averaging random variables, the central limit theorem says this: If $X_1, X_2,\cdots,X_n$ are independent random variables each having the same distribution with mean $\mu$ and variance $\sigma^2$, then $\overline{X}_n = \frac{1}{n}(X_1+X_2+\cdots+X_n)$ approximately has a normal distribution with mean $\mu$ and variance $\sigma^2/n$ when $n$ is sufficiently large.</p>
-</li>
-<li><p><strong>Central limit theorem holds no matter what the distribution of random variables $X_1,X_2,\cdots$ take. As long as these random variables are independent, there sum and average both have a normal distribution.</strong></p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><p><strong>Example</strong>. Suppose that each of $X_1,X_2,\cdots,X_n$ has a uniform distribution on [0,1]. We knew that the mean of $X_k$ is $\frac{1}{2}$ and the variance is $\frac{1}{12}$.</p>
-</li>
-<li><p>The sum of $n=12$ such uniform random variables, $S_{12} = X_1+X_2+\cdots+X_{12}$, has mean 6 and variance 1. The distribution of $S_{12}$ is fairly close to a normal distribution.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><p>Random variable $X$ with binomial distribution with $n=100$ and $p=0.5$, the distribution is fairly close to a normal distribution $N(50, 25)$.</p>
-</li>
-<li><p>Recall $X$ can be considered as $X= X_1+X_2+\cdots+X_n$ where $X_k$ each has a Bernoulli distribution with paramter $p$.</p>
-</li>
-</ul>
-<p><img src="chartsAdditional/binomialNormal.png" align="middle" width=600 height=100 /></p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.-Sampling">2. Sampling<a class="anchor-link" href="#2.-Sampling">&#182;</a></h2><ul>
-<li><p>Sample surveys are used to obtain information regarding a large population</p>
-</li>
-<li><p>Recall in Chapters 2 and 3, we calculated moments (mean, variance, etc.) for both population and samples.</p>
-</li>
-<li><p>Techniques of sampling</p>
-<ul>
-<li>Simple random sampling</li>
-<li>Systematic random sampling</li>
-<li>Stratified random sampling</li>
-<li>Cluster sampling</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2-1.-Sampling-techniques">2-1. Sampling techniques<a class="anchor-link" href="#2-1.-Sampling-techniques">&#182;</a></h3><ul>
-<li><p><strong>Simple random sampling</strong>: Each particular sample of size $n$ has the same probability of occurrence. The actual composition of the sample is determined by random number generators on computer.</p>
-</li>
-<li><p><strong>Systematic random sampling</strong>: Select a random starting point, then select sample with a pattern (say every $k$th member of a population).</p>
-</li>
-<li><p><strong>Stratified random sampling</strong>: The population is partitioned into subpopulations, called <strong>strata</strong>. A random sample is then selected from each stratum. The results from the strata are then combined to estimate population parameters.</p>
-</li>
-<li><p><strong>Cluster sampling</strong>: The population is divided into <strong>clusters</strong> using naturally occurring geographic or other boundaries. A random sample is collected by randomly selecting from each cluster.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2-2.-Sampling-distribution">2-2. Sampling distribution<a class="anchor-link" href="#2-2.-Sampling-distribution">&#182;</a></h3><ul>
-<li><p>Consider a population of size $N$, and a random sample of size $n$ drawn from the population, Random variables $X_1, X_2, \cdots, X_n$ for a random sample from a same distribution</p>
-</li>
-<li><p>In a random sample, $X_i$'s are independent of each other, and each has the same distribution with mean $\mu$ and variance $\sigma^2$.</p>
-</li>
-<li><p>Must be aware that each $X_i$ is a <em>random variable</em>. In particular, $X_i$ is not the same as $x_i$: $X_i$ is the value of the $i$th member of the sample, which is random; while $x_i$ is the value of the $i$th member of the population, which is fixed.</p>
-</li>
-<li><p><strong>Population mean</strong> is $\mu = \frac{1}{N} (x_1+x_2+\cdots+x_N)$.</p>
-</li>
-<li><p><strong>Sample mean</strong> is $\overline{X} = \frac{1}{n} (X_1+X_2+\cdots+X_n)$.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><p>Since each $X_i$ is a random variable, so is the sample mean $\overline{X}$. The probability distribution of $\overline{X}$ is called its <strong>sampling distribution</strong>.</p>
-</li>
-<li><p>In general, any statistic computed from a random sample is a random variable and has an associated sampling distribution.</p>
-</li>
-<li><p>The difference between statistics computed from a sample and from the population is called <strong>sampling error</strong>.</p>
-<ul>
-<li>E.g., $\overline{X} - \mu$ is a sampling error.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><p>For any population parameter $\theta$, its estimate $\widehat{\theta}$ from a sample is called <strong>unbiased</strong> if $E[\widehat{\theta}] = \theta$.</p>
-</li>
-<li><p>For example, we can show that $E[\overline{X}] = \mu$, then $\overline{X} = \frac{1}{n}(X_1+x_2+\cdots+X_n)$ is an unbiased estimate of population mean $\mu$.</p>
-</li>
-<li><p>Since $\overline{X}$ is its a random variable, we can find the <strong>variance of the sample mean</strong>
-$$\text{var}(\overline{X}) = \frac{1}{n^2}\left[\text{var}(X_1)+\text{var}(X_2)+\cdots+\text{var}(X_n)\right] = \frac{\sigma^2}{n}.$$</p>
-</li>
-<li><p>Or, the standard deviation of $\overline{X}$ is $\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$.</p>
+<li><p><strong>Poisson probability mass distribution: $$P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad \text{for} \ k = 0, 1, 2, \cdots$$
+mean $\lambda$ and variance $\lambda$.</strong></p>
 </li>
 </ul>
 
@@ -13434,8 +13228,8 @@ require(
       waitSeconds: 15
     },
     [
-      "reveal.js/lib/js/head.min.js",
-      "reveal.js/js/reveal.js"
+      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.js"
     ],
 
     function(head, Reveal){
@@ -13450,9 +13244,9 @@ require(
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: "reveal.js/lib/js/classList.js",
+                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js",
                   condition: function() { return !document.body.classList; } },
-                { src: "reveal.js/plugin/notes/notes.js",
+                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js",
                   async: true,
                   condition: function() { return !!document.body.classList; } }
             ]
