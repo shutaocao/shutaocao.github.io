@@ -13436,7 +13436,7 @@ $$P\left(-z_{\alpha}&lt;\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}&lt;z_
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -13471,6 +13471,20 @@ $$P\left(-z_{\alpha}&lt;\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}&lt;z_
 <div class="output_wrapper">
 <div class="output">
 
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/lib64/python3.7/site-packages/statsmodels/tools/_testing.py:19: FutureWarning:
+
+pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+
+</pre>
+</div>
+</div>
 
 <div class="output_area">
 
@@ -13539,11 +13553,11 @@ $$P\left(\overline{X}_n-z_{\alpha}\cdot \sigma_{\overline{X}} &lt; \mu&lt;\overl
 <h3 id="2-2.-Confidence-interval-for-$\mu$-when-population-standard-deviation-$\sigma$-is-unknown">2-2. Confidence interval for $\mu$ when population standard deviation $\sigma$ is unknown<a class="anchor-link" href="#2-2.-Confidence-interval-for-$\mu$-when-population-standard-deviation-$\sigma$-is-unknown">&#182;</a></h3><ul>
 <li><p>When the value of $\sigma^2$ is <strong>unknown</strong>, we can no longer use the confidence interval $\overline{X}_n \pm z_{\alpha} \sigma_{\overline{X}}$ for population mean $\mu$.</p>
 </li>
-<li><p>Forunately, the quantity $\frac{\overline{X}_n - \mu}{s_{\overline{X}}$ has the <strong>student's $t$ distribution</strong> or simply the <strong>$t$ distribution</strong>.</p>
+<li><p>Fortunately, the quantity $\frac{\overline{X}_n - \mu}{s_{\overline{X}}}$ has the <strong>student's $t$ distribution</strong> or simply the <strong>$t$ distribution</strong>.</p>
 </li>
 <li><p>The $t$ distribution is symmetric about zero. It is similar to standard normal distribution.</p>
 </li>
-<li><p>The probability density function of a random variable following the $t$ distribution depends on the random sample size $n$. As $n$ goes to infinitty, the $t$ distribution tends to the standard normal distribution.</p>
+<li><p>The probability density function of a random variable following the $t$ distribution depends on the random sample size $n$. As $n$ goes to infinity, the $t$ distribution tends to the standard normal distribution.</p>
 </li>
 </ul>
 
