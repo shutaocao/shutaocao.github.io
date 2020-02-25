@@ -13392,13 +13392,14 @@ where $\Phi(x)$ is the standard normal cumulative distribution function.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p><strong>Population mean</strong> is computed as $\mu = \frac{1}{N} (x_1+x_2+\cdots+x_N)$.</p>
+<li><p><strong>Population mean</strong> is computed as
+$$\mu = \frac{1}{N} (x_1+x_2+\cdots+x_N).$$</p>
 </li>
-<li><p><strong>Sample mean</strong> is defined as $\overline{X}_n = \frac{1}{n} (X_1+X_2+\cdots+X_n)$.</p>
+<li><p><strong>Sample mean</strong> is defined as $$\overline{X}_n = \frac{1}{n} (X_1+X_2+\cdots+X_n).$$</p>
 </li>
-<li><p><strong>Population variance</strong> is computed as $\sigma^2 = \frac{1}{N}[(x_1-\mu)^2+(x_2-\mu)^2+\cdots+(x_N-\mu)^2]$, or equivalently, $\sigma^2 = \frac{1}{N}(x_1^2 + x_2^2+\cdots+x_N^2) - \mu^2$.</p>
+<li><p><strong>Population variance</strong> is computed as $$\sigma^2 = \frac{1}{N}[(x_1-\mu)^2+(x_2-\mu)^2+\cdots+(x_N-\mu)^2],$$ or equivalently, $$\sigma^2 = \frac{1}{N}(x_1^2 + x_2^2+\cdots+x_N^2) - \mu^2.$$</p>
 </li>
-<li><p><strong>Sample variance</strong> is defined as $s^2 = \frac{1}{n-1}[(X_1-\overline{X}_n)^2+(X_2-\overline{X}_n)^2+\cdots+(X_n-\overline{X}_n)^2]$, or equivalently, $s^2 = \frac{1}{n-1}(X_1^2 + X_2+\cdots+X_n^2) - \frac{n}{n-1}\overline{X}_n^2$.</p>
+<li><p><strong>Sample variance</strong> is defined as $$s^2 = \frac{1}{n-1}[(X_1-\overline{X}_n)^2+(X_2-\overline{X}_n)^2+\cdots+(X_n-\overline{X}_n)^2],$$ or equivalently, $$s^2 = \frac{1}{n-1}(X_1^2 + X_2+\cdots+X_n^2) - \frac{n}{n-1}\overline{X}_n^2.$$</p>
 </li>
 </ul>
 
@@ -13448,9 +13449,9 @@ $$\text{var}(\overline{X}_n) = \frac{1}{n^2}\left[\text{var}(X_1)+\text{var}(X_2
 <ul>
 <li><p>By the central limit theorem, as the random sample size is large ($n$ is large), the sample mean $\overline{X}_n$ has a normal distribution with mean $\mu$ and variance $\sigma^2/n$.</p>
 </li>
-<li><p>We can make a $z$-transformation of $\overline{X}_n$: $z = \frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}$.</p>
+<li><p>We can make a $Z$-transformation of $\overline{X}_n$: $Z = \frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}$.</p>
 </li>
-<li><p>The random variable $z$ has (approximately) the standard normal distribution.</p>
+<li><p>The random variable $Z$ has (approximately) the standard normal distribution.</p>
 </li>
 </ul>
 
@@ -13524,7 +13525,7 @@ $$\text{var}(\overline{X}_n) = \frac{1}{n^2}\left[\text{var}(X_1)+\text{var}(X_2
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>The <strong>sample proportion</strong> is calculated as $\overline{p} = \frac{K}{n}$.<ul>
-<li>The sample proportion is a random variable, because $k$ is random.</li>
+<li>The sample proportion is a random variable, because $K$ is random.</li>
 </ul>
 </li>
 <li><p>The expected value of $\overline{p}$ is $E[\overline{p}] = p$.</p>
@@ -13533,7 +13534,7 @@ $$\text{var}(\overline{X}_n) = \frac{1}{n^2}\left[\text{var}(X_1)+\text{var}(X_2
 </li>
 <li><p>Approximately, $\overline{p}$ has a normal distribution with mean $p$ and variance $(\sigma_{\overline{p}})^2$.</p>
 </li>
-<li><p>Then $z = \frac{\overline{p} - p}{\sigma_{\overline{p}}}$ has (approximately) the standard normal distribution, by the central limit theorem.</p>
+<li><p>Then $Z = \frac{\overline{p} - p}{\sigma_{\overline{p}}}$ has (approximately) the standard normal distribution, by the central limit theorem.</p>
 </li>
 </ul>
 
@@ -13548,7 +13549,7 @@ $$\text{var}(\overline{X}_n) = \frac{1}{n^2}\left[\text{var}(X_1)+\text{var}(X_2
 </li>
 <li><p>These properties are: sampling distribution, expected value, variance.</p>
 </li>
-<li><p>But, in the case of $\overline{X}_n$, we not know the values of $\mu$ and $\sigma$, and in the case of $\overline{p}$, we do not know the value of $p$.</p>
+<li><p>But, in the case of $\overline{X}_n$, we do not know the values of $\mu$ and $\sigma$, and in the case of $\overline{p}$, we do not know the value of $p$.</p>
 </li>
 <li><p>$\mu$, $\sigma$, and $p$ are parameters characterizing the sampling distributions. For mathematical properties, we do not need to know their values.</p>
 </li>
