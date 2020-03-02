@@ -13231,7 +13231,7 @@ a.anchor-link {
 </li>
 <li><p><strong>Sampling distribution</strong> is the probability distribution of a statistic computed from a random sample.</p>
 </li>
-<li><p>For example, the sampling distribution of the sample mean $\overline{X}_n$ has approximately a normal distribution.</p>
+<li><p>For example, the sample mean $\overline{X}_n$ has approximately a normal sampling distribution.</p>
 </li>
 </ul>
 <h2 id="We-now-move-to-estimation">We now move to estimation<a class="anchor-link" href="#We-now-move-to-estimation">&#182;</a></h2><ul>
@@ -13245,7 +13245,7 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1.-Point-estimation">1. Point estimation<a class="anchor-link" href="#1.-Point-estimation">&#182;</a></h2><ul>
-<li><p>A <strong>point estimate</strong> is a single statistic computed from a random sample, used to estimate a population parameter.</p>
+<li><p>A <strong>point estimate</strong> is a single statistic computed from a random sample, used to "guess" a population parameter.</p>
 </li>
 <li><p>Population parameter: quantities that characterize the population distribution.</p>
 </li>
@@ -13389,13 +13389,13 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>Why are these estimates? Can other estimates be used.</p>
+<li><p>Why are these estimates?</p>
 </li>
 <li><p>The estimates reported in above tables are not the only ones we can use. Importantly, the estimates reported in the tables are the "best" ones: they were proved to approach to true values of population parameters when sample size is sufficiently large.</p>
 </li>
-<li><p><strong>Bias</strong>: the bias of the sample mean is defined as $\overline{X}_n-\mu$. Estimate is <strong>unbiased</strong> if $E[\overline{X}_n]-\mu=0$. This applies to any estimates of any population parameter.</p>
+<li><p><strong>Bias</strong>: the bias of the estimate of population mean is defined as $\overline{X}_n-\mu$. Estimate is <strong>unbiased</strong> if $E[\overline{X}_n]-\mu=0$. This applies to any estimates of any population parameter.</p>
 </li>
-<li><p>Unbiasedness is one measure of the "best" estimates.</p>
+<li><p>Unbiasedness is one measure of being the "best" estimates.</p>
 </li>
 </ul>
 
@@ -13425,7 +13425,7 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="2-1.-Confidence-interval-for-$\mu$-when-population-standard-deviation-$\sigma$-is-known">2-1. Confidence interval for $\mu$ when population standard deviation $\sigma$ is known<a class="anchor-link" href="#2-1.-Confidence-interval-for-$\mu$-when-population-standard-deviation-$\sigma$-is-known">&#182;</a></h3><ul>
-<li>Recall, by the central limit theorem, $\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}$ has approximately a standard normal distribution. $\overline{X}_n$ is the sample mean, and can be an estimate of $\mu$. $\sigma_{\overline{X}}$ is the standard deviation of the sampling mean, where $\sigma$ is the population standard deviation. Then
+<li>Recall, by the central limit theorem, $\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}$ has approximately a standard normal distribution. $\overline{X}_n$ is the sample mean, and is the estimate of $\mu$. $\sigma_{\overline{X}}$ is the standard deviation of the sampling mean, where $\sigma$ is the population standard deviation. Then
 $$P\left(-z_{\alpha}&lt;\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}&lt;z_{\alpha}\right) = 1-\alpha.$$</li>
 <li><p>Also recall, $1-\alpha$ is the area under the graph of normal probability density function between $-z_{\alpha}$ and $z_{\alpha}$.</p>
 </li>
@@ -13438,7 +13438,7 @@ $$P\left(-z_{\alpha}&lt;\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}&lt;z_
 </div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -13480,6 +13480,20 @@ $$P\left(-z_{\alpha}&lt;\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}&lt;z_
     <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/lib64/python3.7/site-packages/statsmodels/tools/_testing.py:19: FutureWarning:
+
+pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 
 <div class="output_png output_subarea ">
@@ -13502,6 +13516,8 @@ $$P\left(-z_{\alpha}&lt;\frac{\overline{X}_n - \mu}{\sigma_{\overline{X}}}&lt;z_
 $$P\left(\overline{X}_n-z_{\alpha}\cdot \sigma_{\overline{X}} &lt; \mu&lt;\overline{X}_n + z_{\alpha}\cdot \sigma_{\overline{X}}\right) = 1-\alpha.$$</p>
 </li>
 <li><p>The probability that $\mu$ lies in the interval $[\overline{X}_n-z_{\alpha} \cdot \sigma_{\overline{X}},\ \overline{X}_n+z_{\alpha}\cdot \sigma_{\overline{X}}]$ is $1-\alpha$. This interval is called a $100(1-\alpha)\%$ confidence interval for $\mu$.</p>
+</li>
+<li><p>The value of $z_{\alpha}$ is obtained from the standard normal distribution table, once the value of $\alpha$ is determined.</p>
 </li>
 <li><p>Example. The $95\%$ confidence interval for the population mean $\mu$ is $\overline{X}_n \pm 1.96 \sigma_{\overline{X}}$.</p>
 </li>
@@ -13574,7 +13590,7 @@ $$P\left(-t_{\alpha}&lt;\frac{\overline{X}_n - \mu}{s_{\overline{X}}}&lt;t_{\alp
 </li>
 <li><p>Example. The $95\%$ confidence interval of population mean from a random sample of size $n=5$ is $\overline{X}_n \pm 2.776 \cdot s_{\overline{X}}$.</p>
 </li>
-<li><p>Refer to the tables in Section 1 of these slides for the expressions of $s_{\overline{X}}$. Again, Equation [8-7] on page 263 of textbook is also considered to be correct.</p>
+<li><p>Refer to Section 1 of these slides for the expression for $s_{\overline{X}}$. Again, Equation [8-7] on page 263 of textbook is also considered to be correct.</p>
 </li>
 </ul>
 
@@ -13595,8 +13611,8 @@ $$P\left(-t_{\alpha}&lt;\frac{\overline{X}_n - \mu}{s_{\overline{X}}}&lt;t_{\alp
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="2-3.-Confidence-intervals-for-population-fraction-$p$">2-3. Confidence intervals for population fraction $p$<a class="anchor-link" href="#2-3.-Confidence-intervals-for-population-fraction-$p$">&#182;</a></h3><ul>
-<li><p>The $100(1-\alpha)\%$ confidence interval for population fraction is $\overline{p} \pm z_{\alpha} \cdot \sigma_{\overline{p}}$ when $p$ is known, and $\overline{p} \pm z_{\alpha} \cdot s_{\overline{p}}$ when $p$ is unknown.</p>
+<h3 id="2-3.-Confidence-intervals-for-population-proportion-$p$">2-3. Confidence intervals for population proportion $p$<a class="anchor-link" href="#2-3.-Confidence-intervals-for-population-proportion-$p$">&#182;</a></h3><ul>
+<li><p>The $100(1-\alpha)\%$ confidence interval for population proportion is $\overline{p} \pm z_{\alpha} \cdot \sigma_{\overline{p}}$ when $p$ is known, and $\overline{p} \pm z_{\alpha} \cdot s_{\overline{p}}$ when $p$ is unknown.</p>
 </li>
 <li><p>The construction of these intervals are similar to those for the population mean, since $\overline{p}$ has approximately a normal distribution.</p>
 </li>
@@ -13626,7 +13642,7 @@ $$P\left(-t_{\alpha}&lt;\frac{\overline{X}_n - \mu}{s_{\overline{X}}}&lt;t_{\alp
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>From data, the population means is unknown, its estimate can be the sample mean $\overline{X}=\$54520$.</p>
+<li><p>From data, the population mean is unknown, its estimate can be the sample mean $\overline{X}=\$54520$.</p>
 </li>
 <li><p>A "reasonable" range is subjective. Let us want to use the $95\%$ level of confidence, we can construct the $95\%$ confidence interval for population mean. Since the standard deviation of the income in population is known, the estimate of population mean has approximately a normal distribution. The $95\%$ confidence interval is then $54520 \pm 1.96 \cdot 3060/\sqrt{361}$ which is about $[54204, 54835]$.</p>
 </li>
@@ -13658,7 +13674,9 @@ $$P\left(-t_{\alpha}&lt;\frac{\overline{X}_n - \mu}{s_{\overline{X}}}&lt;t_{\alp
 </li>
 <li><p>Then the variable transformed from the sample mean (sample mean as an estimate of the population mean) has a $t$ distribution, instead of the standard normal distribution.</p>
 </li>
-<li><p>The $95\%$ confidence interval for the population mean is $54520 \pm 2.776 \cdot 3000/\sqrt{361}$, which is $[54081, 54958]$.</p>
+<li><p>The $95\%$ confidence interval for the population mean is $54520 \pm 1.96 \cdot 3000/\sqrt{361}$, which is $[54081, 54958]$.</p>
+</li>
+<li><p>Note the value of 1.96 is from the $t$ distribution, not standard normal distribution. But $n=361$, and the degree of freedom $df=360$, which is large. When $n$ is large, $t$ distribution is close to standard normal distribution.</p>
 </li>
 </ul>
 
