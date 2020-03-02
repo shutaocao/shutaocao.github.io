@@ -13232,7 +13232,7 @@ a.anchor-link {
 <li><p>Testing a hypothesis involves:</p>
 <ul>
 <li>stating the null and alternative hypotheses</li>
-<li>selecting the level of confidence</li>
+<li>selecting the level of significance</li>
 <li>choosing an appropriate test statistic</li>
 <li>formulating the decision rule</li>
 </ul>
@@ -13346,7 +13346,7 @@ a.anchor-link {
 <li><p>The above example suggests that the critical value in a right-tailed hypothesis test satisfies 
 $$P(Z&lt;z_{\alpha}) = 1-\alpha.$$</p>
 </li>
-<li><p>To remind ourselves, $Z$ is the test statistics, computed from a random sample. $z_{\alpha}$ is the critical value of the test corresponding the pre-determined significance level $\alpha$.</p>
+<li><p>To remind ourselves, $Z$ is the test statistics, computed from a random sample. $z_{\alpha}$ is the critical value of the test corresponding to the pre-determined significance level $\alpha$.</p>
 </li>
 </ul>
 
@@ -13420,7 +13420,7 @@ $$P(Z&lt;z_{\alpha}) = 1-\alpha.$$</p>
 </li>
 <li><p>Example. The weekly production of the woolen fabrics in a company' plants follows a normal probability distribution, with a mean of 200 and a standard deviation of 16. Recently, new production methods have been introduced and new employees hired. The company would like to investigate whether there has been a change in the weekly production of the woolen fabrics. Is the mean number of woolen fabrics produced different from 200 at the 0.01 significance level?</p>
 </li>
-<li><p>The question does not specify how the mean may different from 200,</p>
+<li><p>The question does not specify how the mean may differ from 200,</p>
 <ul>
 <li>it could be just different from 200.</li>
 <li>it could be that the mean is less than 200.</li>
@@ -13470,7 +13470,7 @@ $$ H_0: \mu =200, \\ H_1: \mu \ne 200.$$</p>
 </li>
 <li><p>We fail to reject the null $H_0$ because the value of the test statistic does not fall in the rejection region.</p>
 </li>
-<li><p>Therefore, at the 1\% significance level, we fail to reject that the average production remains the same as before new production methods were used.</p>
+<li><p>Therefore, at the 1% significance level, we fail to reject that the average production remains the same as before new production methods were used.</p>
 </li>
 </ul>
 
@@ -13582,7 +13582,7 @@ $$Z = \frac{\overline{X}_n - 60}{s_{\overline{X}}}$$ has the $t$ distribution wi
 <h2 id="4.-The-$p$-value-in-hypothesis-testing">4. The $p$-value in hypothesis testing<a class="anchor-link" href="#4.-The-$p$-value-in-hypothesis-testing">&#182;</a></h2><ul>
 <li><p>In hypothesis testing, we compare the test statistic $Z$ with a critical value $z_{\alpha}$, given a significance level. $H_0$ is rejected if the test statistic falls in the rejection region.</p>
 </li>
-<li><p>For example, in testing the population mean with known population standard deviation, suppose $Z = 2.78$, it is larger than critical value 1.96, we then reject $H_0$ at the 5\% significance level.</p>
+<li><p>For example, in testing the population mean with known population standard deviation, suppose $Z = 2.78$, it is larger than critical value 1.96, we then reject $H_0$ at the 5% significance level.</p>
 </li>
 <li><p>A related approach is to use the <strong>$p$-value</strong> which <strong>is the the smallest significance level at which the null hypothesis would be rejected with the observed data</strong>.</p>
 </li>
@@ -13625,9 +13625,9 @@ $$ H_0: \mu =200, \\ H_1: \mu \ne 200.$$</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p>From the standard normal distribution table, we can find that $p=0.121$. $p$-value is not 0.0606.</p>
+<li><p>From the standard normal distribution table, we can find that $p=0.1212$ (=0.0606+0.06060).</p>
 </li>
-<li><p>We fail to reject the null $H_0$ since $p$-value of 0.1212 is <em>larger</em> than the significance level 0.01.</p>
+<li><p>We fail to reject the null $H_0$ since the $p$-value of 0.1212 is <em>larger</em> than the significance level 0.01.</p>
 </li>
 </ul>
 
@@ -13642,9 +13642,9 @@ $$ H_0: \mu =200, \\ H_1: \mu \ne 200.$$</p>
 </li>
 <li><p>Recall that $Z = \frac{\overline{p}- p}{\sigma_p /\sqrt{n}}$ has a standard normal distribution.</p>
 </li>
-<li><p>And $Z = \frac{\overline{p}- p}{s}/\sqrt{n}}$ has a student's $t$ distribution.</p>
+<li><p>The procedure of hypothesis testing for population proportion are the similar to that for population mean.</p>
 </li>
-<li><p>The procedures of hypothesis testing for population proportion are the same as those for population mean.</p>
+<li><p>When replacing $\sigma_p$ with $s$, $Z = \frac{\overline{p}- p}{s/\sqrt{n}}$. We still <em>apply the standard normal distribution</em></p>
 </li>
 <li><p>Refer to textbook page 299-300 for an example.</p>
 </li>
