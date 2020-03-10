@@ -13202,7 +13202,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="ECON2200H-"><center>ECON2200H </center><a class="anchor-link" href="#ECON2200H-">&#182;</a></h2><h3 id="Introduction-to-Statistics-for-Economics-and-Management"><center>Introduction to Statistics for Economics and Management</center><a class="anchor-link" href="#Introduction-to-Statistics-for-Economics-and-Management">&#182;</a></h3><h3 id="2020-Winter-Term"><center>2020 Winter Term</center><a class="anchor-link" href="#2020-Winter-Term">&#182;</a></h3><h3 id="Week-09:-Testing-Hypothesis:-comparing-distributions"><center>Week 09: Testing Hypothesis: comparing distributions</center><a class="anchor-link" href="#Week-09:-Testing-Hypothesis:-comparing-distributions">&#182;</a></h3><h4 id="9-March-2020"><center>9 March 2020</center><a class="anchor-link" href="#9-March-2020">&#182;</a></h4>
+<h2 id="ECON2200H-"><center>ECON2200H </center><a class="anchor-link" href="#ECON2200H-">&#182;</a></h2><h3 id="Introduction-to-Statistics-for-Economics-and-Management"><center>Introduction to Statistics for Economics and Management</center><a class="anchor-link" href="#Introduction-to-Statistics-for-Economics-and-Management">&#182;</a></h3><h3 id="2020-Winter-Term"><center>2020 Winter Term</center><a class="anchor-link" href="#2020-Winter-Term">&#182;</a></h3><h3 id="Week-09:-Testing-Hypothesis:-comparing-distributions"><center>Week 09: Testing Hypothesis: comparing distributions</center><a class="anchor-link" href="#Week-09:-Testing-Hypothesis:-comparing-distributions">&#182;</a></h3><h4 id="9-March-2020,-revised-on-10-March-2020"><center>9 March 2020, revised on 10 March 2020</center><a class="anchor-link" href="#9-March-2020,-revised-on-10-March-2020">&#182;</a></h4>
 </div>
 </div>
 </div></section></section><section><section>
@@ -13222,9 +13222,9 @@ a.anchor-link {
 <h2 id="0.-Introduction">0. Introduction<a class="anchor-link" href="#0.-Introduction">&#182;</a></h2><ul>
 <li><p>We often compare two distributions (populations), e.g. whether two population means are different.</p>
 </li>
-<li><p>Example. Are the mean hourly wage rate between a plumber and an electrician?</p>
+<li><p>Example. Are the mean hourly wage rates equal between a plumber and an electrician?</p>
 </li>
-<li><p>Example. Whether annual salaries of new graduates are different between two universities.</p>
+<li><p>Example. Whether annual salaries of new graduates from two universities are different.</p>
 </li>
 <li><p>We can perform hypothesis testing, using random samples drawn respectively from different populations.</p>
 </li>
@@ -13241,7 +13241,9 @@ a.anchor-link {
 <h2 id="1.-Comparing-two-population-means-using-independent-samples">1. Comparing two population means using independent samples<a class="anchor-link" href="#1.-Comparing-two-population-means-using-independent-samples">&#182;</a></h2><ul>
 <li><p>Assume two random samples are independent: meaning their joint distribution equals the product of two distributions. [We did not learn joint distribution].</p>
 </li>
-<li><p>Let $X_1, X_2, \cdots, X_n$ be a random sample drawn from a normal distribution with mean $\mu_X$ and standard deviation $\sigma_X$. Let $Y_1, Y_2, \cdots, Y_m$ be a random sample drawn from another normal distribution with mean $\mu_Y$ and standard deviation $\sigma_Y$.</p>
+<li><p>Let $X_1, X_2, \cdots, X_n$ be a random sample of size $n$ drawn from a normal distribution with mean $\mu_X$ and standard deviation $\sigma_X$.</p>
+</li>
+<li><p>Let $Y_1, Y_2, \cdots, Y_m$ be a random sample of size $m$ drawn from another normal distribution with mean $\mu_Y$ and standard deviation $\sigma_Y$.</p>
 </li>
 <li><p>We want to test if $\mu_X - \mu_Y =0$, or $\mu_X - \mu_Y \le 0$, $\mu_X - \mu_Y \ge 0$.</p>
 </li>
@@ -13256,11 +13258,12 @@ a.anchor-link {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p><strong>Claim: If the two samples respectively drawn from normal distributions, then the difference of sample means, $\overline{X} - \overline{Y}$, follows a normal distribution.</strong></p>
+<li><p><strong>Claim: If the two samples respectively drawn from normal distributions, then the difference of sample means, $\overline{X} - \overline{Y}$, has a normal distribution.</strong></p>
 </li>
 <li><p>The independence of two samples implies that the variance of $\overline{X} - \overline{Y}$ is given by
-$$\sigma_{\overline{X} - \overline{Y}} = \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}.$$</p>
+$$\sigma_{\overline{X} - \overline{Y}}^2 = \frac{\sigma_X^2}{n} + \frac{\sigma_Y^2}{m}.$$</p>
 </li>
+<li>(Optional). $\text{var}(\overline{X} - \overline{Y}) = \text{var}(\overline{X}) + \text{var}(\overline{Y}) - 2 \text{cov}(\overline{X},\overline{Y})$, where $\text{cov}()$ is the co-variance of $\overline{X}$ and $\overline{Y}$, $\text{cov}()$ is zero for two independent random samples. Then $(\sigma_{\overline{X} - \overline{Y}})^2 = (\sigma_{\overline{X}})^2 + (\sigma_{\overline{Y}})^2$. Recall, $(\sigma_{\overline{X}})^2 = (\sigma_{X})^2 / n$.</li>
 </ul>
 
 </div>
@@ -13313,11 +13316,11 @@ has a standard normal distribution.</p>
 <h3 id="1-2.-Testing-the-difference-of-population-mean-when-$\sigma_X$-=-$\sigma_Y=\sigma$-with-unknown-$\sigma$">1-2. Testing the difference of population mean when $\sigma_X$ = $\sigma_Y=\sigma$ with unknown $\sigma$<a class="anchor-link" href="#1-2.-Testing-the-difference-of-population-mean-when-$\sigma_X$-=-$\sigma_Y=\sigma$-with-unknown-$\sigma$">&#182;</a></h3><ul>
 <li><p>Generally, population standard deviations are unknown.</p>
 </li>
-<li><p>Suppose that population standard deviations are equal but known, let $\sigma_X$ = $\sigma_Y=\sigma$.</p>
+<li><p>Suppose that population standard deviations are equal but unknown, let $\sigma_X$ = $\sigma_Y=\sigma$.</p>
 </li>
 <li><p>We then use an estimate of the population standard deviation, using both samples, it can be shown that the pooled sample variance is
 $$s_p^2 = \frac{(n-1)s_{X}^2 + (m-1)s_{Y}^2}{n+m-2},$$ where
-$s_{X}^2$ is the sample variance, $s_X^2 = \frac{1}{(n-1)} \sum_{i=1}^n (X_i - \overline{X})^2$; also $s_Y^2 = \frac{1}{(m-1)} \sum_{i=1}^m (Y_i - \overline{Y})^2$;</p>
+$s_{X}^2$ is the sample variance, $s_X^2 = \frac{1}{(n-1)} \sum_{i=1}^n (X_i - \overline{X})^2$; also $s_Y^2 = \frac{1}{(m-1)} \sum_{i=1}^m (Y_i - \overline{Y})^2$.</p>
 </li>
 </ul>
 
@@ -13328,9 +13331,12 @@ $s_{X}^2$ is the sample variance, $s_X^2 = \frac{1}{(n-1)} \sum_{i=1}^n (X_i - \
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><strong>Claim</strong>: If two random samples are independent and both are drawn from two independent normal distributions, the two normal distributions have the same variance. Then the statistic
-$$T = \frac{(\overline{X} - \overline{Y}) - (\mu_X -\mu_Y)}{s_p \sqrt{\frac{1}{n} + \frac{1}{m}}}$$
-follow a $t$ distribution with $(n+m-2)$ degrees of freedom.</li>
+<li><p><strong>Claim</strong>: If two random samples are independent and both are drawn from two independent normal distributions, the two normal distributions have the same variance. Then the test statistic
+$$T = \frac{(\overline{X} - \overline{Y}) - (\mu_X -\mu_Y)}{\sqrt{\frac{s_p^2}{n} + \frac{s_p^2}{m}}}$$
+has a $t$ distribution with $(n+m-2)$ degrees of freedom.</p>
+</li>
+<li><p>The reason to replace both $\sigma_X$ and $\sigma_Y$ with $s_p$ is that we assume $\sigma_X=\sigma_Y=\sigma$. $s_p$ is an estimate of $\sigma$ using two independent samples.</p>
+</li>
 </ul>
 
 </div>
@@ -13380,11 +13386,13 @@ follow a $t$ distribution with $(n+m-2)$ degrees of freedom.</li>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Step 5, Make a decision. $s_X = \sqrt{\frac{\sum_{i=1}^5 X_i^2 -(\sum_{i=1}^5 X_i)^2/5}{5-1}}=2.9155$; $s_Y = 2.0976$. Then the pooled sample standard deviation
+<li><p>Step 5, Make a decision. $s_X = \sqrt{\frac{\sum_{i=1}^5 X_i^2 -(\sum_{i=1}^5 X_i)^2/5}{5-1}}=2.9155$; $s_Y = 2.0976$. Then the pooled sample standard deviation
 $s_p = \sqrt{\frac{(5-1) \cdot 2.9155^2 + (m-1) \cdot 2.0976^2}{5+6-2}} = \sqrt{6.2222} = 2.4944$. The test statistic is then
-$T = \frac{(\overline{X} - \overline{Y}) - (\mu_X -\mu_Y)}{s_p \sqrt{\frac{1}{n} + \frac{1}{m}}} = -0.662$.</li>
+$T = \frac{(\overline{X} - \overline{Y}) - (\mu_X -\mu_Y)}{s_p \sqrt{\frac{1}{n} + \frac{1}{m}}} = -0.662$.</p>
+</li>
+<li><p>The test statistic (-0.662) is not in the rejection region. Failed to reject $H_0$.</p>
+</li>
 </ul>
-<p>The test statistic (-0.662) is not in the rejection region. Failed to reject $H_0$.</p>
 
 </div>
 </div>
@@ -13395,9 +13403,11 @@ $T = \frac{(\overline{X} - \overline{Y}) - (\mu_X -\mu_Y)}{s_p \sqrt{\frac{1}{n}
 <h2 id="2.-Comparing-population-means-using-dependent-samples">2. Comparing population means using dependent samples<a class="anchor-link" href="#2.-Comparing-population-means-using-dependent-samples">&#182;</a></h2><ul>
 <li><p>Consider <strong>paired samples</strong>.</p>
 </li>
-<li><p>Example. To measure the effectiveness of a new diet, we would weigh the dieters at the start and at the finish of the program. The weight at finish depends on that at the start, the sample is paired.</p>
+<li><p>Example. To measure the effectiveness of a new diet, we would weigh the dieters at the start and at the finish of the program. The weight at finish depends on that at the start, the sample is paired (one at the start, one at the finish).</p>
 </li>
-<li><p>Example. Treatment experiment. Two groups: treatment group, control group. Subjects between two groups are matched by say age, weight, or gender. Compare treatment effect for say the same age, same weight, or same gender.</p>
+<li><p>Example. Treatment experiment. Two groups: treated group and control group. Subjects between two groups are matched by say age, weight, or gender. Compare treatment effect for say the same age, same weight, or same gender.</p>
+</li>
+<li><p>E.g., Two groups of the unemployed, one participates in a training program, one does not.</p>
 </li>
 </ul>
 
@@ -13412,9 +13422,10 @@ $T = \frac{(\overline{X} - \overline{Y}) - (\mu_X -\mu_Y)}{s_p \sqrt{\frac{1}{n}
 </li>
 <li><p>Here, we only look at the case of <strong>unknown population standard deviation</strong>.</p>
 </li>
-<li><p>Continue to use notations as in Section 1, for the $i$-th paired sample (observation), define the difference as 
-$D_i = X_i - Y_i$. Let $n$ be the size of paired sample.</p>
-</li>
+</ul>
+<p>-Use the same notations as in Section 1. For the $i$-th paired sample (observation), define the difference as 
+$D_i = X_i - Y_i$. Let $n$ be the size of paired samples.</p>
+<ul>
 <li><p>$D_i$ is a random variable. Its expected value (mean) is $\mu_D = \mu_X - \mu_Y$.</p>
 </li>
 <li><p>Then, a natural estimate of $\mu_X - \mu_Y$ is $\overline{D} = \overline{X} - \overline{Y}$.</p>
@@ -13428,9 +13439,9 @@ $D_i = X_i - Y_i$. Let $n$ be the size of paired sample.</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><p><strong>Claim</strong>: Statistic $T = \frac{\overline{D} - \mu_D}{s_D \ \sqrt{n}}$ has a $t$ distribution with (n-1) degrees of freedom.</p>
+<li><p><strong>Claim</strong>: Statistic $T = \frac{\overline{D} - \mu_D}{s_D / \sqrt{n}}$ has a $t$ distribution with (n-1) degrees of freedom.</p>
 </li>
-<li><p>Here, $s_D$ is the sample standard deviation of differences, and $s_D = \sqrt{\frac{\sum_{i=1}^n D_i^2 -(\sum_{i=1}^n D_i)^2/n}{n-1}}$.</p>
+<li><p>Here, $s_D$ is the sample standard deviation of differences, and $s_D = \sqrt{\frac{\sum_{i=1}^n D_i^2 -\frac{\sum_{i=1}^n D_i)^2}{n}}{n-1}}$.</p>
 </li>
 <li><p>NOTE: the sample standard deviation $s_D$ is different from when samples are independent.</p>
 </li>
@@ -13480,7 +13491,7 @@ $D_i = X_i - Y_i$. Let $n$ be the size of paired sample.</p>
 </li>
 <li><p>$K_1$ is the number of observations possessing certain trait in the first random sample; $K_2$ is the number of observations possessing the same trait in the second random sample.</p>
 </li>
-<li><p>Test statistic $$Z = \frac{\overline{p}_1 - \overline{p}_2 - (p_1 - p_2)}{\sqrt{\overline{p}_c (1-\overline{p}_c)} \sqrt{\frac{1}{n_1}+{1}{n_2}}},$$
+<li><p>Test statistic $$Z = \frac{\overline{p}_1 - \overline{p}_2 - (p_1 - p_2)}{\sqrt{\overline{p}_c (1-\overline{p}_c)} \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}},$$
 where $\overline{p}_c = \frac{K_1+K_2}{n_1+n_2}$ is called the <em>pooled proportion</em>.</p>
 </li>
 <li><p><strong>Claim</strong>: $Z$ follows a standard normal distribution.</p>
@@ -13494,7 +13505,7 @@ where $\overline{p}_c = \frac{K_1+K_2}{n_1+n_2}$ is called the <em>pooled propor
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><strong>Example</strong>. study whether there is a difference in the proportion of  male students and female students who choose engineering branch for further studies. A random sample of 100 male students revealed 19 will choose engineering branch for further studies. Similarly, a sample of 200 female students revealed 62 will choose engineering branch for further studies.</li>
+<li><strong>Example</strong>. One wants to study whether there is a difference in the proportion of  male students and female students who choose engineering branch for further studies. A random sample of 100 male students revealed 19 will choose engineering branch for further studies. Similarly, a sample of 200 female students revealed 62 will choose engineering branch for further studies.</li>
 </ul>
 
 </div>
