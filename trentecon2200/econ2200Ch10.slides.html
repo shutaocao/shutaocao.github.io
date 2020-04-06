@@ -13441,7 +13441,7 @@ $D_i = X_i - Y_i$. Let $n$ be the size of paired samples.</p>
 <ul>
 <li><p><strong>Claim</strong>: Statistic $T = \frac{\overline{D} - \mu_D}{s_D / \sqrt{n}}$ has a $t$ distribution with (n-1) degrees of freedom.</p>
 </li>
-<li><p>Here, $s_D$ is the sample standard deviation of differences, and $s_D = \sqrt{\frac{\sum_{i=1}^n D_i^2 -\frac{\sum_{i=1}^n D_i)^2}{n}}{n-1}}$.</p>
+<li><p>Here, $s_D$ is the sample standard deviation of differences, and $s_D = \sqrt{\frac{\sum_{i=1}^n D_i^2 -\frac{(\sum_{i=1}^n D_i)^2}{n}}{n-1}}$.</p>
 </li>
 <li><p>NOTE: the sample standard deviation $s_D$ is different from when samples are independent.</p>
 </li>
@@ -13470,7 +13470,7 @@ $D_i = X_i - Y_i$. Let $n$ be the size of paired samples.</p>
 </li>
 <li><p>Choose significance level to be 0.05.</p>
 </li>
-<li><p>Use the test statistic $T = \frac{\overline{D} - 0}{s_D \ \sqrt{n}}$.</p>
+<li><p>Use the test statistic $T = \frac{\overline{D} - 0}{s_D / \sqrt{n}}$.</p>
 </li>
 <li><p>The decision rule: reject $H_0$ if the value of $T$ is not between -2.262 and 2.262.</p>
 </li>
@@ -13583,7 +13583,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = false
+            var scroll = true
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')
