@@ -6,13 +6,12 @@ I am an assistant professor in economics at [Trent University](https://www.trent
 
 [Teaching](teaching.html)
 
-### More to come ...
-
 
 [Quarterly Total Factor Productivity data for Canada](dataproject.html): I have built a seasonally-adjusted quaterly series of total factor productivity in Canadian business sector.
 
 
-![Tux](images/tfpgrowth.png)
+![TFP](images/tfpgrowth.png)
 
 
 
+### More to come ...
