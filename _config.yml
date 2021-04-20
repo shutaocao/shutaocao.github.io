@@ -1,5 +1,5 @@
-theme: minima
-remote_theme: minima
+theme: jekyll-theme-slate
+remote_theme: jekyll-theme-slate
 title: Shutao Cao
 description: Studies and teaches macroeconomics
 show_downloads: false
