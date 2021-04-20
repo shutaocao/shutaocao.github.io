@@ -8,7 +8,7 @@ I have been fortunate to work with some economists, fantastic researchers.
 
 ### [Courses](teaching.html)
 
-"Education: the path from cocky ignorance to miserable uncertainty." -- Mark Twain
+*"Education: the path from cocky ignorance to miserable uncertainty."* -- Mark Twain
 
 ### [Seasonally-adjusted quarterly Total Factor Productivity data for Canada](dataproject.html)
 
