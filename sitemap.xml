@@ -33,7 +33,17 @@
   </url>
   
   <url>
+    <loc></loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://shutaocao.github.io/category/demo/</loc>
+    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://shutaocao.github.io/tag/opensource/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -58,16 +68,6 @@
   </url>
   
   <url>
-    <loc></loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://shutaocao.github.io/tag/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://shutaocao.github.io/category/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url>
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>https://shutaocao.github.io/tag/deep-learning/</loc>
+    <loc>https://shutaocao.github.io/project/example/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://shutaocao.github.io/project/example/</loc>
+    <loc>https://shutaocao.github.io/tag/monetary-policy/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url>
   
