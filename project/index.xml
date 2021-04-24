@@ -5,7 +5,7 @@
     <link>https://shutaocao.github.io/project/</link>
       <atom:link href="https://shutaocao.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Shutao Cao</copyright><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://shutaocao.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
@@ -13,11 +13,20 @@
     </image>
     
     <item>
-      <title>Example Project</title>
-      <link>https://shutaocao.github.io/project/example/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://shutaocao.github.io/project/example/</guid>
-      <description>&lt;p&gt;Add project summary here&lt;/p&gt;
+      <title>Learning and New Entrepreneurship</title>
+      <link>https://shutaocao.github.io/project/entrepreneurship/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/project/entrepreneurship/</guid>
+      <description>&lt;p&gt;To what extent experience and learning affect business creation and business growth.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Commodity Price and Production Networks</title>
+      <link>https://shutaocao.github.io/project/production-networks/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/project/production-networks/</guid>
+      <description>&lt;p&gt;Propagation of shocks to global commodity price in a small open economy.&lt;/p&gt;
 </description>
     </item>
     

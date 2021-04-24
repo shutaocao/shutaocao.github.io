@@ -5,7 +5,7 @@
     <link>https://shutaocao.github.io/</link>
       <atom:link href="https://shutaocao.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Shutao Cao</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Shutao Cao</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
       <url>https://shutaocao.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Shutao Cao</title>
@@ -29,6 +29,105 @@
 &lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Further event details, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;page elements&lt;/a&gt; such as image galleries, can be added to the body of this page.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating Personal GitHub Page</title>
+      <link>https://shutaocao.github.io/post/how-to-create-github-page/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/post/how-to-create-github-page/</guid>
+      <description>&lt;p&gt;This note puts together things I did to create my personal GitHub page using the template &lt;a href=&#34;https://github.com/wowchemy/starter-academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;`starter-academic&#39;&lt;/a&gt; for Hugo. It seems that there may be more efficient ways than what I did.&lt;/p&gt;
+&lt;p&gt;I first cloned the template to my local computer and added content, I then deployed the web page to GitHub. Everything is done on my laptop with the Fedora 33 Linux system.&lt;/p&gt;
+&lt;h2 id=&#34;1-preparation&#34;&gt;1. Preparation&lt;/h2&gt;
+&lt;h3 id=&#34;on-local-computer&#34;&gt;On local computer&lt;/h3&gt;
+&lt;p&gt;I created a folder &lt;code&gt;myAcademicSite&lt;/code&gt; to hold all source files. I also installed Go and Hugo-extended.&lt;/p&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo dnf install golang
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note, I did not install &lt;code&gt;Go&lt;/code&gt; by &lt;code&gt;snap&lt;/code&gt; as suggested &lt;a href=&#34;https://wowchemy.com/docs/getting-started/install-hugo-extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Next, I downloaded the &lt;code&gt;hugo-extended&lt;/code&gt; from &lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/gohugoio/hugo/releases&lt;/a&gt;. Uncompress the .gz file, then move the binary &lt;code&gt;hugo&lt;/code&gt; to the folder &lt;code&gt;myAcademicSite&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;on-github&#34;&gt;On GitHub&lt;/h3&gt;
+&lt;p&gt;Note, I already have my personal GitHub page, using a default theme of GitHub pages. I backed up the content of this existing page.&lt;/p&gt;
+&lt;p&gt;Login to my account on &lt;a href=&#34;www.github.com&#34;&gt;GitHub&lt;/a&gt;. Fork &lt;a href=&#34;https://github.com/wowchemy/starter-academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;starter-academic&lt;/code&gt;&lt;/a&gt;. The fork icon is the top right corner of the page.&lt;/p&gt;
+&lt;p&gt;In my GitHub account, I renamed the forked &lt;code&gt;starter-academic&lt;/code&gt; to &lt;code&gt;myAcademicSite&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;2-deploy-the-starter-academic-template-to-my-github-page&#34;&gt;2. Deploy the starter-academic template to my GitHub page&lt;/h2&gt;
+&lt;p&gt;Below I mostly referenced &lt;a href=&#34;https://wowchemy.com/docs/guide/deployment/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://wowchemy.com/docs/guide/deployment/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;create-my-web-page-on-local-computer&#34;&gt;Create my web page on local computer&lt;/h3&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/shutaocao/myAcademicSite.git myAcademicSite
+
+cd myAcademicSite
+
+git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Remove public/ if there is one:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;rm -r public/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Still in the folder &lt;code&gt;myAcdemicSite&lt;/code&gt;, in the file config/_default/config.yaml, set&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;baseurl = &amp;quot;https://shutaocao.github.io/&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Copy the http address &lt;code&gt;http://localhost:1313/&lt;/code&gt; and paste it in browser. This will start the &lt;code&gt;starter-acadmic&lt;/code&gt; raw website on my local computer.&lt;/p&gt;
+&lt;p&gt;Hit keyboard Ctrl+c to stop &lt;code&gt;hugo server&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;deploy-the-newly-created-web-page-to-github&#34;&gt;Deploy the newly created web page to GitHub&lt;/h3&gt;
+&lt;p&gt;In terminal, if not in the folder &lt;code&gt;myAcadmicSite&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd myAcademicSite
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git submodule add -f -b master https://github.com/shutaocao/shutaocao.github.io.git public
+git add .
+git commit -m &amp;quot;Initial commit&amp;quot;
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This has done two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;It created a folder publich/ that has all necessary files and folders for my personal GitHub page.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It deployed the raw starter-academic template in public/ to GitHub.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Next, regenerate my website’s HTML code by running &lt;code&gt;hugo&lt;/code&gt; and pushing the public submodule to GitHub, in terminal:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+cd public
+git add .
+git commit -m &amp;quot;Build website&amp;quot;
+git push origin master
+cd ..
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This now has deployed the raw starter-academic content as my website to GitHub.&lt;/p&gt;
+&lt;p&gt;In browser, go to shutaocao.github.io, it looks like this&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;2021-04-22_22-36.png&#34; alt=&#34;Initial Appearance&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now, I have successfully cloned the raw &lt;code&gt;starter-academic&lt;/code&gt; page to be my personal GitHub page.&lt;/p&gt;
+&lt;p&gt;Next, I need to customize my personal GitHub page.&lt;/p&gt;
+&lt;h2 id=&#34;3-customize-my-personal-github-page&#34;&gt;3. Customize My Personal GitHub Page&lt;/h2&gt;
+&lt;p&gt;All changes to my personal GitHub page are done on my local computer. I then push them to GitHub by repeating the following:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+cd public
+git add .
+git commit -m &amp;quot;Build website&amp;quot;
+git push origin master
+cd ..
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is a little tedious for me as a newbie to customize my personal web page. The first thing should have been to understand the template structure in the folder &lt;code&gt;myAcademicSite&lt;/code&gt;, instead I did other things which is not efficient.&lt;/p&gt;
+&lt;p&gt;In customizing the content of my personal website, I referenced wowchemy website.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/docs/getting-started/get-started/&#34;&gt;https://wowchemy.com/docs/getting-started/get-started/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;4-a-thank-you-note&#34;&gt;4. A Thank You Note&lt;/h2&gt;
+&lt;p&gt;I thank &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;George Cushen&lt;/a&gt; for making the template open source, I consider to show my support and appreciation to his work.&lt;/p&gt;
+&lt;p&gt;The post by Mickaël Lalande appears more complete, thank you too.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mickaellalande.github.io/post/tutorial/how-to-create-an-academic-github-page-with-hugo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://mickaellalande.github.io/post/tutorial/how-to-create-an-academic-github-page-with-hugo/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Learning and New Entrepreneurship</title>
+      <link>https://shutaocao.github.io/project/entrepreneurship/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/project/entrepreneurship/</guid>
+      <description>&lt;p&gt;To what extent experience and learning affect business creation and business growth.&lt;/p&gt;
 </description>
     </item>
     
@@ -106,6 +205,15 @@
 &lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
 &lt;p&gt;Copyright 2016-present &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;George Cushen&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Released under the &lt;a href=&#34;https://github.com/wowchemy/wowchemy-hugo-modules/blob/master/LICENSE.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MIT&lt;/a&gt; license.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Commodity Price and Production Networks</title>
+      <link>https://shutaocao.github.io/project/production-networks/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/project/production-networks/</guid>
+      <description>&lt;p&gt;Propagation of shocks to global commodity price in a small open economy.&lt;/p&gt;
 </description>
     </item>
     
@@ -239,20 +347,109 @@ Three
     </item>
     
     <item>
-      <title>Example Project</title>
-      <link>https://shutaocao.github.io/project/example/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://shutaocao.github.io/project/example/</guid>
-      <description>&lt;p&gt;Add project summary here&lt;/p&gt;
+      <title></title>
+      <link>https://shutaocao.github.io/admin/config.yml</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/admin/config.yml</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Journal Articles</title>
+      <link>https://shutaocao.github.io/publication/journal-articles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/journal-articles/</guid>
+      <description>&lt;h4 id=&#34;peer-reviewed&#34;&gt;Peer-reviewed&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Welfare Cost of Inflation Revisited: the Role of Financial Innovation and Household Heterogeneity&lt;/strong&gt; (with Césaire A. Meh, José-Vı́ctor Rı́os-Rull, and Yaz Terajima), &lt;em&gt;Journal of Monetary Economics&lt;/em&gt;, forthcoming. &lt;a href=&#34;https://doi.org/10.1016/j.jmoneco.2020.11.004&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt; &lt;a href=&#34;https://ideas.repec.org/p/bca/bocawp/18-40.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Working paper]&lt;/a&gt; &lt;a href=&#34;https://www.dropbox.com/s/b5amwugsf4phs0v/CMRT-SLIDES-WideCao.pdf?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Slides]&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Significant differences in &lt;a href=&#34;images/MCratioData.png&#34;&gt;money holding&lt;/a&gt; across households. Welfare cost of inflation is mostly borne by the poor and the old.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Credit constraints and productivity of SMEs: Evidence from Canada&lt;/strong&gt; (with Danny Leung), &lt;em&gt;Economic Modelling&lt;/em&gt;, 88, 163-180, 2020. &lt;a href=&#34;https://doi.org/10.1016/j.econmod.2019.09.018&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt; &lt;a href=&#34;https://www.dropbox.com/s/nrgmcqda65a37d8/fctfp201904.pdf?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[Working paper]&lt;/a&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;The 2020 Best Paper Award, Economic Modelling, category Financial Economics.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In 2011, about 23 percent of small and medium sized businesses in Canada were constrained by external credit to a degree. If not taking into account credit constraint, productivity estimate is upward biased by an average 4 percent.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Government subsidy to SMEs may be ineffective in promoting growth, some financially constrained firms are unproductive.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Trends in Firm Entry and New Entrepreneurship in Canada&lt;/strong&gt; (with M. Salameh, M. Seki, and P. St-Amant), &lt;em&gt;Canadian Public Policy&lt;/em&gt;, 43 (3), 202-220, 2017. &lt;a href=&#34;https://www.utpjournals.press/doi/abs/10.3138/cpp.2017-006&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Since the early 1980s, the firm entry rate and the rate of new entrepreneurship have trended downward in Canada. Population aging may account for part of the decline in new entrepreneurship only since around 2000.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Real GDI, productivity and the terms of trade in Canada&lt;/strong&gt; (with Sharon Kozicki), &lt;em&gt;Review of income and Wealth&lt;/em&gt;, 63, s1, 2017. &lt;a href=&#34;https://onlinelibrary.wiley.com/doi/full/10.1111/roiw.12255&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Pricing-to-market, currency invoicing and exchange rate pass-through to producer prices&lt;/strong&gt; (with Wei Dong and Ben Tomlin), &lt;em&gt;Journal of International Money and Finance&lt;/em&gt;, 58(C), 128-149, 2015. &lt;a href=&#34;https://www.sciencedirect.com/science/article/pii/S0261560615001448&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;other&#34;&gt;Other&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The changing pace of labour reallocation in Canada: causes and consequences&lt;/strong&gt; (with D. Leung), &lt;em&gt;Bank of Canada Review&lt;/em&gt;, 2009 Summer. &lt;a href=&#34;https://ideas.repec.org/a/bca/bcarev/v2009y2009isummer09p31-42.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>An example conference paper</title>
-      <link>https://shutaocao.github.io/publication/example/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://shutaocao.github.io/publication/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+      <title>Quarterly Total Factor Productivity</title>
+      <link>https://shutaocao.github.io/quarterly-tfp/quarterly-tfp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/quarterly-tfp/quarterly-tfp/</guid>
+      <description>&lt;h2 id=&#34;data-project&#34;&gt;Data project&lt;/h2&gt;
+&lt;h4 id=&#34;seasonally-adjusted-quarterly-total-factor-productivity-in-canada&#34;&gt;Seasonally-adjusted Quarterly Total Factor Productivity in Canada&lt;/h4&gt;
+&lt;p&gt;The seasonally adjusted series of quarterly total factor productivity (TFP) in Canadian business sector is estimated following the method by Diewert and Yu (2012). The estimated quarterly TFP is not adjusted for capacity utilization.&lt;/p&gt;
+&lt;p&gt;Data: &lt;a href=&#34;https://www.dropbox.com/s/wdbo07tee52e9qi/tfpQtr1976_2018Web.ods?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tfpQtr1976_2018Web.ods&lt;/a&gt;. &lt;a href=&#34;https://www.dropbox.com/s/772vwm9xtlxe9c4/QuarterlyTFP20210420.pdf?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Paper&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Special thanks to Professor W. Erwin Diewert and Professor Alice O. Nakamura. I learned productivity measurement from them. They of course are not liable for any error and the quality of data series.&lt;/p&gt;
+&lt;p&gt;Previously, my co-author Sharon Kozicki and I estimated the seasonally unadjusted series of quarterly TFP, these data are not maintained, nor updated. Link to the &lt;a href=&#34;http://www.bankofcanada.ca/wp-content/uploads/2015/02/wp2015-6.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paper&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Working papers</title>
+      <link>https://shutaocao.github.io/publication/working-papers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/working-papers/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Production Networks and the Propagation of Commodity Price Shocks (with Wei Dong), 2020. &lt;a href=&#34;https://shutaocaoeconomics.files.wordpress.com/2020/11/swp2020-44.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[PDF]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Accounting for productivity growth in a small open economy: sector-specific technology and relative prices of trade, SEF Working Paper 7/2017, VUW. &lt;a href=&#34;https://ideas.repec.org/p/vuw/vuwecf/6203.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A New Data Set of Quarterly Total Factor Productivity in the Canadian Business Sector (with S. Kozicki), Bank of Canada working paper 2015-06. &lt;a href=&#34;https://www.bankofcanada.ca/wp-content/uploads/2015/02/wp2015-6.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fixed-term and permanent employment contracts: theory and evidence (with E. Shao and P. Silos), Bank of Canada working paper 2011-21. &lt;a href=&#34;https://www.bankofcanada.ca/2011/10/working-paper-2011-21/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Flexibility versus stability: role of temporary employment in job reallocation (with D. Leung), Bank of Canada working paper 2010-27. &lt;a href=&#34;https://ideas.repec.org/p/bca/bocawp/10-27.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ownership change and productivity growth in China&amp;rsquo;s manufacturing industry: 1998-2007 (with J. Liu), manuscript, 2012. &lt;a href=&#34;https://shutaocaoeconomics.files.wordpress.com/2018/08/caoliu_201804.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Labour reallocation, relative prices and productivity (with D. Leung), Bank of Canada working paper 2010-2. &lt;a href=&#34;https://www.bankofcanada.ca/wp-content/uploads/2010/05/wp10-2.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[link]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A model of costly reallocation and aggregate productivity, Bank of Canada working paper, 2008. PDF. Revised, 2011. &lt;a href=&#34;https://shutaocaoeconomics.files.wordpress.com/2018/08/reallomdrr2nd.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;[PDF]&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;to-be-revived&#34;&gt;To be revived&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Effects of social security policy with endogenous health and retirement, 2011.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
   &lt;/div&gt;
@@ -264,14 +461,6 @@ Three
 &lt;/div&gt;
 &lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://shutaocao.github.io/admin/config.yml</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://shutaocao.github.io/admin/config.yml</guid>
-      <description></description>
     </item>
     
   </channel>
