@@ -873,7 +873,7 @@
 
     <div class="article-style">
       <p>This note puts together things I did to create my personal GitHub page using the template <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener">`starter-academic'</a> for Hugo. It seems that there may be more efficient ways than what I did.</p>
-<p>I first cloned the template to my local computer and added content, I then deployed the web page to GitHub. Everything is done on my laptop with the Fedora 33 Linux system.</p>
+<p>I first cloned the template to my local computer and added content, I then deployed the web page to GitHub. I customized my GitHub page after the deployment was complete. Everything is done on my laptop with the Fedora 33 Linux system.</p>
 <h2 id="1-preparation">1. Preparation</h2>
 <h3 id="on-local-computer">On local computer</h3>
 <p>I created a folder <code>myAcademicSite</code> to hold all source files. I also installed Go and Hugo-extended.</p>
@@ -881,14 +881,13 @@
 <pre><code class="language-bash">sudo dnf install golang
 </code></pre>
 <p>Note, I did not install <code>Go</code> by <code>snap</code> as suggested <a href="https://wowchemy.com/docs/getting-started/install-hugo-extended/" target="_blank" rel="noopener">here</a>.</p>
-<p>Next, I downloaded the <code>hugo-extended</code> from <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener">https://github.com/gohugoio/hugo/releases</a>. Uncompress the .gz file, then move the binary <code>hugo</code> to the folder <code>myAcademicSite</code>.</p>
+<p>Next, I downloaded the <code>hugo-extended</code> from <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener">https://github.com/gohugoio/hugo/releases</a>. After uncompressing the .gz file, I moved the binary <code>hugo</code> to the folder <code>myAcademicSite</code>.</p>
 <h3 id="on-github">On GitHub</h3>
-<p>Note, I already have my personal GitHub page, using a default theme of GitHub pages. I backed up the content of this existing page.</p>
-<p>Login to my account on <a href="www.github.com">GitHub</a>. Fork <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener"><code>starter-academic</code></a>. The fork icon is the top right corner of the page.</p>
+<p>I already have my personal GitHub page, using a default theme of GitHub pages. I backed up the content of this existing page.</p>
+<p>I logged in to my account on <a href="www.github.com">GitHub</a>, then forked <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener"><code>starter-academic</code></a>. The forking icon is the top right corner of the page.</p>
 <p>In my GitHub account, I renamed the forked <code>starter-academic</code> to <code>myAcademicSite</code>.</p>
-<h2 id="2-deploy-the-starter-academic-template-to-my-github-page">2. Deploy the starter-academic template to my GitHub page</h2>
-<p>Below I mostly referenced <a href="https://wowchemy.com/docs/guide/deployment/" target="_blank" rel="noopener">https://wowchemy.com/docs/guide/deployment/</a></p>
-<h3 id="create-my-web-page-on-local-computer">Create my web page on local computer</h3>
+<h2 id="2-create-my-web-page-on-local-computer">2. Create my web page on local computer</h2>
+<p>Below I mostly referenced <a href="https://wowchemy.com/docs/guide/deployment/" target="_blank" rel="noopener">https://wowchemy.com/docs/guide/deployment/</a>.</p>
 <p>In terminal:</p>
 <pre><code class="language-bash">git clone https://github.com/shutaocao/myAcademicSite.git myAcademicSite
 
@@ -896,7 +895,7 @@ cd myAcademicSite
 
 git submodule update --init --recursive
 </code></pre>
-<p>Remove public/ if there is one:</p>
+<p>This clones the starter-academic theme template to my local computer. Remove public/ folder if there is one:</p>
 <pre><code class="language-bash">rm -r public/
 </code></pre>
 <p>Still in the folder <code>myAcdemicSite</code>, in the file config/_default/config.yaml, set</p>
@@ -904,10 +903,10 @@ git submodule update --init --recursive
 <p>In terminal:</p>
 <pre><code class="language-bash">hugo server
 </code></pre>
-<p>Copy the http address <code>http://localhost:1313/</code> and paste it in browser. This will start the <code>starter-acadmic</code> raw website on my local computer.</p>
+<p>Copy the http address <code>http://localhost:1313/</code> and paste it in browser. This will start the <code>starter-acadmic</code> original website on my local computer.</p>
 <p>Hit keyboard Ctrl+c to stop <code>hugo server</code>.</p>
-<h3 id="deploy-the-newly-created-web-page-to-github">Deploy the newly created web page to GitHub</h3>
-<p>In terminal, if not in the folder <code>myAcadmicSite</code>:</p>
+<h2 id="3-deploy-the-newly-created-web-page-to-github">3. Deploy the newly created web page to GitHub</h2>
+<p>In terminal, if not already in the folder <code>myAcadmicSite</code>, do:</p>
 <pre><code class="language-bash">cd myAcademicSite
 </code></pre>
 <p>In terminal:</p>
@@ -919,10 +918,10 @@ git push -u origin master
 <p>This has done two things:</p>
 <ul>
 <li>
-<p>It created a folder publich/ that has all necessary files and folders for my personal GitHub page.</p>
+<p>It created a folder public/ that has all necessary files and folders for my personal GitHub page.</p>
 </li>
 <li>
-<p>It deployed the raw starter-academic template in public/ to GitHub.</p>
+<p>It deployed the original starter-academic template in public/ to GitHub.</p>
 </li>
 </ul>
 <p>Next, regenerate my website’s HTML code by running <code>hugo</code> and pushing the public submodule to GitHub, in terminal:</p>
@@ -933,13 +932,13 @@ git commit -m &quot;Build website&quot;
 git push origin master
 cd ..
 </code></pre>
-<p>This now has deployed the raw starter-academic content as my website to GitHub.</p>
-<p>In browser, go to shutaocao.github.io, it looks like this</p>
+<p>This now has deployed the original starter-academic content as my website to GitHub.</p>
+<p>In browser, my web page shutaocao.github.io looks like this</p>
 <p><img src="2021-04-22_22-36.png" alt="Initial Appearance"></p>
-<p>Now, I have successfully cloned the raw <code>starter-academic</code> page to be my personal GitHub page.</p>
+<p>Now, I have successfully cloned the original <code>starter-academic</code> page to be my personal GitHub page.</p>
 <p>Next, I need to customize my personal GitHub page.</p>
-<h2 id="3-customize-my-personal-github-page">3. Customize My Personal GitHub Page</h2>
-<p>All changes to my personal GitHub page are done on my local computer. I then push them to GitHub by repeating the following:</p>
+<h2 id="4-customize-my-personal-github-page">4. Customize my personal GitHub page</h2>
+<p>All changes to my personal GitHub page are done on my local computer. When it is ready, I pushed customization to GitHub by repeating the following:</p>
 <pre><code class="language-bash">hugo
 cd public
 git add .
@@ -950,10 +949,8 @@ cd ..
 <p>It is a little tedious for me as a newbie to customize my personal web page. The first thing should have been to understand the template structure in the folder <code>myAcademicSite</code>, instead I did other things which is not efficient.</p>
 <p>In customizing the content of my personal website, I referenced wowchemy website.</p>
 <p><a href="https://wowchemy.com/docs/getting-started/get-started/">https://wowchemy.com/docs/getting-started/get-started/</a></p>
-<h2 id="4-a-thank-you-note">4. A Thank You Note</h2>
+<h2 id="5-a-thank-you-note">5. A thank you note</h2>
 <p>I thank <a href="https://georgecushen.com" target="_blank" rel="noopener">George Cushen</a> for making the template open source, I consider to show my support and appreciation to his work.</p>
-<p>The post by Mickaël Lalande appears more complete, thank you too.</p>
-<p><a href="https://mickaellalande.github.io/post/tutorial/how-to-create-an-academic-github-page-with-hugo/" target="_blank" rel="noopener">https://mickaellalande.github.io/post/tutorial/how-to-create-an-academic-github-page-with-hugo/</a></p>
 
     </div>
 
