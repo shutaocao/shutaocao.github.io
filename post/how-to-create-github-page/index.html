@@ -872,8 +872,8 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>This note puts together things I did to create my personal GitHub page using the template <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener">`starter-academic'</a> for Hugo. It seems that there may be more efficient ways than what I did.</p>
-<p>I first cloned the template to my local computer and added content, I then deployed the web page to GitHub. I customized my GitHub page after the deployment was complete. Everything is done on my laptop with the Fedora 33 Linux system.</p>
+      <p>This note puts together things I did to create my personal GitHub page using the template <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener">`starter-academic'</a> for Hugo. It seems that there may be more efficient ways than what I did below.</p>
+<p>I first cloned the template to my local computer, then deployed the web page to GitHub. I customized my GitHub page after the deployment was complete. Everything is done on my laptop with the Fedora 33 Linux system.</p>
 <h2 id="1-preparation">1. Preparation</h2>
 <h3 id="on-local-computer">On local computer</h3>
 <p>I created a folder <code>myAcademicSite</code> to hold all source files. I also installed Go and Hugo-extended.</p>
@@ -884,7 +884,7 @@
 <p>Next, I downloaded the <code>hugo-extended</code> from <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener">https://github.com/gohugoio/hugo/releases</a>. After uncompressing the .gz file, I moved the binary <code>hugo</code> to the folder <code>myAcademicSite</code>.</p>
 <h3 id="on-github">On GitHub</h3>
 <p>I already have my personal GitHub page, using a default theme of GitHub pages. I backed up the content of this existing page.</p>
-<p>I logged in to my account on <a href="www.github.com">GitHub</a>, then forked <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener"><code>starter-academic</code></a>. The forking icon is the top right corner of the page.</p>
+<p>I logged in to my account on <a href="www.github.com">GitHub</a>, then forked <a href="https://github.com/wowchemy/starter-academic" target="_blank" rel="noopener"><code>starter-academic</code></a>. The fork icon is on the top right corner of the page.</p>
 <p>In my GitHub account, I renamed the forked <code>starter-academic</code> to <code>myAcademicSite</code>.</p>
 <h2 id="2-create-my-web-page-on-local-computer">2. Create my web page on local computer</h2>
 <p>Below I mostly referenced <a href="https://wowchemy.com/docs/guide/deployment/" target="_blank" rel="noopener">https://wowchemy.com/docs/guide/deployment/</a>.</p>
@@ -938,7 +938,7 @@ cd ..
 <p>Now, I have successfully cloned the original <code>starter-academic</code> page to be my personal GitHub page.</p>
 <p>Next, I need to customize my personal GitHub page.</p>
 <h2 id="4-customize-my-personal-github-page">4. Customize my personal GitHub page</h2>
-<p>All changes to my personal GitHub page are done on my local computer. When it is ready, I pushed customization to GitHub by repeating the following:</p>
+<p>All changes to my personal GitHub page are done in the folder <code>myAcademicSite</code> on my local computer. When it is ready, I pushed the customization to GitHub by repeating the following:</p>
 <pre><code class="language-bash">hugo
 cd public
 git add .
@@ -946,11 +946,12 @@ git commit -m &quot;Build website&quot;
 git push origin master
 cd ..
 </code></pre>
+<p>Executing <code>hugo</code> builds the website from source files.</p>
 <p>It is a little tedious for me as a newbie to customize my personal web page. The first thing should have been to understand the template structure in the folder <code>myAcademicSite</code>, instead I did other things which is not efficient.</p>
-<p>In customizing the content of my personal website, I referenced wowchemy website.</p>
+<p>In customizing the content of my personal website, I referenced the wowchemy website.</p>
 <p><a href="https://wowchemy.com/docs/getting-started/get-started/">https://wowchemy.com/docs/getting-started/get-started/</a></p>
 <h2 id="5-a-thank-you-note">5. A thank you note</h2>
-<p>I thank <a href="https://georgecushen.com" target="_blank" rel="noopener">George Cushen</a> for making the template open source, I consider to show my support and appreciation to his work.</p>
+<p>Thanks to <a href="https://georgecushen.com" target="_blank" rel="noopener">George Cushen</a> for making the template open source.</p>
 
     </div>
 
