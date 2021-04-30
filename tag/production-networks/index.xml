@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Production networks | Shutao Cao</title>
+    <link>https://shutaocao.github.io/tag/production-networks/</link>
+      <atom:link href="https://shutaocao.github.io/tag/production-networks/index.xml" rel="self" type="application/rss+xml" />
+    <description>Production networks</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Shutao Cao</copyright><lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shutaocao.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Production networks</title>
+      <link>https://shutaocao.github.io/tag/production-networks/</link>
+    </image>
+    
+    <item>
+      <title>Commodity Price and Production Networks</title>
+      <link>https://shutaocao.github.io/project/production-networks/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/project/production-networks/</guid>
+      <description>&lt;p&gt;Propagation of shocks to global commodity price in a small open economy.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

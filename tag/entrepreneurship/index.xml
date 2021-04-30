@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Entrepreneurship | Shutao Cao</title>
+    <link>https://shutaocao.github.io/tag/entrepreneurship/</link>
+      <atom:link href="https://shutaocao.github.io/tag/entrepreneurship/index.xml" rel="self" type="application/rss+xml" />
+    <description>Entrepreneurship</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2021 Shutao Cao</copyright><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shutaocao.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Entrepreneurship</title>
+      <link>https://shutaocao.github.io/tag/entrepreneurship/</link>
+    </image>
+    
+    <item>
+      <title>Learning and New Entrepreneurship</title>
+      <link>https://shutaocao.github.io/project/entrepreneurship/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/project/entrepreneurship/</guid>
+      <description>&lt;p&gt;To what extent experience and learning affect business creation and business growth.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
