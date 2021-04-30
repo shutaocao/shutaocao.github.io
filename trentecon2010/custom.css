@@ -1,0 +1,29 @@
+.reveal p {
+font-family: 'Raleway', sans-serif;
+color: #002E63;
+}
+/*body {
+  background: url(trentLogo.jpg)
+  no-repeat
+  left center;
+  padding: 5px 0 5px 25px;
+*  background-size: 800px 200px; 
+}*/
+/*div.output pre {
+    font-size: 14pt;
+    color: red;
+}*/
+/*body {
+    font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+    font-size: 21px;
+    line-height: 1.42857143;
+    color: #777777;
+    background-color: #007BA7
+}*/
+div.footer {
+font-size:14pt;
+font-style: italic;
+color: #4aaeee;
+text-align: center
+}
+
