@@ -952,12 +952,12 @@
 </li>
 </ul>
 <h2 id="deploy-the-website-to-github">Deploy the Website to GitHub</h2>
-<p>I already have my personal GitHub page, on the <code>gh-pages</code> branch. I removed all files for my old GitHub page, from terminal by using <code>git rm</code>.</p>
+<p>I already have my personal GitHub page, on the <code>main</code> branch. I removed all files for my old GitHub page, from terminal by using <code>git rm</code>.</p>
 <h3 id="push-website-to-github">Push website to GitHub</h3>
 <p>In terminal:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> myAcademicSite
-</span></span><span class="line"><span class="cl">git submodule add -f -b gh-pages https://github.com/shutaocao/shutaocao.github.io.git public
-</span></span></code></pre></div><p>It creates folder <code>myAcademic/public/</code> that will have all contents to be pushed to GitHub. If the shutao.github.io is on the <code>main</code> branch, then replace <code>gh-pages</code> with <code>main</code> in the last line of command above.</p>
+</span></span><span class="line"><span class="cl">git submodule add -f -b main https://github.com/shutaocao/shutaocao.github.io.git public
+</span></span></code></pre></div><p>It creates folder <code>myAcademic/public/</code> that will have all contents to be pushed to GitHub. If the shutao.github.io is on the <code>gh-pages</code> branch, then replace <code>main</code> with <code>gh-pages</code> in the last line of command above.</p>
 <p>Next, in terminal:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> myAcademicSite
 </span></span><span class="line"><span class="cl">hugo
@@ -978,7 +978,7 @@
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
 </span></span><span class="line"><span class="cl">git add .
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first deploy&#34;</span>
-</span></span><span class="line"><span class="cl">git push origin gh-pages
+</span></span><span class="line"><span class="cl">git push origin main
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
 </span></span></code></pre></div><p>Two things to note:</p>
 <ul>

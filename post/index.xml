@@ -37,10 +37,10 @@
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dollar amounts&#34; srcset=&#34;
-               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_8a417f5f78d0ce193efc8a56d2a458ab.webp 400w,
-               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_81300b5ae05515006b5180493212e434.webp 760w,
+               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_2188526595753ac7ca0e4f7f7d74a593.webp 400w,
+               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_3edffba9ed07d75147a99f088d8c9ee1.webp 760w,
                /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_8a417f5f78d0ce193efc8a56d2a458ab.webp&#34;
+               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_2188526595753ac7ca0e4f7f7d74a593.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -66,10 +66,10 @@
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dollar amounts&#34; srcset=&#34;
-               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_cdec34b1cdbd2262ef96d866bd19c76f.webp 400w,
-               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_d35d629dba642ab094295a4d55df1ffe.webp 760w,
+               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_ab8bd62323e37fa4906d23ba6c49227f.webp 400w,
+               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_c61f12639a2134225e27aba1a141f34a.webp 760w,
                /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_cdec34b1cdbd2262ef96d866bd19c76f.webp&#34;
+               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_ab8bd62323e37fa4906d23ba6c49227f.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -146,12 +146,12 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;deploy-the-website-to-github&#34;&gt;Deploy the Website to GitHub&lt;/h2&gt;
-&lt;p&gt;I already have my personal GitHub page, on the &lt;code&gt;gh-pages&lt;/code&gt; branch. I removed all files for my old GitHub page, from terminal by using &lt;code&gt;git rm&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I already have my personal GitHub page, on the &lt;code&gt;main&lt;/code&gt; branch. I removed all files for my old GitHub page, from terminal by using &lt;code&gt;git rm&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;push-website-to-github&#34;&gt;Push website to GitHub&lt;/h3&gt;
 &lt;p&gt;In terminal:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; myAcademicSite
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule add -f -b gh-pages https://github.com/shutaocao/shutaocao.github.io.git public
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It creates folder &lt;code&gt;myAcademic/public/&lt;/code&gt; that will have all contents to be pushed to GitHub. If the shutao.github.io is on the &lt;code&gt;main&lt;/code&gt; branch, then replace &lt;code&gt;gh-pages&lt;/code&gt; with &lt;code&gt;main&lt;/code&gt; in the last line of command above.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule add -f -b main https://github.com/shutaocao/shutaocao.github.io.git public
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It creates folder &lt;code&gt;myAcademic/public/&lt;/code&gt; that will have all contents to be pushed to GitHub. If the shutao.github.io is on the &lt;code&gt;gh-pages&lt;/code&gt; branch, then replace &lt;code&gt;main&lt;/code&gt; with &lt;code&gt;gh-pages&lt;/code&gt; in the last line of command above.&lt;/p&gt;
 &lt;p&gt;Next, in terminal:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; myAcademicSite
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo
@@ -172,7 +172,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; public
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;first deploy&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin gh-pages
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin main
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Two things to note:&lt;/p&gt;
 &lt;ul&gt;
@@ -311,7 +311,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-147386295&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-935816427&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -321,7 +321,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-147386295&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-935816427&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
