@@ -1489,22 +1489,11 @@ Its features include, among many other things:&lt;/p&gt;
     </item>
     
     <item>
-      <title>Chapter 3 Optional Readings</title>
+      <title>Chapter 8 Optional Readings</title>
       <link>https://shutaocao.github.io/course/econ1020/econ1020readings_ch08/</link>
-      <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://shutaocao.github.io/course/econ1020/econ1020readings_ch08/</guid>
       <description>&lt;p&gt;Videos&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.dropbox.com/s/ist7qls6g8dmdd9/TheEconomist20200111_Gov_market.pdf?dl=0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&amp;ldquo;Governments and markets: In a Fix&amp;rdquo;&lt;/a&gt;, &lt;em&gt;The Economist&lt;/em&gt;, January 11 2020.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Milton Friedman on self-interest&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Milton Friedman on price system&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;datetime&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;timedelta&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;IPython.display&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;YouTubeVideo&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# from IPython.display import (display_pretty, display_html, display_jpeg, display_png, display_json, display_latex, display_svg)&lt;/span&gt;
@@ -1971,7 +1960,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-895412367&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-691487325&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1981,7 +1970,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-895412367&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-691487325&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
