@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Academic | Shutao Cao</title>
+    <link>https://shutaocao.github.io/tag/academic/</link>
+      <atom:link href="https://shutaocao.github.io/tag/academic/index.xml" rel="self" type="application/rss+xml" />
+    <description>Academic</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 03 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shutaocao.github.io/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_512x512_fill_lanczos_center_3.png</url>
+      <title>Academic</title>
+      <link>https://shutaocao.github.io/tag/academic/</link>
+    </image>
+    
+    <item>
+      <title>Covid Assistance from Canadian Government</title>
+      <link>https://shutaocao.github.io/post/covid-assistance-canada/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/post/covid-assistance-canada/</guid>
+      <description>&lt;p&gt;In 2020 and 2021, The Canadian government handed out about 250 billion dollars of helicopter money to the economy, mostly from the federal government. Slightly more than half of that money went to workers.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dollar amounts&#34; srcset=&#34;
+               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_2188526595753ac7ca0e4f7f7d74a593.webp 400w,
+               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_3edffba9ed07d75147a99f088d8c9ee1.webp 760w,
+               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_2188526595753ac7ca0e4f7f7d74a593.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;The amount of covid assistance received by businesses was 3% of GDP in 2020. The question I am researching on is how many businesses have survived and grown because of that money.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dollar amounts&#34; srcset=&#34;
+               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_ab8bd62323e37fa4906d23ba6c49227f.webp 400w,
+               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_c61f12639a2134225e27aba1a141f34a.webp 760w,
+               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
+               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_ab8bd62323e37fa4906d23ba6c49227f.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;428&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hosting Webpage on GitHub</title>
+      <link>https://shutaocao.github.io/post/hosting-webpage-on-github/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/post/hosting-webpage-on-github/</guid>
+      <description>&lt;p&gt;This note puts together steps I follow to create my personal webpage on GitHub using the template &lt;a href=&#34;https://github.com/wowchemy/starter-academic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;`starter-academic&amp;rsquo;&lt;/a&gt; for Hugo.&lt;/p&gt;
+&lt;p&gt;I first cloned the template to my local computer. I then customized my GitHub page before deploying the website to GitHub. Everything is done in terminal in Fedora Linux.&lt;/p&gt;
+&lt;h2 id=&#34;clone-the-template&#34;&gt;Clone the template&lt;/h2&gt;
+&lt;h3 id=&#34;on-local-computer&#34;&gt;On local computer&lt;/h3&gt;
+&lt;h4 id=&#34;intall-go-and-hugo-extended&#34;&gt;Intall GO and Hugo-extended&lt;/h4&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dnf install golang
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Note, I did not install &lt;code&gt;Go&lt;/code&gt; by &lt;code&gt;snap&lt;/code&gt; as suggested &lt;a href=&#34;https://wowchemy.com/docs/getting-started/install-hugo-extended/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Next, I downloaded the &lt;code&gt;hugo-extended&lt;/code&gt; from &lt;a href=&#34;https://github.com/gohugoio/hugo/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/gohugoio/hugo/releases&lt;/a&gt;. After decompressing the .gz file, I moved the binary &lt;code&gt;hugo&lt;/code&gt; to /usr/bin/hugo, which replaces &lt;code&gt;hugo&lt;/code&gt; installed by &lt;code&gt;dnf install hugo&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;create-local-folder-for-all-source-files&#34;&gt;Create local folder for all source files&lt;/h4&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/wowchemy/starter-hugo-academic.git myAcademicSite
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; myAcademic
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule update --init --recursive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This clones the starter-academic theme template to local folder &lt;code&gt;myAcademic&lt;/code&gt;. Remove the folder &lt;code&gt;public/&lt;/code&gt; if there is one:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm -r public/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In terminal, if not already in the folder &lt;code&gt;myAcadmicSite&lt;/code&gt;, do:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; myAcademicSite
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo server --disableFastRender
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the http address &lt;code&gt;http://localhost:1313/&lt;/code&gt; and paste it in browser address bar. This will start the &lt;code&gt;starter-academic&lt;/code&gt; original website on my local computer.&lt;/p&gt;
+&lt;p&gt;Hit keyboard Ctrl+c to stop &lt;code&gt;hugo server&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;configure-and-edit-website&#34;&gt;Configure and Edit Website&lt;/h2&gt;
+&lt;p&gt;Next, I configure and edit my website by modifying configuration files and folders. It is important to know the file structure of Hugo templates:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;content/&lt;/code&gt; holds the content of all web pages and web page sections.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;assets/media/&lt;/code&gt; holds media file, e.g. image and videos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config/_default/&lt;/code&gt; holds site configuration files.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;config.yaml&lt;/code&gt;configures Hugo, such as site title, url, Hugo options, enable page features.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;params.yaml&lt;/code&gt; configures Wowchemy options, e.g., SEO, site features.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;menus.yaml&lt;/code&gt; layouts menu links, used if the menu is enabled in &lt;code&gt;params.yaml&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;First, in folder &lt;code&gt;myAcdemicSite&lt;/code&gt;, in the file config/_default/config.yaml, set the baseurl to my website address:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;baseurl = &amp;quot;https://shutaocao.github.io/&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;edit-my-site&#34;&gt;Edit my site&lt;/h3&gt;
+&lt;p&gt;Edit the following files&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;content/_index.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config/_default/config.yaml&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config/_default/menus.yaml&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config/_default/params.yaml&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;content-blocks&#34;&gt;Content Blocks&lt;/h4&gt;
+&lt;p&gt;File &lt;code&gt;content/_index.md&lt;/code&gt; list all web page sections in one place, each section is a content block. I use the existing blocks which include &lt;code&gt;collection&lt;/code&gt;, &lt;code&gt;portfolio&lt;/code&gt;, &lt;code&gt;about&lt;/code&gt;, &lt;code&gt;markdown&lt;/code&gt;. Web page sections are displayed in the order the content blocks are stacked in &lt;code&gt;content/_index.md&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Introducing myself can be done in &lt;code&gt;content/authors/admin/_index.md&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;navigation-menu&#34;&gt;Navigation Menu&lt;/h4&gt;
+&lt;p&gt;The navigation bar on the top of my website is customized in &lt;code&gt;config/_default/menus.yaml&lt;/code&gt;. It is straightforward to customize it. There are two things worth of mentioning.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;The url option.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;url: &#39;#publications&#39;&lt;/code&gt; refers to the id &lt;code&gt;publications&lt;/code&gt; of block Publications listed in &lt;code&gt;content/_index.md&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;url: &#39;publication/&#39;&lt;/code&gt; refers to the folder &lt;code&gt;content/publication/&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A drop-down menu in navigation bar can be built by following template &lt;code&gt;Online Courses&lt;/code&gt; at &lt;a href=&#34;https://wowchemy.com/templates/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://wowchemy.com/templates/&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;deploy-the-website-to-github&#34;&gt;Deploy the Website to GitHub&lt;/h2&gt;
+&lt;p&gt;I already have my personal GitHub page, on the &lt;code&gt;gh-pages&lt;/code&gt; branch. I removed all files for my old GitHub page, from terminal by using &lt;code&gt;git rm&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;push-website-to-github&#34;&gt;Push website to GitHub&lt;/h3&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; myAcademicSite
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git submodule add -f -b gh-pages https://github.com/shutaocao/shutaocao.github.io.git public
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It creates folder &lt;code&gt;myAcademic/public/&lt;/code&gt; that will have all contents to be pushed to GitHub. If the shutao.github.io is on the &lt;code&gt;main&lt;/code&gt; branch, then replace &lt;code&gt;gh-pages&lt;/code&gt; with &lt;code&gt;main&lt;/code&gt; in the last line of command above.&lt;/p&gt;
+&lt;p&gt;Next, in terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; myAcademicSite
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This generates content of the website to be published on GitHub and copy them to &lt;code&gt;public/&lt;/code&gt;. In case &lt;code&gt;public/&lt;/code&gt; did not exist, &lt;code&gt;hugo&lt;/code&gt; would create it.&lt;/p&gt;
+&lt;p&gt;Finally, depoly contents in &lt;code&gt;public/&lt;/code&gt; to GitHub&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote set-url origin git@github.com:shutaocao/shutaocao.github.io.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;Build website&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;This now has deployed my website to GitHub.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The push above uses SSH key to access GitHub and push files.&lt;/p&gt;
+&lt;p&gt;Alternatively, GitHub Actions is new and can be used, but I did not use it.&lt;/p&gt;
+&lt;h4 id=&#34;update-contents&#34;&gt;Update contents&lt;/h4&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo --gc
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; public
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;first deploy&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push origin gh-pages
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ..
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Two things to note:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Executing &lt;code&gt;hugo&lt;/code&gt; builds the website from source files.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push&lt;/code&gt; needs SSH key that should have already been setup to access to GitHub from terminal.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;update-the-template&#34;&gt;Update the template&lt;/h3&gt;
+&lt;p&gt;To update the &lt;code&gt;starter-academic&lt;/code&gt; template to the latest version, use the file &lt;code&gt;go.mod&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; myAcdemicSite
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo mod get -u
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will update &lt;code&gt;go.mod&lt;/code&gt; to the latest releases of wowchemy theme and modules. Re-run `hugo&amp;rsquo; to update the website template.&lt;/p&gt;
+&lt;p&gt;To update or migrate to the latest configuration YAML releases, can use &lt;a href=&#34;https://github.com/wowchemy/awesome-hugo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Hugo Scripts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More details are documented at &lt;a href=&#34;https://wowchemy.com/docs/hugo-tutorials/update/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://wowchemy.com/docs/hugo-tutorials/update/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;main-references&#34;&gt;Main references:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/docs/getting-started/get-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://wowchemy.com/docs/getting-started/get-started/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/docs/hugo-tutorials/deployment/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://wowchemy.com/docs/hugo-tutorials/deployment/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/getting-started/quick-start/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://gohugo.io/getting-started/quick-start/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://gohugo.io/hosting-and-deployment/hosting-on-github/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;acknowledgement&#34;&gt;Acknowledgement&lt;/h3&gt;
+&lt;p&gt;Thanks to &lt;a href=&#34;https://georgecushen.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;George Cushen&lt;/a&gt; for making the academic template an open source.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Quarterly TFP | Shutao Cao</title>
+    <link>https://shutaocao.github.io/tag/quarterly-tfp/</link>
+      <atom:link href="https://shutaocao.github.io/tag/quarterly-tfp/index.xml" rel="self" type="application/rss+xml" />
+    <description>Quarterly TFP</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 27 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shutaocao.github.io/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_512x512_fill_lanczos_center_3.png</url>
+      <title>Quarterly TFP</title>
+      <link>https://shutaocao.github.io/tag/quarterly-tfp/</link>
+    </image>
+    
+    <item>
+      <title>Quarterly Total Factor Productivity</title>
+      <link>https://shutaocao.github.io/project/qtrlytfp/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/project/qtrlytfp/</guid>
+      <description>&lt;h4 id=&#34;seasonally-adjusted-quarterly-total-factor-productivity-in-canada&#34;&gt;Seasonally-adjusted Quarterly Total Factor Productivity in Canada&lt;/h4&gt;
+&lt;p&gt;The seasonally-adjusted quarterly total factor productivity (TFP) in Canadian business sector is built by extending the method of measuring annual aggregate productivity by &lt;a href=&#34;https://ideas.repec.org/a/sls/ipmsls/v24y20123.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Diewert and Yu (2012)&lt;/a&gt;. The estimated quarterly TFP is not adjusted for capacity utilization.&lt;/p&gt;
+&lt;p&gt;Previously, &lt;a href=&#34;https://www.bankofcanada.ca/profile/sharon-kozicki/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sharon Kozicki&lt;/a&gt; and I estimated the seasonally unadjusted series of quarterly TFP, these data are not maintained and not updated. Link to the &lt;a href=&#34;http://www.bankofcanada.ca/wp-content/uploads/2015/02/wp2015-6.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;paper&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Acknowledgement&lt;/strong&gt;: Special thanks to Professors W. Erwin Diewert and Alice O. Nakamura. I learned productivity measurement from them. They of course are not liable for any error and quality of the data series.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

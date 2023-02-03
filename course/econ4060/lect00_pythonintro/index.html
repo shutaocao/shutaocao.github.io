@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: February 2, 2023 --><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Shutao Cao" />
+
+
+
+
+
+  
+
+<meta name="description" content="Python Brief Introduction" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://shutaocao.github.io/course/econ4060/lect00_pythonintro/" />
+<link rel="canonical" href="https://shutaocao.github.io/course/econ4060/lect00_pythonintro/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+
+  <meta property="twitter:site" content="@shutaoC" />
+  <meta property="twitter:creator" content="@shutaoC" />
+<meta property="twitter:image" content="https://shutaocao.github.io/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_512x512_fill_lanczos_center_3.png" />
+<meta property="og:site_name" content="Shutao Cao" />
+<meta property="og:url" content="https://shutaocao.github.io/course/econ4060/lect00_pythonintro/" />
+<meta property="og:title" content="Brief Introduction to Python | Shutao Cao" />
+<meta property="og:description" content="Python Brief Introduction" /><meta property="og:image" content="https://shutaocao.github.io/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2021-01-01T00:00:00&#43;00:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2021-01-01T00:00:00&#43;00:00">
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Brief Introduction to Python | Shutao Cao</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="8e9e1ed2a79db444fcbf6f1a764c4c53" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Shutao Cao</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Shutao Cao</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#publications"><span>Research</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#projects"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/course/"><span>Courses</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#posts"><span>Posts</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#contact"><span>Contact</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    
+
+
+
+
+<div class="container-fluid docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 docs-sidebar">
+      <form class="docs-search d-flex align-items-center">
+  <button class="btn docs-toggle d-md-none p-0 mr-md-3 w-100" type="button" data-toggle="collapse" data-target="#docs-nav" aria-controls="docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <div class="d-flex">
+      <span class="d-md-none pl-1 flex-grow-1 text-left overflow-hidden">
+        
+        
+          Quantitative Methods in Economics
+        
+      </span>
+      <span><i class="fas fa-chevron-down"></i></span>
+    </div>
+  </button>
+
+  
+  <button class="form-control sidebar-search js-search d-none d-md-flex">
+    <i class="fas fa-search pr-2"></i>
+    <span class="sidebar-search-text">Search...</span>
+    <span class="sidebar-search-shortcut">/</span>
+  </button>
+  
+</form>
+
+<nav class="collapse docs-links" id="docs-nav">
+  
+  
+  
+  
+  
+  
+
+  
+  
+    
+
+    
+      
+
+      <ul class="nav docs-sidenav">
+        <li><a href="/course/"><i class="fas fa-arrow-left pr-1"></i>Courses</a></li>
+      </ul>
+
+      
+      
+        
+          
+        
+      
+
+
+  
+    
+    
+    
+    
+      
+    
+    
+
+    
+      <div class="docs-toc-item">
+        <a class="docs-toc-link " href="/course/econ4060/">Quantitative Methods in Economics</a>
+    
+      
+        <ul class="nav docs-sidenav">
+      
+
+
+  <li class="active"><a href="/course/econ4060/lect00_pythonintro/">Brief Introduction to Python</a></li>
+
+
+
+  <li class=""><a href="/course/econ4060/python/">Python basics</a></li>
+
+
+
+  <li class=""><a href="/course/econ4060/visualization/">Plotting in Python</a></li>
+
+
+
+  <li class=""><a href="/course/econ4060/stats/">Estimation</a></li>
+
+      
+        </ul>
+      
+    
+
+    
+      </div>
+    
+
+    
+  
+</nav>
+
+    </div>
+
+    
+    
+    <div class="d-none d-xl-block col-xl-2 docs-toc">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+      <ul class="nav toc-top">
+        <li><a href="#" id="back_to_top" class="docs-toc-title">Contents</a></li>
+      </ul>
+
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#outline">Outline</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#comparison-operators">Comparison Operators</a></li>
+    <li><a href="#boolean-operators">Boolean Operators</a>
+      <ul>
+        <li><a href="#reserved-words">Reserved Words</a></li>
+        <li><a href="#built-in-function-names">Built-in Function Names</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#for-loops">for Loops</a></li>
+    <li><a href="#while-loops">while Loops</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#lists">Lists</a></li>
+    <li><a href="#tuples">Tuples</a></li>
+    <li><a href="#dictionaries">Dictionaries</a></li>
+    <li><a href="#functions">Functions</a></li>
+    <li><a href="#built-in-functions">Built-in Functions</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#numpy">Numpy</a></li>
+        <li><a href="#scipy">Scipy</a></li>
+        <li><a href="#matplotlib">Matplotlib</a></li>
+        <li><a href="#pandas">Pandas</a></li>
+        <li><a href="#statsmodels">Statsmodels</a></li>
+        <li><a href="#networks-and-graphs">Networks and Graphs</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 docs-content" role="main">
+
+      <div class="docs-article-container">
+        
+      </div>
+
+      
+      
+      
+
+      <div class="docs-article-container">
+        
+        <h1>Brief Introduction to Python</h1>
+
+        <article class="article-style">
+
+          
+          
+
+          <p>Python Brief Introduction</p>
+<p>
+  <i class="fas fa-clock  pr-1 fa-fw"></i> Brief Intro to Python</p>
+<h2 id="outline">Outline</h2>
+<ul>
+<li><a href="#Why-Python">Why Python</a></li>
+<li><a href="#Jupyter-notebook">Jupyter notebook</a></li>
+<li><a href="#Python-starter">Python starter</a></li>
+<li><a href="#Python-for-scientific-computing">Python for scientific computing</a></li>
+</ul>
+<h1 id="why-python">Why Python</h1>
+<p><a id='index-1'></a></p>
+<p><a href="https://www.python.org" target="_blank" rel="noopener">Python</a> is a generic scripting computer language used for many purposes</p>
+<ul>
+<li>System administration</li>
+<li>Web development</li>
+<li>game development</li>
+<li>multimedia, natural language</li>
+<li>Scientific computing</li>
+<li>Data science and statistics</li>
+<li>Machine Learning, &hellip;</li>
+</ul>
+<p>Python is increasingly popular in the scientific community pretty much in all areas. Economists have been rapidly learning to use Python in research and teaching, and it is no stranger to young PhD students and researchers.</p>
+<p>The ecosystem of Python developer and user community is huge, it is safe to say that Python is the computer language for everything.</p>
+<p>Python is awarded the programming language of the year 2020.</p>
+<p><a href="https://www.tiobe.com/tiobe-index/python/" target="_blank" rel="noopener">Python trends</a></p>
+<h1 id="jupyter-notebook">Jupyter notebook</h1>
+<p><a id='index-2'></a></p>
+<p>The Jupyter Notebook is an interactive computing environment that enables users to author notebook documents that include:</p>
+<ul>
+<li>Live code</li>
+<li>Interactive widgets</li>
+<li>Plots</li>
+<li>Narrative text</li>
+<li>Equations</li>
+<li>Images</li>
+<li>Video</li>
+</ul>
+<p>These documents provide a <strong>complete and self-contained record of a computation</strong> that can be converted to various formats and shared with others using email, <a href="https://www.dropbox.com/" target="_blank" rel="noopener">Dropbox</a>, version control systems (like git/<a href="https://github.com" target="_blank" rel="noopener">GitHub</a>) or <a href="https://nbviewer.jupyter.org" target="_blank" rel="noopener">nbviewer.jupyter.org</a>.</p>
+<p>The Jupyter Notebook combines three components:</p>
+<ul>
+<li><strong>The notebook web application</strong>: An interactive web application for writing and running code interactively and authoring notebook documents.</li>
+<li><strong>Kernels</strong>: Separate processes started by the notebook web application that runs users&rsquo; code in a given language and returns output back to the notebook web application.</li>
+<li><strong>Notebook documents</strong>: Self-contained documents that contain a representation of all content visible in the notebook web application, including inputs and outputs of the computations, narrative
+text, equations, images, and rich media representations of objects. Each notebook document has its own kernel.</li>
+</ul>
+<p>Notebooks consist of a <strong>sequence of cells</strong>. There are three basic cell types:</p>
+<ul>
+<li><strong>Code cells:</strong> Input and output of live code that is run in the kernel</li>
+<li><strong>Markdown cells:</strong> Narrative text with embedded LaTeX equations</li>
+<li><strong>Raw cells:</strong> Unformatted text that is included, without modification, when notebooks are converted to different formats using nbconvert</li>
+</ul>
+<p>Internally, notebook documents are <strong><a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a> data</strong> with <strong>binary values <a href="https://en.wikipedia.org/wiki/Base64" target="_blank" rel="noopener">base64</a></strong> encoded. This allows them to be <strong>read and manipulated programmatically</strong> by any programming language. Because JSON is a text format, notebook documents are version control friendly.</p>
+<p><strong>Notebooks can be exported</strong> to different static formats including HTML, reStructeredText, LaTeX, PDF, and slide shows (<a href="https://revealjs.com" target="_blank" rel="noopener">reveal.js</a>) using Jupyter&rsquo;s <code>nbconvert</code> utility.</p>
+<p>Furthermore, any notebook document available from a <strong>public URL or on GitHub can be shared</strong> via <a href="https://nbviewer.jupyter.org" target="_blank" rel="noopener">nbviewer</a>. This service loads the notebook document from the URL and renders it as a static web page. The resulting web page may thus be shared with others <strong>without their needing to install the Jupyter Notebook</strong>.</p>
+<p>Through Jupyter&rsquo;s kernel and messaging architecture, the Notebook allows code to be run in a range of different programming languages.  For each notebook document that a user opens, the web application starts a kernel that runs the code for that notebook. Each kernel is capable of running code in a single programming language and there are kernels available in the following languages:</p>
+<ul>
+<li>Python(<a href="https://github.com/ipython/ipython" target="_blank" rel="noopener">https://github.com/ipython/ipython</a>)</li>
+<li>Julia (<a href="https://github.com/JuliaLang/IJulia.jl" target="_blank" rel="noopener">https://github.com/JuliaLang/IJulia.jl</a>)</li>
+<li>R (<a href="https://github.com/IRkernel/IRkernel" target="_blank" rel="noopener">https://github.com/IRkernel/IRkernel</a>)</li>
+<li>Ruby (<a href="https://github.com/minrk/iruby" target="_blank" rel="noopener">https://github.com/minrk/iruby</a>)</li>
+<li>Haskell (<a href="https://github.com/gibiansky/IHaskell" target="_blank" rel="noopener">https://github.com/gibiansky/IHaskell</a>)</li>
+<li>Scala (<a href="https://github.com/Bridgewater/scala-notebook" target="_blank" rel="noopener">https://github.com/Bridgewater/scala-notebook</a>)</li>
+<li>node.js (<a href="https://gist.github.com/Carreau/4279371" target="_blank" rel="noopener">https://gist.github.com/Carreau/4279371</a>)</li>
+<li>Go (<a href="https://github.com/takluyver/igo" target="_blank" rel="noopener">https://github.com/takluyver/igo</a>)</li>
+</ul>
+<p>The default kernel runs Python code. The notebook provides a simple way for users to pick which of these kernels is used for a given notebook.</p>
+<p>Each of these kernels communicate with the notebook web application and web browser using a JSON over ZeroMQ/WebSockets message protocol that is described <a href="https://jupyter-client.readthedocs.io/en/latest/messaging.html#messaging" target="_blank" rel="noopener">here</a>. Most users don&rsquo;t need to know about these details, but it helps to understand that &ldquo;kernels run code.&rdquo;</p>
+<h1 id="python-starter">Python starter</h1>
+<p><a id='index-3'></a></p>
+<p>Python is generic. It is a calcultor to start with, and it is a gigantic system used to run big systems by corporates.</p>
+<h4 id="data-types">Data types</h4>
+<ul>
+<li>boolean</li>
+<li>int, double, complex</li>
+<li>strings</li>
+<li>None</li>
+</ul>
+<h4 id="operators">Operators</h4>
+<ul>
+<li>mathematical</li>
+<li>logical</li>
+<li>bitwise</li>
+<li>membership</li>
+<li>identity</li>
+<li>assignment and in-place operators</li>
+<li>operator precedence</li>
+</ul>
+<h4 id="collections">Collections</h4>
+<ul>
+<li>Sequence containers - list, tuple</li>
+<li>Mapping containers - set, dict</li>
+<li>The <a href="https://docs.python.org/2/library/collections.html" target="_blank" rel="noopener"><code>collections</code></a> module</li>
+</ul>
+<h4 id="functions-and-methods">Functions and methods</h4>
+<ul>
+<li>Anatomy of a function</li>
+<li>Docstrings</li>
+<li>Class methods</li>
+</ul>
+<h4 id="control-flow">Control flow</h4>
+<ul>
+<li>if and the ternary operator</li>
+<li>Checking conditions - what evaluates as true/false?</li>
+<li>if-elif-else</li>
+<li>while</li>
+<li>break, continue</li>
+<li>pass</li>
+</ul>
+<h4 id="loops-and-comprehensions">Loops and comprehensions</h4>
+<ul>
+<li>for, range, enumerate</li>
+<li>lazy and eager evaluation</li>
+<li>list, set, dict comprehensions</li>
+<li>generator expression</li>
+</ul>
+<h4 id="packages-and-namespace">Packages and namespace</h4>
+<ul>
+<li>Modules (file)</li>
+<li>Package (hierarchical modules)</li>
+<li>Namespace and naming conflicts</li>
+<li>Using <code>import</code></li>
+<li><a href="https://docs.python.org/3/library/index.html" target="_blank" rel="noopener">Batteries included</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="mi">3</span><span class="o">+</span><span class="mi">4</span>
+</span></span></code></pre></div><pre><code>7
+</code></pre>
+<h4 id="arithmetic-operators">Arithmetic Operators</h4>
+<p>The syntax for arithmetic operators in Python are:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:center">addition</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-</code></td>
+<td style="text-align:center">subtraction</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>*</code></td>
+<td style="text-align:center">multiplication</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>/</code></td>
+<td style="text-align:center">division</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>**</code></td>
+<td style="text-align:center">exponentiation</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>%</code></td>
+<td style="text-align:center">remainder (or modulo)</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>//</code></td>
+<td style="text-align:center">integer division</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that division of integers always returns a float:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">long_winded_computation</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">11</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">+</span>
+</span></span><span class="line"><span class="cl">                           <span class="mi">13</span> <span class="o">+</span> <span class="mi">14</span> <span class="o">+</span> <span class="mi">15</span> <span class="o">+</span> <span class="mi">16</span> <span class="o">+</span> <span class="mi">17</span> <span class="o">+</span> <span class="mi">18</span> <span class="o">+</span> <span class="mi">19</span> <span class="o">+</span> <span class="mi">20</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;long_winded_computation=&#34;</span><span class="p">,</span><span class="n">long_winded_computation</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>long_winded_computation= 210
+</code></pre>
+<h2 id="comparison-operators">Comparison Operators</h2>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#comparisons" target="_blank" rel="noopener">Comparison operators</a> produce Boolean values as output. For example, if we have variables <code>x</code> and <code>y</code> with numeric values, we can evaluate the expression <code>x &lt; y</code> and the result is a boolean value either <code>True</code> or <code>False</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Comparison Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>&lt;</code></td>
+<td style="text-align:center">strictly less than</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;=</code></td>
+<td style="text-align:center">less than or equal</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;</code></td>
+<td style="text-align:center">strictly greater than</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;=</code></td>
+<td style="text-align:center">greater than or equal</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>==</code></td>
+<td style="text-align:center">equal</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>!=</code></td>
+<td style="text-align:center">not equal</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<h2 id="boolean-operators">Boolean Operators</h2>
+<p>We combine logical expressions using <a href="https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not" target="_blank" rel="noopener">boolean operators</a> <code>and</code>, <code>or</code> and <code>not</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Boolean Operator</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>A and B</code></td>
+<td style="text-align:center">returns <code>True</code> if both <code>A</code> and <code>B</code> are <code>True</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>A or B</code></td>
+<td style="text-align:center">returns <code>True</code> if either <code>A</code> or <code>B</code> is <code>True</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>not A</code></td>
+<td style="text-align:center">returns <code>True</code> if <code>A</code> is <code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">math_is_scary</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">math_is_scary</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>False
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Note the indention</span>
+</span></span><span class="line"><span class="cl"><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;Bob&#34;</span><span class="p">,</span> <span class="s2">&#34;Alice&#34;</span><span class="p">,</span> <span class="s2">&#34;Zack&#34;</span><span class="p">,</span> <span class="s2">&#34;Tyler&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>Bob
+Alice
+Zack
+Tyler
+</code></pre>
+<h3 id="reserved-words">Reserved Words</h3>
+<p>Summarized below are the <a href="https://docs.python.org/3.3/reference/lexical_analysis.html#keywords" target="_blank" rel="noopener">reserved words in Python 3</a>. Python will raise an error if you try to assign a value to any of these keywords and so you must avoid these as variable names.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>False</code></td>
+<td style="text-align:center"><code>class</code></td>
+<td style="text-align:center"><code>finally</code></td>
+<td style="text-align:center"><code>is</code></td>
+<td style="text-align:center"><code>return</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>None</code></td>
+<td style="text-align:center"><code>continue</code></td>
+<td style="text-align:center"><code>for</code></td>
+<td style="text-align:center"><code>lambda</code></td>
+<td style="text-align:center"><code>try</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>True</code></td>
+<td style="text-align:center"><code>def</code></td>
+<td style="text-align:center"><code>from</code></td>
+<td style="text-align:center"><code>nonlocal</code></td>
+<td style="text-align:center"><code>while</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>and</code></td>
+<td style="text-align:center"><code>del</code></td>
+<td style="text-align:center"><code>global</code></td>
+<td style="text-align:center"><code>not</code></td>
+<td style="text-align:center"><code>with</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>as</code></td>
+<td style="text-align:center"><code>elif</code></td>
+<td style="text-align:center"><code>if</code></td>
+<td style="text-align:center"><code>or</code></td>
+<td style="text-align:center"><code>yield</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>assert</code></td>
+<td style="text-align:center"><code>else</code></td>
+<td style="text-align:center"><code>import</code></td>
+<td style="text-align:center"><code>pass</code></td>
+<td style="text-align:center"><code>break</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>except</code></td>
+<td style="text-align:center"><code>in</code></td>
+<td style="text-align:center"><code>raise</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="built-in-function-names">Built-in Function Names</h3>
+<p>There are several functions which are included in the standard Python library. Do <em>not</em> use the names of these functions as variable names otherwise the reference to the built-in function will be lost. For example, do not use <code>sum</code>, <code>min</code>, <code>max</code>, <code>list</code> or <code>sorted</code> as a variable name. See the full list of <a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">builtin functions</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;Anonymous functions are handy&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">55</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">fib</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;results:&#39;</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>results: [0, 2, 8, 34]
+</code></pre>
+<h1 id="loops">Loops</h1>
+<h2 id="for-loops">for Loops</h2>
+<p>A <a href="https://docs.python.org/3/reference/compound_stmts.html#for" target="_blank" rel="noopener">for loop</a> allows us to execute a block of code multiple times with some parameters updated each time through the loop. A <code>for</code> loop begins with the <code>for</code> statement:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">iterable</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># code block indented 4 spaces</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>1
+2
+3
+</code></pre>
+<h2 id="while-loops">while Loops</h2>
+<p>What if we want to execute a block of code multiple times but we don&rsquo;t know exactly how many times? We can&rsquo;t write a <code>for</code> loop because this requires us to set the length of the loop in advance. This is a situation when a <a href="https://en.wikipedia.org/wiki/While_loop#Python" target="_blank" rel="noopener">while loop</a> is useful.</p>
+<p>The following example illustrates a <a href="https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming" target="_blank" rel="noopener">while loop</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span></code></pre></div><pre><code>5
+4
+3
+2
+1
+</code></pre>
+<h1 id="sequences">Sequences</h1>
+<p>The main <a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range" target="_blank" rel="noopener">sequence types</a> in Python are lists, tuples and range objects. Main differences between these sequence objects are:</p>
+<ul>
+<li>Lists are <a href="https://docs.python.org/3/glossary.html#term-mutable" target="_blank" rel="noopener">mutable</a> and their elements are usually <em>homogeneous</em> (things of the same type making a list of similar objects)</li>
+<li>Tuples are <a href="https://docs.python.org/3/glossary.html#term-immutable" target="_blank" rel="noopener">immutable</a> and their elements are usually <em>heterogeneous</em> (things of different types making a tuple describing a single structure)</li>
+<li>Range objects are <em>efficient</em> sequences of integers (commonly used in <code>for</code> loops), use a small amount of memory and yield items only when needed</li>
+</ul>
+<h2 id="lists">Lists</h2>
+<p>Create a list using square brackets <code>[ ... ]</code> with items separated by commas. For example, create a list of square integers, assign it to a variable and use the built-in function <code>print()</code> to display the list:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fib</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">55</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">results2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fib</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>0
+2
+8
+34
+</code></pre>
+<h2 id="tuples">Tuples</h2>
+<p>Tuples are similar to lists but are immutable, i.e., elements in a tuple cannot be changed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">listx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">tupley</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">listx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">6</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;listx&#34;</span><span class="p">,</span><span class="n">listx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tupley</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;cannot modify a tuple&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>listx [3, 6]
+cannot modify a tuple
+</code></pre>
+<h2 id="dictionaries">Dictionaries</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;Joel&#34;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&#34;Tim&#34;</span><span class="p">:</span> <span class="mi">95</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">grades</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">grades</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>x dict_keys(['Joel', 'Tim'])
+y dict_values([80, 95])
+</code></pre>
+<h2 id="functions">Functions</h2>
+<p>A code block that returns results, and can be used repeatedly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">this code solve for consumer&#39;s utility maximization problem. U(C,l) is Cobb-Douglas, l is leisure, C is consumption
+</span></span></span><span class="line"><span class="cl"><span class="s2">I worked out first-order conditions in equations, translated them to code
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># utility function</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">utilityfun</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">shareC</span><span class="p">,</span> <span class="n">sharel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">tmplc</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span><span class="o">**</span><span class="n">sharel</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="o">**</span><span class="n">shareC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">tmplc</span><span class="o">**</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">sigma</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">sigma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># optimal choices</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">optimalChoice</span><span class="p">(</span><span class="n">sharel</span><span class="p">,</span><span class="n">shareC</span><span class="p">,</span><span class="n">wage</span><span class="p">,</span><span class="n">hmax</span><span class="p">,</span><span class="n">profit</span><span class="p">,</span><span class="n">tax</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lstar</span> <span class="o">=</span> <span class="p">(</span><span class="n">sharel</span><span class="o">/</span><span class="p">(</span><span class="n">sharel</span><span class="o">+</span><span class="n">shareC</span><span class="p">))</span> <span class="o">*</span><span class="p">(</span><span class="n">wage</span><span class="o">*</span><span class="n">hmax</span> <span class="o">+</span> <span class="n">profit</span> <span class="o">-</span> <span class="n">tax</span><span class="p">)</span> <span class="o">/</span> <span class="n">wage</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Cstar</span> <span class="o">=</span> <span class="n">lstar</span> <span class="o">*</span> <span class="n">wage</span> <span class="o">*</span> <span class="n">shareC</span> <span class="o">/</span> <span class="n">sharel</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">lstar</span><span class="p">,</span><span class="n">Cstar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># parameters</span>
+</span></span><span class="line"><span class="cl"><span class="n">shareC</span> <span class="o">=</span> <span class="mf">0.65</span>
+</span></span><span class="line"><span class="cl"><span class="n">sharel</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">shareC</span>
+</span></span><span class="line"><span class="cl"><span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">wage</span><span class="p">,</span> <span class="n">profit</span><span class="p">,</span> <span class="n">tax</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">0.5</span>
+</span></span><span class="line"><span class="cl"><span class="n">hmax</span> <span class="o">=</span> <span class="mf">5.5</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#---optimal cohices: c/l = w * sharec/sharel</span>
+</span></span><span class="line"><span class="cl"><span class="n">lstar</span><span class="p">,</span> <span class="n">Cstar</span><span class="o">=</span><span class="n">optimalChoice</span><span class="p">(</span><span class="n">sharel</span><span class="p">,</span><span class="n">shareC</span><span class="p">,</span><span class="n">wage</span><span class="p">,</span><span class="n">hmax</span><span class="p">,</span><span class="n">profit</span><span class="p">,</span><span class="n">tax</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># maximized utility under wage</span>
+</span></span><span class="line"><span class="cl"><span class="n">util0</span> <span class="o">=</span> <span class="n">utilityfun</span><span class="p">(</span><span class="n">lstar</span><span class="p">,</span><span class="n">Cstar</span><span class="p">,</span><span class="n">shareC</span><span class="p">,</span> <span class="n">sharel</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Optimal C=&#39;</span><span class="p">,</span> <span class="n">Cstar</span><span class="p">,</span> <span class="s2">&#34;optimal l=&#34;</span><span class="p">,</span> <span class="n">lstar</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maximized utility level=&#39;</span><span class="p">,</span> <span class="n">util0</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>Optimal C= 2.6325 optimal l= 2.8349999999999995
+Maximized utility level= 0.8200869606862031
+</code></pre>
+<h2 id="built-in-functions">Built-in Functions</h2>
+<p>The standard Python library has a collection of <a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">built-in functions</a> ready for us to use. We have already seen a few of these functions in previous sections such as <code>type()</code>, <code>print()</code> and <code>sum()</code>. The following is a list of built-in functions that we&rsquo;ll use most often:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Function</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><code>print(object)</code></td>
+<td style="text-align:left">print <code>object</code> to output</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>type(object)</code></td>
+<td style="text-align:left">return the type of <code>object</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>abs(x)</code></td>
+<td style="text-align:left">return the absolute value of <code>x</code> (or modulus if <code>x</code> is complex)</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>int(x)</code></td>
+<td style="text-align:left">return the integer constructed from float <code>x</code> by truncating decimal</td>
+</tr>
+<tr>
+<td style="text-align:right"><code>len(sequence)</code></td>
+<td style="text-align:left">return the length of the <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>sum(sequence)</code></td>
+<td style="text-align:left">return the sum of the entries of <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>max(sequence)</code></td>
+<td style="text-align:left">return the maximum value in <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>min(sequence)</code></td>
+<td style="text-align:left">return the minimum value in <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>range(a,b,step)</code></td>
+<td style="text-align:left">return the range object of integers from <code>a</code> to <code>b</code> (exclusive) by <code>step</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>list(sequence)</code></td>
+<td style="text-align:left">return a list constructed from <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>sorted(sequence)</code></td>
+<td style="text-align:left">return the sorted list from the items in <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>reversed(sequence)</code></td>
+<td style="text-align:left">return the reversed iterator object from the items in <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>enumerate(sequence)</code></td>
+<td style="text-align:left">return the enumerate object constructed from <code>sequence</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><code>zip(a,b)</code></td>
+<td style="text-align:left">return an iterator that aggregates items from sequences <code>a</code> and <code>b</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="python-for-scientific-computing">Python for scientific computing</h1>
+<p><a id='index-4'></a></p>
+<p>Python is one of the core languages of scientific computing. In fact, it is the modules (libraries) written in Python that have become the essential tools for scientific computing.</p>
+<p>Many of the Python modules are translated from numerical libraries written in <code>C</code> and <code>Fortran</code>.</p>
+<p>Its popularity in economics has been rising rapidly, a collaborated effort is <a href="https://quantecon.org" target="_blank" rel="noopener">quantecon.org</a>.</p>
+<p>We take a bird&rsquo;s-eye view on Python modules for scientific computing</p>
+<p>In Python, a module is a file that contains python definitions and statements. We need to import them when we need to use them.</p>
+<p><a href="http://www.numpy.org/" target="_blank" rel="noopener">NumPy</a> library is fundamental for many other modules. It is for matrix and array manipulation and operation.</p>
+<p><a href="https://www.scipy.org/index.html" target="_blank" rel="noopener">Scipy</a> is a comprehensive numerical library.</p>
+<p><a href="https://pandas.pydata.org" target="_blank" rel="noopener">Pandas</a> is a package for data processing and analysis, popular but largely because no good substitutes. It is based on <code>R</code> data frame.</p>
+<p><a href="https://matplotlib.org" target="_blank" rel="noopener">Matplotlib</a> is a basic (but rich) library for visualization. Some other complements are <a href="https://bokeh.org" target="_blank" rel="noopener">Bokeh</a>, <a href="https://plotly.com/python/" target="_blank" rel="noopener">Plotly</a>, etc.</p>
+<p><a href="https://www.statsmodels.org/stable/index.html" target="_blank" rel="noopener">Statsmodels</a> is a library for statistical estimation and inference.</p>
+<p><a href="https://scikit-learn.org/stable/index.html" target="_blank" rel="noopener">Scikit-learn</a>, a Python machine learning package, mostly for supervised learning. Some other machine learning libraries, such as TensorFlow for neural networks.</p>
+<h3 id="numpy">Numpy</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                     <span class="c1"># convention to name numpy as np in your codes</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;x=&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;xi=&#39;</span><span class="p">,</span><span class="n">xi</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y=&#39;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>x= [[1 2 3]
+ [4 5 6]]
+xi= [1 2 3]
+xi= [4 5 6]
+y= [[1 4]
+ [2 5]
+ [3 6]]
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>    <span class="c1"># Create even grid from -π to π</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a=&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>a= [-3.14159265 -2.44346095 -1.74532925 -1.04719755 -0.34906585  0.34906585
+  1.04719755  1.74532925  2.44346095  3.14159265]
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</span></span></code></pre></div><pre><code>array([[1., 2., 3.],
+       [4., 5., 6.]])
+</code></pre>
+<p>Solving a system of linear equations:
+\begin{align*}3 x_0 + 2 x_1 - x_2 = 9 \ x_0 - 2 x_1 + 0.5x_2 = 2 \  5 x_0 +0.2x_1 - 2x_2 = 10 \end{align*}
+In matrix, $A x = b$</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span>
+</span></span><span class="line"><span class="cl"><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>x= [3.11428571 1.28571429 2.91428571]
+</code></pre>
+<h3 id="scipy">Scipy</h3>
+<p>Scipy is built on top of Numpy, it includes modules for function interpolation, integration, optimization, linear algebra, Fourier transformation, eignevalues, and more. See <a href="https://docs.scipy.org/doc/scipy/reference/index.html" target="_blank" rel="noopener">here</a> for a complete list.</p>
+<p>Example: calculate $ \int_{-0.5}^2 \phi(x) dx $ where $ \phi(x) = \frac{1}{\sqrt{2\pi}} \cdot e^{-x^2/2}$ is the standard normal density function.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+</span></span><span class="line"><span class="cl"><span class="n">phi</span> <span class="o">=</span> <span class="n">norm</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">phi</span><span class="o">.</span><span class="n">pdf</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Integrate using Gaussian quadrature</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y=&#39;</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>y= 0.8621801978301126
+</code></pre>
+<h3 id="matplotlib">Matplotlib</h3>
+<p>Given data in Numpy arrays, plot 2D or 3D figures, can also create animation.</p>
+<p>First thing to look at should be the <a href="https://matplotlib.org/3.3.3/gallery/showcase/anatomy.html" target="_blank" rel="noopener">anatomy of a figure</a></p>
+<p>Example: Standard normal distribution.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">seaborn</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.0000001</span><span class="p">),</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.9999999</span><span class="p">),</span> <span class="mi">120</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">pdfx</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">pdfx</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&#34;green&#34;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.6</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&#34;-&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">pdfx</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x2</span><span class="o">=</span><span class="mf">1.96</span><span class="p">,</span> <span class="n">where</span> <span class="o">=</span> <span class="n">x</span><span class="o">&gt;</span><span class="mf">1.96</span><span class="p">,</span><span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.4</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">.1</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">$</span><span class="se">\\</span><span class="s1">alpha$=shaded area&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Standard normal distribution&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.4</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$\phi(z)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#ax.set_aspect(&#39;equal&#39;)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#fig.tight_layout();</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="./lect00_pythonIntro_40_0.png" alt="png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h3 id="pandas">Pandas</h3>
+<p>Pandas is not so fast, not so efficient, not so flexible and not so well designed. Somehow, its syntax is confusing to me.</p>
+<p>But Pandas has been improving.</p>
+<p>For large data set, one should use <a href="Dask">https://dask.org</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Example 1: use pandas to create time series</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 5x2 matrix of N(0, 1) random draws</span>
+</span></span><span class="line"><span class="cl"><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;28/12/2010&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span></span></code></pre></div><pre><code>               price    weight
+2010-12-28  0.471435 -1.190976
+2010-12-29  1.432707 -0.312652
+2010-12-30 -0.720589  0.887163
+2010-12-31  0.859588 -0.636524
+2011-01-01  0.015696 -2.242685
+
+
+/tmp/ipykernel_40679/2615389923.py:5: UserWarning: Parsing dates in DD/MM/YYYY format when dayfirst=False (the default) was specified. This may lead to inconsistently parsed dates! Specify a format to ensure consistent parsing.
+  dates = pd.date_range('28/12/2010', periods=5)
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span></code></pre></div><pre><code>price     0.411768
+weight   -0.699135
+dtype: float64
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Example 2: read Canadian labor market condition data from CSV form</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="n">cansimid</span> <span class="o">=</span> <span class="s1">&#39;14100287&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;tbl14100287Final3.csv&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">lfs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lfs</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">lfs</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lfsQtr</span> <span class="o">=</span> <span class="n">lfs</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;QS-OCT&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">lfsQtr</span> <span class="o">=</span> <span class="n">lfsQtr</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">lfsQtr</span>
+</span></span></code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>emplBothSex</th>
+      <th>emplFemale</th>
+      <th>emplFullBothSex</th>
+      <th>emplFullFemale</th>
+      <th>emplFullMale</th>
+      <th>emplMale</th>
+      <th>emplPartBothSex</th>
+      <th>emplPartFemale</th>
+      <th>emplPartMale</th>
+      <th>emplRateBothSex</th>
+      <th>...</th>
+      <th>participRateMale</th>
+      <th>populationBothSex</th>
+      <th>populationFemale</th>
+      <th>populationMale</th>
+      <th>unemplBothSex</th>
+      <th>unemplFemale</th>
+      <th>unemplMale</th>
+      <th>unemplRateBothSex</th>
+      <th>unemplRateFemale</th>
+      <th>unemplRateMale</th>
+    </tr>
+    <tr>
+      <th>ref_date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1976-01-01</th>
+      <td>9666.90</td>
+      <td>3566.33</td>
+      <td>8469.30</td>
+      <td>2735.10</td>
+      <td>5734.20</td>
+      <td>6100.53</td>
+      <td>1197.57</td>
+      <td>831.23</td>
+      <td>366.30</td>
+      <td>57.23</td>
+      <td>...</td>
+      <td>77.93</td>
+      <td>16891.70</td>
+      <td>8538.53</td>
+      <td>8353.20</td>
+      <td>718.17</td>
+      <td>307.77</td>
+      <td>410.40</td>
+      <td>6.93</td>
+      <td>7.93</td>
+      <td>6.30</td>
+    </tr>
+    <tr>
+      <th>1976-04-01</th>
+      <td>9737.53</td>
+      <td>3604.93</td>
+      <td>8529.63</td>
+      <td>2756.80</td>
+      <td>5772.83</td>
+      <td>6132.60</td>
+      <td>1207.87</td>
+      <td>848.10</td>
+      <td>359.73</td>
+      <td>57.27</td>
+      <td>...</td>
+      <td>77.73</td>
+      <td>17008.10</td>
+      <td>8599.70</td>
+      <td>8408.40</td>
+      <td>718.13</td>
+      <td>312.23</td>
+      <td>405.90</td>
+      <td>6.87</td>
+      <td>7.97</td>
+      <td>6.20</td>
+    </tr>
+    <tr>
+      <th>1976-07-01</th>
+      <td>9778.40</td>
+      <td>3635.07</td>
+      <td>8562.97</td>
+      <td>2779.30</td>
+      <td>5783.70</td>
+      <td>6143.37</td>
+      <td>1215.43</td>
+      <td>855.83</td>
+      <td>359.67</td>
+      <td>57.10</td>
+      <td>...</td>
+      <td>77.53</td>
+      <td>17121.43</td>
+      <td>8659.10</td>
+      <td>8462.33</td>
+      <td>753.40</td>
+      <td>336.07</td>
+      <td>417.33</td>
+      <td>7.17</td>
+      <td>8.43</td>
+      <td>6.37</td>
+    </tr>
+    <tr>
+      <th>1976-10-01</th>
+      <td>9824.70</td>
+      <td>3673.90</td>
+      <td>8568.27</td>
+      <td>2790.33</td>
+      <td>5777.90</td>
+      <td>6150.80</td>
+      <td>1256.43</td>
+      <td>883.60</td>
+      <td>372.87</td>
+      <td>57.07</td>
+      <td>...</td>
+      <td>77.53</td>
+      <td>17210.97</td>
+      <td>8705.67</td>
+      <td>8505.33</td>
+      <td>785.97</td>
+      <td>338.47</td>
+      <td>447.50</td>
+      <td>7.43</td>
+      <td>8.43</td>
+      <td>6.77</td>
+    </tr>
+    <tr>
+      <th>1977-01-01</th>
+      <td>9869.73</td>
+      <td>3700.57</td>
+      <td>8605.30</td>
+      <td>2810.80</td>
+      <td>5794.50</td>
+      <td>6169.17</td>
+      <td>1264.43</td>
+      <td>889.73</td>
+      <td>374.67</td>
+      <td>57.03</td>
+      <td>...</td>
+      <td>77.70</td>
+      <td>17300.70</td>
+      <td>8752.77</td>
+      <td>8548.00</td>
+      <td>829.93</td>
+      <td>358.83</td>
+      <td>471.10</td>
+      <td>7.77</td>
+      <td>8.83</td>
+      <td>7.10</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2019-07-01</th>
+      <td>19102.03</td>
+      <td>9081.50</td>
+      <td>15495.80</td>
+      <td>6783.90</td>
+      <td>8711.87</td>
+      <td>10020.57</td>
+      <td>3606.27</td>
+      <td>2297.57</td>
+      <td>1308.70</td>
+      <td>62.00</td>
+      <td>...</td>
+      <td>70.17</td>
+      <td>30806.87</td>
+      <td>15611.33</td>
+      <td>15195.57</td>
+      <td>1140.47</td>
+      <td>503.03</td>
+      <td>637.43</td>
+      <td>5.63</td>
+      <td>5.27</td>
+      <td>5.97</td>
+    </tr>
+    <tr>
+      <th>2019-10-01</th>
+      <td>19124.53</td>
+      <td>9102.93</td>
+      <td>15521.23</td>
+      <td>6787.10</td>
+      <td>8734.17</td>
+      <td>10021.60</td>
+      <td>3603.27</td>
+      <td>2315.83</td>
+      <td>1287.43</td>
+      <td>61.83</td>
+      <td>...</td>
+      <td>69.90</td>
+      <td>30931.17</td>
+      <td>15671.30</td>
+      <td>15259.87</td>
+      <td>1154.90</td>
+      <td>509.90</td>
+      <td>645.00</td>
+      <td>5.70</td>
+      <td>5.33</td>
+      <td>6.07</td>
+    </tr>
+    <tr>
+      <th>2020-01-01</th>
+      <td>18842.40</td>
+      <td>8899.60</td>
+      <td>15438.27</td>
+      <td>6697.90</td>
+      <td>8740.33</td>
+      <td>9942.83</td>
+      <td>3404.13</td>
+      <td>2201.70</td>
+      <td>1202.47</td>
+      <td>60.70</td>
+      <td>...</td>
+      <td>69.23</td>
+      <td>31032.37</td>
+      <td>15719.97</td>
+      <td>15312.40</td>
+      <td>1268.40</td>
+      <td>607.10</td>
+      <td>661.30</td>
+      <td>6.30</td>
+      <td>6.43</td>
+      <td>6.23</td>
+    </tr>
+    <tr>
+      <th>2020-04-01</th>
+      <td>16695.60</td>
+      <td>7783.43</td>
+      <td>13971.77</td>
+      <td>6042.47</td>
+      <td>7929.30</td>
+      <td>8912.17</td>
+      <td>2723.80</td>
+      <td>1740.97</td>
+      <td>982.87</td>
+      <td>53.67</td>
+      <td>...</td>
+      <td>66.47</td>
+      <td>31118.57</td>
+      <td>15760.20</td>
+      <td>15358.33</td>
+      <td>2496.70</td>
+      <td>1199.43</td>
+      <td>1297.27</td>
+      <td>13.00</td>
+      <td>13.37</td>
+      <td>12.73</td>
+    </tr>
+    <tr>
+      <th>2020-07-01</th>
+      <td>18135.83</td>
+      <td>8564.80</td>
+      <td>14692.03</td>
+      <td>6352.70</td>
+      <td>8339.33</td>
+      <td>9571.07</td>
+      <td>3443.80</td>
+      <td>2212.10</td>
+      <td>1231.70</td>
+      <td>58.13</td>
+      <td>...</td>
+      <td>69.47</td>
+      <td>31196.97</td>
+      <td>15796.80</td>
+      <td>15400.17</td>
+      <td>2021.03</td>
+      <td>895.67</td>
+      <td>1125.37</td>
+      <td>10.03</td>
+      <td>9.47</td>
+      <td>10.50</td>
+    </tr>
+  </tbody>
+</table>
+<p>179 rows × 27 columns</p>
+</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#--unemployment rate, raw</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lfsQtr</span><span class="p">[</span><span class="s1">&#39;unemplRateBothSex&#39;</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&#34;-&#34;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unemployment rate&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">enable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">tight</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Unemployment rate, Canada&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">Late date: 2020 July. Data source: Staistics Canada.&#34;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;UnemploymentRate_Canada.png&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;png&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="./lect00_pythonIntro_45_0.png" alt="png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h3 id="statsmodels">Statsmodels</h3>
+<p>We read in the Mroz&rsquo;s data on wages from <a href="https://psidonline.isr.umich.edu" target="_blank" rel="noopener">PSID</a>, then do a OLS estimation of the wage equation</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mroz</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;mroz1987.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">mroz</span>
+</span></span></code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>inlf</th>
+      <th>hours</th>
+      <th>kidslt6</th>
+      <th>kidsge6</th>
+      <th>age</th>
+      <th>educ</th>
+      <th>wage</th>
+      <th>repwage</th>
+      <th>hushrs</th>
+      <th>husage</th>
+      <th>...</th>
+      <th>faminc</th>
+      <th>mtr</th>
+      <th>motheduc</th>
+      <th>fatheduc</th>
+      <th>unem</th>
+      <th>city</th>
+      <th>exper</th>
+      <th>nwifeinc</th>
+      <th>lwage</th>
+      <th>expersq</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1610</td>
+      <td>1</td>
+      <td>0</td>
+      <td>32</td>
+      <td>12</td>
+      <td>3.3540</td>
+      <td>2.65</td>
+      <td>2708</td>
+      <td>34</td>
+      <td>...</td>
+      <td>16310</td>
+      <td>0.7215</td>
+      <td>12</td>
+      <td>7</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>14</td>
+      <td>10.910060</td>
+      <td>1.210154</td>
+      <td>196</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1656</td>
+      <td>0</td>
+      <td>2</td>
+      <td>30</td>
+      <td>12</td>
+      <td>1.3889</td>
+      <td>2.65</td>
+      <td>2310</td>
+      <td>30</td>
+      <td>...</td>
+      <td>21800</td>
+      <td>0.6615</td>
+      <td>7</td>
+      <td>7</td>
+      <td>11.0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>19.499980</td>
+      <td>0.328512</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1980</td>
+      <td>1</td>
+      <td>3</td>
+      <td>35</td>
+      <td>12</td>
+      <td>4.5455</td>
+      <td>4.04</td>
+      <td>3072</td>
+      <td>40</td>
+      <td>...</td>
+      <td>21040</td>
+      <td>0.6915</td>
+      <td>12</td>
+      <td>7</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>15</td>
+      <td>12.039910</td>
+      <td>1.514138</td>
+      <td>225</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>456</td>
+      <td>0</td>
+      <td>3</td>
+      <td>34</td>
+      <td>12</td>
+      <td>1.0965</td>
+      <td>3.25</td>
+      <td>1920</td>
+      <td>53</td>
+      <td>...</td>
+      <td>7300</td>
+      <td>0.7815</td>
+      <td>7</td>
+      <td>7</td>
+      <td>5.0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6.799996</td>
+      <td>0.092123</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1568</td>
+      <td>1</td>
+      <td>2</td>
+      <td>31</td>
+      <td>14</td>
+      <td>4.5918</td>
+      <td>3.60</td>
+      <td>2000</td>
+      <td>32</td>
+      <td>...</td>
+      <td>27300</td>
+      <td>0.6215</td>
+      <td>12</td>
+      <td>14</td>
+      <td>9.5</td>
+      <td>1</td>
+      <td>7</td>
+      <td>20.100060</td>
+      <td>1.524272</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>748</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>40</td>
+      <td>13</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>3020</td>
+      <td>43</td>
+      <td>...</td>
+      <td>28200</td>
+      <td>0.6215</td>
+      <td>10</td>
+      <td>10</td>
+      <td>9.5</td>
+      <td>1</td>
+      <td>5</td>
+      <td>28.200000</td>
+      <td>NaN</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>749</th>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>31</td>
+      <td>12</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>2056</td>
+      <td>33</td>
+      <td>...</td>
+      <td>10000</td>
+      <td>0.7715</td>
+      <td>12</td>
+      <td>12</td>
+      <td>7.5</td>
+      <td>0</td>
+      <td>14</td>
+      <td>10.000000</td>
+      <td>NaN</td>
+      <td>196</td>
+    </tr>
+    <tr>
+      <th>750</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>43</td>
+      <td>12</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>2383</td>
+      <td>43</td>
+      <td>...</td>
+      <td>9952</td>
+      <td>0.7515</td>
+      <td>10</td>
+      <td>3</td>
+      <td>7.5</td>
+      <td>0</td>
+      <td>4</td>
+      <td>9.952000</td>
+      <td>NaN</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>751</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>60</td>
+      <td>12</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>1705</td>
+      <td>55</td>
+      <td>...</td>
+      <td>24984</td>
+      <td>0.6215</td>
+      <td>12</td>
+      <td>12</td>
+      <td>14.0</td>
+      <td>1</td>
+      <td>15</td>
+      <td>24.984000</td>
+      <td>NaN</td>
+      <td>225</td>
+    </tr>
+    <tr>
+      <th>752</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>39</td>
+      <td>9</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>3120</td>
+      <td>48</td>
+      <td>...</td>
+      <td>28363</td>
+      <td>0.6915</td>
+      <td>7</td>
+      <td>7</td>
+      <td>11.0</td>
+      <td>1</td>
+      <td>12</td>
+      <td>28.363000</td>
+      <td>NaN</td>
+      <td>144</td>
+    </tr>
+  </tbody>
+</table>
+<p>753 rows × 22 columns</p>
+</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># OLS estmation of wage equation for husbands</span>
+</span></span><span class="line"><span class="cl"><span class="n">mroz</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">mroz</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;ones&#39;</span><span class="p">,</span><span class="s1">&#39;huseduc&#39;</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mroz</span><span class="p">[</span><span class="s1">&#39;huswage&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#Y = mroz4[&#39;huswage&#39;]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># prediction: results.fittedvalues</span>
+</span></span><span class="line"><span class="cl"><span class="n">Yhat</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;huseduc&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;huseduc&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Yhat2</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;ones&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">0.7</span> <span class="o">+</span> <span class="n">results</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;huseduc&#39;</span><span class="p">]</span><span class="o">*</span><span class="mf">1.4</span><span class="o">*</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;huseduc&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                huswage   R-squared:                       0.155
+Model:                            OLS   Adj. R-squared:                  0.154
+Method:                 Least Squares   F-statistic:                     138.3
+Date:                Thu, 12 Jan 2023   Prob (F-statistic):           2.03e-29
+Time:                        09:20:08   Log-Likelihood:                -598.39
+No. Observations:                 753   AIC:                             1201.
+Df Residuals:                     751   BIC:                             1210.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+ones           0.9105      0.083     10.943      0.000       0.747       1.074
+huseduc        0.0761      0.006     11.758      0.000       0.063       0.089
+==============================================================================
+Omnibus:                      144.321   Durbin-Watson:                   1.890
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              371.275
+Skew:                          -0.986   Prob(JB):                     2.39e-81
+Kurtosis:                       5.819   Cond. No.                         55.0
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<h3 id="networks-and-graphs">Networks and Graphs</h3>
+<p><strong>Disclaimer: This subsection is credited to <a href="https://python-programming.quantecon.org/intro.html" target="_blank" rel="noopener">quantecon.org</a></strong></p>
+<p>Python has many libraries for studying graphs.</p>
+<p>One well-known example is <a href="http://networkx.github.io/" target="_blank" rel="noopener">NetworkX</a>.
+Its features include, among many other things:</p>
+<ul>
+<li>standard graph algorithms for analyzing networks</li>
+<li>plotting routines</li>
+</ul>
+<p>Here’s some example code that generates and plots a random graph, with node color determined by shortest path length from a central node.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Generate a random graph</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">g</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_geometric_graph</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Find node nearest the center point (0.5, 0.5)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dists</span> <span class="o">=</span> <span class="p">[(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">pos</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ncenter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plot graph, coloring by path length from central node</span>
+</span></span><span class="line"><span class="cl"><span class="n">p</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">single_source_shortest_path_length</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">ncenter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">g</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">pos</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">nodelist</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">node_size</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">node_color</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet_r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="./lect00_pythonIntro_50_0.png" alt="png" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+
+        </article>
+
+        
+
+
+
+
+
+        
+
+
+
+        
+        
+        <div class="article-widget">
+          
+<div class="post-nav">
+  
+  
+  
+  <div class="post-nav-item">
+    <div class="meta-nav">Next</div>
+    <a href="/course/econ4060/python/" rel="prev">Python basics</a>
+  </div>
+  
+</div>
+
+        </div>
+        
+      </div>
+
+      <div class="body-footer">
+        <p>Last updated on Jan 1, 2021</p>
+
+        
+
+
+
+
+        
+
+
+
+
+        
+
+
+      </div>
+
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2023 Shutao Cao. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+
+    </main>
+  </div>
+</div>
+
+  </div>
+
+  <div class="page-footer">
+    
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/bryanbraun/anchorjs@4.2.2/anchor.min.js" integrity="sha512-I7w3ZdSFzw5j3jU3ZkNikBNeIrl3i+hEuEdwNmqUJvwNcaBUNcijnP2gd9DtGlgVYDplfjGoD8vTNsID+lCjqg==" crossorigin="anonymous"></script>
+<script>
+  anchors.add();
+</script>
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":false}</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.2874310ae8b20e08948b8e82aa4b36db.js"></script>
+
+
+
+
+
+
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <pre><code></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="/js/wowchemy-publication.68f8d7090562ca65fc6d3cb3f8f2d2cb.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

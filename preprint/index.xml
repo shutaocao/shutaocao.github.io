@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Preprints | Shutao Cao</title>
+    <link>https://shutaocao.github.io/preprint/</link>
+      <atom:link href="https://shutaocao.github.io/preprint/index.xml" rel="self" type="application/rss+xml" />
+    <description>Preprints</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 07 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shutaocao.github.io/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_512x512_fill_lanczos_center_3.png</url>
+      <title>Preprints</title>
+      <link>https://shutaocao.github.io/preprint/</link>
+    </image>
+    
+    <item>
+      <title>The impact of uncertainty on two-tiered labor markets</title>
+      <link>https://shutaocao.github.io/preprint/202210temporaryworker/</link>
+      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/preprint/202210temporaryworker/</guid>
+      <description>&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;This paper studies the impact of higher aggregate uncertainty on labor markets where jobs with strong employment protection coexist with temporary contracts. We develop a search and matching model where firms and workers choose the type of contract. The model allows for endogenous separations and job-to-job transitions. We show that in the data, times of heightened uncertainty correlate with a higher share of temporary workers, a lower wage inequality between permanent and temporary jobs, and a slight increase in unemployment. Our model is consistent with these facts. Higher uncertainty increases the option value of temporary contracts relative to permanent contracts, changing the composition of the labor force but with minor changes in overall employment levels.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Production Networks and the Propagation of Commodity Price Shocks</title>
+      <link>https://shutaocao.github.io/preprint/2020production-network-commodity-price/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/preprint/2020production-network-commodity-price/</guid>
+      <description>&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;Fluctuations of commodity prices are frequently associated with the volatility of aggregate output and prices. As commodity prices rise and fall, adjustments take place in the economy, ranging from shifts in investment, employment and output to changes in interest rates and exchange rates. While these adjustments are already quite complex, one important channel often overlooked in the literature is the input-output linkages. In this paper, we examine the macro implications of commodity price shocks in a structural model with input-output linkages for a commodity-exporting small open economy. Calibrated to the Canadian economy, our model can explain a large part of the decline in real gross domestic product (GDP) that we saw in 2015 and 2016 following the sharp drop in commodity prices. We find that as the model economy adjusts to commodity price shocks, domestic downstream linkages and the export connection with the rest of the world play an important role.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Accounting for productivity growth in a small open economy: Sector-specific technological change and relative prices of trade</title>
+      <link>https://shutaocao.github.io/preprint/2017productivity-domaraggregation/</link>
+      <pubDate>Sun, 01 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/preprint/2017productivity-domaraggregation/</guid>
+      <description>&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;Many economies experienced a slowdown of measured productivity in the 2000s, coinciding with the commodity price boom. We use a multisector growth model for a small open economy to quantify the contribution of sector-specific technology and relative prices of trade to productivity slowdown. We show that the effective aggregate total factor productivity consists of two components: the weighted average of sector-specific technology, and the weighted averaged of domestic-export price ratios which reflect export costs. This extends the Domar aggregation result of Hulten (1978). When calibrated to the Canadian data, the model suggests that productivity slowdown was mainly attributed to two sectors: commodity; machinery and equipment. Cross-country data show that, in two thirds of countries that experienced productivity slowdown, slower productivity growth in sectors serving domestic market was a dominant factor, while in the other one third, reduced domestic-export price ratio played a major role.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A model of costly reallocation and aggregate productivity</title>
+      <link>https://shutaocao.github.io/preprint/2012reallocation-productivity/</link>
+      <pubDate>Sat, 01 Oct 2011 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/preprint/2012reallocation-productivity/</guid>
+      <description>&lt;h3 id=&#34;abstract&#34;&gt;Abstract&lt;/h3&gt;
+&lt;p&gt;This paper studies the effects of capital reallocation on aggregate productivity. Capital reallocation (i.e., the flow of productive capital across firms through changes in ownership) is an important activity in the United States: on average, the total value of capital reallocation annually is 3 to 4 percent of U.S. GDP. Firms with lower productivity are more likely to be reallocated to more-productive firms, and they also experience increases in productivity after reallocation. I use a dynamic model of firm investment and capital reallocation to match these facts. In the model, increased participation in the acquisition market by heterogeneous firms results in an increase in aggregate labor productivity, while the productivity of capital declines due to decreasing returns to scale. With the calibrated model, I show that the increased reallocation of capital contributed 20 percent of the growth of aggregate labor productivity during the period 1985-1990, and 22 percent during the period 1995-2000.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

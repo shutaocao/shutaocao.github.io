@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications | Shutao Cao</title>
+    <link>https://shutaocao.github.io/publication/</link>
+      <atom:link href="https://shutaocao.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
+    <description>Publications</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 01 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shutaocao.github.io/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_512x512_fill_lanczos_center_3.png</url>
+      <title>Publications</title>
+      <link>https://shutaocao.github.io/publication/</link>
+    </image>
+    
+    <item>
+      <title>The welfare cost of inflation revisited: The role of financial innovation and household heterogeneity</title>
+      <link>https://shutaocao.github.io/publication/2021welfarecost-inflation/</link>
+      <pubDate>Mon, 01 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/2021welfarecost-inflation/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://ars.els-cdn.com/content/image/1-s2.0-S030439322030132X-mmc1.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Online Appendix&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Credit constraints and productivity of SMEs: Evidence from Canada</title>
+      <link>https://shutaocao.github.io/publication/2020sme-financialfrictions/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/2020sme-financialfrictions/</guid>
+      <description>&lt;p&gt;The 2020 Best Paper Award, category Financial Economics, Economic Modelling.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Trends in Firm Entry and New Entrepreneurship in Canada</title>
+      <link>https://shutaocao.github.io/publication/201709entry-exit-trends-canada/</link>
+      <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/201709entry-exit-trends-canada/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Real GDI, Productivity, and the Terms of Trade in Canada</title>
+      <link>https://shutaocao.github.io/publication/201702productivity-termsoftrade/</link>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/201702productivity-termsoftrade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pricing-to-market, currency invoicing and exchange rate pass-through to producer prices</title>
+      <link>https://shutaocao.github.io/publication/2015pricing-to-market/</link>
+      <pubDate>Sun, 01 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/2015pricing-to-market/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Changing Pace of Labour Reallocation in Canada: Causes and Consequences</title>
+      <link>https://shutaocao.github.io/publication/2009boc-review/</link>
+      <pubDate>Wed, 01 Jul 2009 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/publication/2009boc-review/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

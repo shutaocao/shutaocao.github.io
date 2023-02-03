@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Estimation | Shutao Cao</title>
+    <link>https://shutaocao.github.io/tag/estimation/</link>
+      <atom:link href="https://shutaocao.github.io/tag/estimation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Estimation</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://shutaocao.github.io/media/icon_hu7bff3e43b76cb1ec58f6cf416e561609_144750_512x512_fill_lanczos_center_3.png</url>
+      <title>Estimation</title>
+      <link>https://shutaocao.github.io/tag/estimation/</link>
+    </image>
+    
+    <item>
+      <title>Estimation</title>
+      <link>https://shutaocao.github.io/course/econ4060/stats/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/course/econ4060/stats/</guid>
+      <description>&lt;p&gt;Introduction to statistics for machine learning.&lt;/p&gt;
+&lt;p&gt;
+  &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
+&lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;
+&lt;p&gt;The type-I generalized extreme value (GEV) distribution is:&lt;/p&gt;
+&lt;p&gt;$$
+F(x;\mu,\sigma,0) = e^{-e^{(x-\mu)/\sigma}} \text{ for } x \in \mathbf{R}
+$$&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    $E(X) = \mu + \gamma \sigma$ is the mean where $\gamma \approx 0.57721$ is the &lt;a href=&#34;https://en.wikipedia.org/wiki/Euler%27s_constant&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Euler&amp;rsquo;s constant&lt;/a&gt;. The standard deviation equals $\sigma \pi / \sqrt{6}$. The median equals $\mu - \sigma \ln(\ln(2))$.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;quiz&#34;&gt;Quiz&lt;/h2&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-2&#34;&gt;
+  &lt;summary&gt;What is the parameter $\mu$?&lt;/summary&gt;
+  &lt;p&gt;The parameter $\mu$ is the mean or expectation of the distribution.&lt;/p&gt;
+&lt;/details&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
