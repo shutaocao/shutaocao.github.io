@@ -37,10 +37,10 @@
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dollar amounts&#34; srcset=&#34;
-               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_13c9cabe24ec5d4f49539e948f5f1053.webp 400w,
-               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_3edffba9ed07d75147a99f088d8c9ee1.webp 760w,
+               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_8a417f5f78d0ce193efc8a56d2a458ab.webp 400w,
+               /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_81300b5ae05515006b5180493212e434.webp 760w,
                /post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_13c9cabe24ec5d4f49539e948f5f1053.webp&#34;
+               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19Payments_canada_hu55df0cd795769483b23228571ad1d0fc_270871_8a417f5f78d0ce193efc8a56d2a458ab.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -66,10 +66,10 @@
 &lt;figure  &gt;
   &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Dollar amounts&#34; srcset=&#34;
-               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_a0e0ce50f4bf5de106dc2577d9b02712.webp 400w,
-               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_c61f12639a2134225e27aba1a141f34a.webp 760w,
+               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_cdec34b1cdbd2262ef96d866bd19c76f.webp 400w,
+               /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_d35d629dba642ab094295a4d55df1ffe.webp 760w,
                /post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_a0e0ce50f4bf5de106dc2577d9b02712.webp&#34;
+               src=&#34;https://shutaocao.github.io/post/covid-assistance-canada/covid19PaymentsGDP_canada_hub9a83d663274b568754db2b3e80f8177_119634_cdec34b1cdbd2262ef96d866bd19c76f.webp&#34;
                width=&#34;760&#34;
                height=&#34;428&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -311,7 +311,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-691487325&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-147386295&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -321,7 +321,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-691487325&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-147386295&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
