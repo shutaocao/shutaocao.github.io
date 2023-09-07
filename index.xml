@@ -13,10 +13,10 @@
     </image>
     
     <item>
-      <title>Chapter 3 Optional Readings</title>
-      <link>https://shutaocao.github.io/course/econ1020/econ1020readings_ch03/</link>
-      <pubDate>Fri, 13 Jan 2023 00:00:00 +0000</pubDate>
-      <guid>https://shutaocao.github.io/course/econ1020/econ1020readings_ch03/</guid>
+      <title>Chapter 4 Optional Readings</title>
+      <link>https://shutaocao.github.io/course/econ1020/econ1020readings_ch04/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://shutaocao.github.io/course/econ1020/econ1020readings_ch04/</guid>
       <description>&lt;p&gt;Videos&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -1986,7 +1986,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-957312486&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-926731458&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1996,7 +1996,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-957312486&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-926731458&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
