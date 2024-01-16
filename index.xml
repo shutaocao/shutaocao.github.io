@@ -1491,7 +1491,7 @@ Its features include, among many other things:&lt;/p&gt;
     <item>
       <title>Chapter 8 Optional Readings</title>
       <link>https://shutaocao.github.io/course/econ1020/econ1020readings_ch08/</link>
-      <pubDate>Thu, 02 Feb 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://shutaocao.github.io/course/econ1020/econ1020readings_ch08/</guid>
       <description>&lt;p&gt;Videos&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;datetime&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;datetime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;date&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;timedelta&lt;/span&gt;
@@ -1557,7 +1557,7 @@ Its features include, among many other things:&lt;/p&gt;
     <item>
       <title>Chapter 14 Optional Readings</title>
       <link>https://shutaocao.github.io/course/econ1020/econ1020readings_ch14/</link>
-      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://shutaocao.github.io/course/econ1020/econ1020readings_ch14/</guid>
       <description>&lt;p&gt;Videos&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Gary Gorton on 2008 Financial Crisis&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
@@ -1986,7 +1986,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-354872961&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-643891257&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1996,7 +1996,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-354872961&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-643891257&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
