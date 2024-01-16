@@ -15,7 +15,7 @@
     <item>
       <title>Chapter 4 Optional Readings</title>
       <link>https://shutaocao.github.io/course/econ1020/econ1020readings_ch04/</link>
-      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://shutaocao.github.io/course/econ1020/econ1020readings_ch04/</guid>
       <description>&lt;p&gt;Videos&lt;/p&gt;
 &lt;ol&gt;
@@ -1986,7 +1986,7 @@ data.head()
 
 
 
-&lt;div id=&#34;chart-762594183&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-354872961&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -1996,7 +1996,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-762594183&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-354872961&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
