@@ -5,7 +5,9 @@ permalink: /teaching/
 author_profile: true
 ---
 
-### At Trent
-* Introductory Macroeconomics, Fall 2025
-* Industrial Organization, Fall 2025
+### Introductory Macroeconomics, Fall 2025
+
+[Chapter 4 Readings](/files/courseMaterials/econ1020Readings_ch04.html){:target="_blank"}
+
+
 
