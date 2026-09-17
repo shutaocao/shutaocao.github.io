@@ -24,10 +24,10 @@ author:
   # Biographic information
   avatar           : "profile.png"
   name             : "Shutao Cao"
-  bio              : "Economist"
+  bio              : "Economics"
   location         : "Peterborough, Canada"
   employer         : "Trent University"
-  uri              : # URL
+  uri              : "https://www.trentu.ca/"
   email            : "shutaocao at trentu dot ca" 
 
   # Academic websites
