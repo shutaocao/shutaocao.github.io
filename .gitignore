@@ -5,6 +5,9 @@ _site/
 # Ignore the directory for local files during development
 local/
 
+# Personal setup/maintenance notes, not meant for the public repo
+notes/
+
 # Ignore the Gemfile that is generated
 Gemfile.lock
 
