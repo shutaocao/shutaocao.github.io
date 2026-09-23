@@ -1,5 +1,9 @@
 # Building shutaocao.github.io with Academic Pages
 
+NOTE: This document was updated by Claude Code in September 2026
+
+To go back to continue the work, type: claude --resume 9b593bf0-bd6b-41f8-8d8c-c27715ff700d
+
 Internal reference notes — not part of the published site (this `notes/` folder
 is excluded from the Jekyll build via `_config.yml`).
 
@@ -90,14 +94,32 @@ Current menu (`_data/navigation.yml`):
 3. **Data Project** → `_portfolio/`.
 4. **Posts** → `_posts/` (via `_pages/year-archive.html`).
 
-`_pages/codes.md`, `_pages/cv.md`, and the `_talks` collection exist as
-inactive placeholders (not linked in the nav) for whenever I'm ready to fill
-them in.
+`_pages/codes.md`, `_pages/cv.md`, and `_pages/talks.html` exist as inactive
+placeholders (not linked in the nav) for whenever I'm ready to fill them in.
+The `talks` collection is still declared in `_config.yml`, but the template's
+example `_talks/*.md` entries have been deleted, so it's currently empty.
 
 For publications, I originally planned to use
 `markdown_generator/publications.ipynb` to auto-generate `_publications/*.md`
-from a bibliography — I ended up hand-writing `research.md` instead, so that
-generator and the `_publications` collection are unused for now.
+from a bibliography — I ended up hand-writing `research.md` instead. There's
+no `publications` collection declared in `_config.yml` at all, so those
+generator scripts (and `markdown_generator/talks.ipynb`) are unused for now.
+
+## Footer customization
+
+`_includes/footer.html` is a source template (like everything under
+`_includes/`, `_layouts/`, `_pages/`) — Jekyll reads it to build the site into
+`_site/` (gitignored), it never writes back to it, so editing it directly is
+correct and permanent.
+
+Changes from the stock Academic Pages footer:
+
+- Removed the "Site last updated `YYYY-MM-DD`" line and the "a fork of
+  Minimal Mistakes" clause from the copyright line, so the footer just reads
+  "© `YEAR` Shutao Cao, Powered by Jekyll & AcademicPages".
+- Removed the whole `page__footer-follow` block (the "FOLLOW:" label, GitHub
+  icon link, and RSS feed link) — didn't want a follow row above the
+  copyright line.
 
 ## Deploying updates
 
