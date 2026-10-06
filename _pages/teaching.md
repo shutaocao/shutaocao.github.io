@@ -13,6 +13,9 @@ author_profile: true
 
 [Chapter 1 .ipynb](/files/courseMaterials/econ2200_fa2026/ch01_describingDistribution.ipynb){:target="_blank"}
 
+[Chapter 2 .html](/files/courseMaterials/econ2200_fa2026/ch02_examiningRelationships.html){:target="_blank"}
+
+[Chapter 2 .ipynb](/files/courseMaterials/econ2200_fa2026/ch02_examiningRelationships.ipynb){:target="_blank"}
 
 
 
